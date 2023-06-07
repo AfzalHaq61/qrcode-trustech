@@ -712,7 +712,7 @@
           </div>
         </div>
         <!-- Footer -->
-            <Footer/>
+        <Footer/>
       </div>
     </Layout>
 </template>
