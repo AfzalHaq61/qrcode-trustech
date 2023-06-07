@@ -6,6 +6,7 @@ import { createInertiaApp, Head, Link } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import Layout from "@/Layouts/AuthenticatedLayout.vue";
+import Footer from '@/Layouts/Partials/Footer.vue'
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -18,6 +19,7 @@ createInertiaApp({
             .component('Head', Head)
             .component('Link', Link)
             .component('Layout', Layout)
+            .component('Footer', Footer)
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },
