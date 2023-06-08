@@ -1,14 +1,14 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
-import Header from './GuestLayoutPartials/Header.vue';
+import RegesterHeader from './GuestLayoutPartials/RegesterHeader.vue';
 import Footer from './GuestLayoutPartials/Footer.vue';
 </script>
 
 <template>
     <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
         <!-- Navbar -->
-        <Header/>
+        <RegesterHeader/>
         <!-- Content -->
         <main class="mt-0 transition-all duration-200 ease-soft-in-out">
             <slot />
