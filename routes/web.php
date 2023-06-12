@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // Admin routes
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+Route::group(['as' => 'admin.','name'=>'admin' ,'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, "index"])->name('dashboard');

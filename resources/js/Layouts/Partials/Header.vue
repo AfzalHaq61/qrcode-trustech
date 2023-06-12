@@ -33,7 +33,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
                   <li>
                     <div class="flex items-center">
                         <i class="fa fa-user sm:mr-1"></i>
-                        <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <NavLink :href="route('admin.dashboard')" :active="route().current('dashboard')">
                             <span class="hidden sm:inline">Dashboard</span>
                         </NavLink>
                     </div>
