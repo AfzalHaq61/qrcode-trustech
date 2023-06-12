@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Gateway;
 use App\Models\Setting;
@@ -29,8 +30,7 @@ class DashboardController extends Controller
 
         $monthIncome = [];
         $monthUsers = [];
-        for ($month = 1; $month <= 12; $month++)
-        {
+        for ($month = 1; $month <= 12; $month++) {
             $startDate = Carbon::create(date('Y'), $month);
             $endDate = $startDate->copy()->endOfMonth();
             $sales = Transaction::where('payment_status', 'Success')->where('created_at', '>=', $startDate)->where('created_at', '<=', $endDate)->sum('transaction_amount');
@@ -41,7 +41,9 @@ class DashboardController extends Controller
         $monthIncome = implode(',', $monthIncome);
         $monthUsers = implode(',', $monthUsers);
 
-        return view('admin.index', compact('this_month_income', 'today_income', 'overall_users', 'today_users', 'currency', 'settings', 'monthIncome', 'monthUsers'));
+        return Inertia::render('Admin/Index', ['this_month_income' => $this_month_income, 'today_income' => $today_income, 'overall_users' => $overall_users, 'today_users' => $today_users, 'currency' => $currency, 'settings' => $settings, 'monthIncome' => $monthIncome, 'monthUsers' => $monthUsers]);
+
+        // return view('admin.index', compact('this_month_income', 'today_income', 'overall_users', 'today_users', 'currency', 'settings', 'monthIncome', 'monthUsers'));
     }
 
     // Check Update
@@ -69,13 +71,12 @@ class DashboardController extends Controller
         $resp_data = json_decode($res->getBody(), true);
 
         if ($resp_data) {
-            if ($resp_data['status'] == true)
-            {
+            if ($resp_data['status'] == true) {
                 // Queries
                 $settings = Setting::first();
                 $purchase_code = env('PURCHASE_CODE');
                 // Response
-                $response = ['message' => $resp_data['message'] , 'version' => $resp_data['version'], 'update' => $resp_data['update'], 'notes' => $resp_data['notes']];
+                $response = ['message' => $resp_data['message'], 'version' => $resp_data['version'], 'update' => $resp_data['update'], 'notes' => $resp_data['notes']];
                 return view('admin.pages.update.index', compact('response', 'settings', 'config'));
             } else {
                 $errorMessage = $resp_data['message'];

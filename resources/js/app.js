@@ -5,23 +5,27 @@ import { createApp, h } from 'vue';
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
-import Layout from "@/Layouts/Layout.vue";
+import AdminLayout from "@/Layouts/AdminLayout.vue";
 import Footer from '@/Layouts/Partials/Footer.vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import Pagination from "@/Components/Shared/Pagiantion.vue";
+import Notifications from "@/Components/Shared/Notifications.vue";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/**/*.vue')),
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .component('Head', Head)
             .component('Link', Link)
-            .component('Layout', Layout)
+            .component('AdminLayout', AdminLayout)
             .component('Footer', Footer)
             .component('ApplicationLogo', ApplicationLogo)
+            .component('Pagination', Pagination)
+            .component('Notifications', Notifications)
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },

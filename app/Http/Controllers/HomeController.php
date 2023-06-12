@@ -11,8 +11,8 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-    public function home()
+    public function index()
     {
-        // return Inertia::render('Home');
+        return Inertia::render('Admin/Index');
     }
 }

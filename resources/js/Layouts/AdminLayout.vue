@@ -13,10 +13,13 @@ const showingNavigationDropdown = ref(false);
         <!-- Sidebar  -->
         <Sidebar/>
         <!-- Page Content -->
-        <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+        <main class="ease-soft-in-out xl:ml-68.5 relative h-full min-h-screen rounded-xl transition-all duration-200">
             <!-- Navbar -->
             <Header/>
             <slot />
+
+            <!-- Footer -->
+            <Footer />
         </main>
 
         <div fixed-plugin>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use DateTimeZone;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use App\Models\Currency;
@@ -78,7 +79,12 @@ class SettingController extends Controller
         $settings['recaptcha_configuration'] = $recaptcha_configuration;
         $settings['image_limit'] = $image_limit;
 
-        return view('admin.pages.settings.index', compact('settings', 'timezonelist', 'currencies', 'config'));
+        return Inertia::render('Admin/Settings/Index', [
+            'settings' => $settings,
+            'timezonelist' => $timezonelist,
+            'currencies' => $currencies,
+            'config' => $config
+        ]);
     }
 
     // Update General Setting

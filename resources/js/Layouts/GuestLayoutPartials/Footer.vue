@@ -1,5 +1,5 @@
 <template>
-    <footer class="py-12">
+    <footer class="fixed py-12">
           <div class="container">
             <div class="flex flex-wrap -mx-3">
               <div class="flex-shrink-0 w-full max-w-full mx-auto mb-6 text-center lg:flex-0 lg:w-8/12">

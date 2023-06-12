@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\QrCode;
 use App\Models\Barcode;
@@ -38,18 +39,22 @@ class UserController extends Controller
     public function index()
     {
         // Queries
-        $users = User::where('role_id', '2')->orderBy('created_at', 'desc')->get();
+        $users = User::where('role_id', '2')->orderBy('created_at', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $config = Config::get();
 
-        return view('admin.pages.users.index', compact('users', 'settings', 'config'));
+        return Inertia::render('Admin/Users/Index', [
+            'users' => $users,
+            'settings' => $settings,
+            'config' => $config
+        ]);
     }
 
     // View User
     public function viewUser(Request $request, $id)
     {
         // Get user details
-        $user_details = User::where('id', $id)->first();
+        return $user_details = User::where('id', $id)->first();
 
         // Check user
         if ($user_details == null) {
@@ -73,9 +78,12 @@ class UserController extends Controller
 
         // Check user
         if ($user_details == null) {
-            return view('errors.404');
+            return Inertia::render('Errors.404');
         } else {
-            return view('admin.pages.users.edit', compact('user_details', 'settings'));
+            return Inertia::render('Admin/Users/Edit', [
+                'user_details' => $user_details,
+                'settings' => $settings,
+            ]);
         }
     }
 
@@ -105,6 +113,8 @@ class UserController extends Controller
             ]);
         }
 
+        session()->flash('success', 'Record created successfully.');
+
         // Page redirect
         return redirect()->back()->with('success', trans('User Updated Successfully!'));
     }
@@ -123,9 +133,14 @@ class UserController extends Controller
 
         // Check plans
         if ($plans == null) {
-            return view('errors.404');
+            return Inertia::render('Errors.404');
         } else {
-            return view('admin.pages.users.change-plan', compact('user_details', 'plans', 'settings', 'config'));
+            return Inertia::render('Admin/Users/ChangePlan', [
+                'user_details' => $user_details,
+                'plans' => $plans,
+                'settings' => $settings,
+                'config' => $config
+            ]);
         }
     }
 
@@ -159,7 +174,7 @@ class UserController extends Controller
             // Generate transaction id
             $transaction_id = uniqid();
 
-            // Generate JSON 
+            // Generate JSON
             $invoice_details = [];
 
             $invoice_details['from_billing_name'] = $config[16]->config_value;
@@ -394,6 +409,7 @@ class UserController extends Controller
         } else {
             $status = 0;
         }
+
         // Update status
         User::where('id', $request->query('id'))->update(['status' => $status]);
         // Page redirect
