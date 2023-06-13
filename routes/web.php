@@ -17,6 +17,10 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/error', function () {
+    return Inertia::render('Errors/404');
+});
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),

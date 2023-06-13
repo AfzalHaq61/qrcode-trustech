@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Plan;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -30,12 +31,17 @@ class PlanController extends Controller
     public function index()
     {
         // Queries
-        $plans = Plan::get();
+        $plans = Plan::paginate(10);
         $currencies = Setting::where('status', 1)->get();
         $settings = Setting::where('status', 1)->first();
         $config = Config::get();
 
-        return view('admin.pages.plans.index', compact('plans', 'currencies', 'settings', 'config'));
+        return Inertia::render('Admin/Plans/Index', [
+            'plans' => $plans,
+            'currencies' => $currencies,
+            'settings' => $settings,
+            'config' => $config,
+        ]);
     }
 
     // Add Plan
@@ -45,7 +51,10 @@ class PlanController extends Controller
         $config = Config::get();
         $settings = Setting::where('status', 1)->first();
 
-        return view('admin.pages.plans.add', compact('settings', 'config'));
+        return Inertia::render('Admin/Plans/Add', [
+            'settings' => $settings,
+            'config' => $config,
+        ]);
     }
 
     // Save Plan
@@ -204,6 +213,35 @@ class PlanController extends Controller
             $recommended = 1;
         }
 
+        $config = Config::get();
+        $stripe = new \Stripe\StripeClient($config[10]->config_value);
+
+        // Current plan price
+        $plan_price = $request->plan_price * ($request->validity / 30);
+
+        // Paid amount
+        $amountToBePaid = ((int)($plan_price) * (int)($config[25]->config_value) / 100) + (int)($plan_price);
+        $interval = $request->validity / 30;
+
+        try {
+            $product = $stripe->products->create([
+                'name' => $request->plan_name,
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('failed', 'Error canceling plan product. ' . trans($e->getMessage()));
+        }
+
+        try {
+            $price = $stripe->prices->create([
+                'unit_amount_decimal' => $amountToBePaid * 100,
+                'currency' => 'usd',
+                'recurring' => ['interval' => 'month', 'interval_count' => $interval],
+                'product' => $product->id,
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('failed', 'Error canceling plan price. ' . trans($e->getMessage()));
+        }
+
         // Save plan
         $plan = new Plan;
         $plan->plan_name = $request->plan_name;
@@ -234,6 +272,7 @@ class PlanController extends Controller
         $plan->free_setup = $free_setup;
         $plan->support = $support;
         $plan->is_watermark_enabled = $is_watermark_enabled;
+        $plan->stripe_id = $price->id;
         $plan->save();
 
         return redirect()->route('admin.add.plan')->with('success', trans('New Plan Created Successfully!'));
@@ -250,9 +289,13 @@ class PlanController extends Controller
 
         // Plan Checking
         if ($plan_details == null) {
-            return view('errors.404');
+            return Inertia::render('Errors.404');
         } else {
-            return view('admin.pages.plans.edit', compact('plan_details', 'settings', 'config'));
+            return Inertia::render('Admin/Plans/Edit', [
+                'plan_details' => $plan_details,
+                'settings' => $settings,
+                'config' => $config,
+            ]);
         }
     }
 
