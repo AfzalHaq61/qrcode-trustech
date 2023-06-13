@@ -78,6 +78,7 @@ class SettingController extends Controller
         $settings['google_configuration'] = $google_configuration;
         $settings['recaptcha_configuration'] = $recaptcha_configuration;
         $settings['image_limit'] = $image_limit;
+      
 
         return Inertia::render('Admin/Settings/Index', [
             'settings' => $settings,
@@ -87,6 +88,15 @@ class SettingController extends Controller
         ]);
     }
 
+    public function websiteConfigurationForm(){
+        
+        return Inertia::render('Admin/Settings/website-config-settings');
+          
+     
+    }
+    public function websiteQrGeneratorConfigSetting(){
+        dd(1);
+    }
     // Update General Setting
     public function changeGeneralSettings(Request $request)
     {
