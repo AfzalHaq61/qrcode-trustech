@@ -83,17 +83,16 @@
 
 <script setup>
 import InputError from '@/Components/InputError.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
     user_details: Object,
     settings: Object,
+    config: Object,
 });
 
 const form = useForm({
-    user_id: props.user_details.id,
     full_name: props.user_details.name,
     email: props.user_details.email,
     password: props.user_details.password

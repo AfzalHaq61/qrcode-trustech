@@ -18,9 +18,11 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "@heroicons/vue": "^1.0.6",
         "@inertiajs/vue3": "^1.0.7",
+        "file-saver": "^2.0.5",
+        "html2pdf.js": "^0.10.1",
         "vue": "^3.3.4",
-        "vue-final-modal": "^4.4.2",
-        "@heroicons/vue": "^1.0.6"
+        "vue-final-modal": "^4.4.2"
     }
 }

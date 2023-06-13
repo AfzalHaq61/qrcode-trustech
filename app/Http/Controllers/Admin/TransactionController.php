@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use App\Models\Currency;
@@ -35,7 +36,7 @@ class TransactionController extends Controller
     public function index()
     {
         // Queries
-        $transactions = Transaction::where('payment_gateway_name', '!=', 'Offline')->get();
+        $transactions = Transaction::where('payment_gateway_name', '!=', 'Offline')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $currencies = Currency::get();
 
@@ -43,18 +44,22 @@ class TransactionController extends Controller
         for ($i = 0; $i < count($transactions); $i++) {
             $user_details = User::where('id', $transactions[$i]->user_id)->first();
 
-		// Check user details
- 		if($user_details) {
-            	$transactions[$i]['name'] = $user_details->name;
-            	$transactions[$i]['userId'] = $user_details->id;
- 		} else {
-                 $transactions[$i]['name'] = 'User not found';
-                 $transactions[$i]['userId'] = '#';
-          	}
+            // Check user details
+            if ($user_details) {
+                $transactions[$i]['name'] = $user_details->name;
+                $transactions[$i]['userId'] = $user_details->id;
+            } else {
+                $transactions[$i]['name'] = 'User not found';
+                $transactions[$i]['userId'] = '#';
+            }
         }
 
         // View page
-        return view('admin.pages.transactions.index', compact('transactions', 'settings', 'currencies'));
+        return Inertia::render('Admin/Transactions/Index', [
+            'transactions' => $transactions,
+            'settings' => $settings,
+            'currencies' => $currencies,
+        ]);
     }
 
     // Update transaction status
@@ -80,14 +85,19 @@ class TransactionController extends Controller
         $transaction['billing_details'] = json_decode($transaction['invoice_details'], true);
 
         // View invoice page
-        return view('admin.pages.transactions.view-invoice', compact('transaction', 'settings', 'config', 'currencies'));
+        return Inertia::render('Admin/Transactions/ViewInvoice', [
+            'transaction' => $transaction,
+            'settings' => $settings,
+            'config' => $config,
+            'currencies' => $currencies,
+        ]);
     }
 
     // Offline transactions
     public function offlineTransactions()
     {
         // All offline transactions
-        $transactions = Transaction::where('payment_gateway_name', 'Offline')->get();
+        $transactions = Transaction::where('payment_gateway_name', 'Offline')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $currencies = Currency::get();
 
@@ -95,18 +105,22 @@ class TransactionController extends Controller
         for ($i = 0; $i < count($transactions); $i++) {
             $user_details = User::where('id', $transactions[$i]->user_id)->first();
 
-		// Check user details
- 		if($user_details) {
-            	$transactions[$i]['name'] = $user_details->name;
-            	$transactions[$i]['userId'] = $user_details->id;
- 		} else {
-                 $transactions[$i]['name'] = 'User not found';
-                 $transactions[$i]['userId'] = '#';
-          	}
+            // Check user details
+            if ($user_details) {
+                $transactions[$i]['name'] = $user_details->name;
+                $transactions[$i]['userId'] = $user_details->id;
+            } else {
+                $transactions[$i]['name'] = 'User not found';
+                $transactions[$i]['userId'] = '#';
+            }
         }
 
         // View offline page
-        return view('admin.pages.transactions.offline', compact('transactions', 'settings', 'currencies'));
+        return Inertia::render('Admin/Transactions/Offline', [
+            'transactions' => $transactions,
+            'settings' => $settings,
+            'currencies' => $currencies,
+        ]);
     }
 
     // Offline transaction status
