@@ -144,6 +144,13 @@ Route::group(['as' => 'admin.','name'=>'admin' ,'prefix' => 'admin', 'namespace'
     
     Route::get('settings/payment-method-configuration-setting', [App\Http\Controllers\Admin\SettingController::class, "paymentMethodConfigurationSetting"])->name('settings.payment_method_config_setting');
     
+    Route::get('settings/google-configuration-settings', [App\Http\Controllers\Admin\SettingController::class, "googleConfigurationSetting"])->name('settings.google_configuration_setting');
+    Route::get('settings/email-configuration', [App\Http\Controllers\Admin\SettingController::class, "emailConfiguration"])->name('settings.email_configuration');
+    
+    Route::get('settings/license', [App\Http\Controllers\Admin\SettingController::class, "Licence"])->name('settings.licence');
+    Route::get('settings/tax-settings', [App\Http\Controllers\Admin\SettingController::class, "settingTax"])->name('settings.tax_setting');
+    Route::get('settings/check-update', [App\Http\Controllers\Admin\SettingController::class, "checkUpdate"])->name('settings.check_update');
+    
     
 
     Route::post('change-general-settings', [App\Http\Controllers\Admin\SettingController::class, "changeGeneralSettings"])->name('change.general.settings');
