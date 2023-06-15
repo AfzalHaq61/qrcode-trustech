@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // Admin routes
-Route::group(['as' => 'admin.','name'=>'admin' ,'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, "index"])->name('dashboard');
@@ -133,15 +133,15 @@ Route::group(['as' => 'admin.','name'=>'admin' ,'prefix' => 'admin', 'namespace'
     Route::get('custom-page/{id}', [App\Http\Controllers\Admin\PageController::class, "editCustomPage"])->name('edit.custom.page');
     Route::post('custom-update-page', [App\Http\Controllers\Admin\PageController::class, "updateCustomPage"])->name('update.custom.page');
     Route::get('status-page', [App\Http\Controllers\Admin\PageController::class, "statusPage"])->name('status.page');
-    Route::get('page/{id}', [App\Http\Controllers\Admin\PageController::class, "editPage"])->name('edit.page');
-    Route::post('update-page/{id}', [App\Http\Controllers\Admin\PageController::class, "updatePage"])->name('update.page');
+    Route::get('page/{slug}', [App\Http\Controllers\Admin\PageController::class, "editPage"])->name('edit.page');
+    Route::post('update-page/{slug}', [App\Http\Controllers\Admin\PageController::class, "updatePage"])->name('update.page');
     Route::get('delete-page', [App\Http\Controllers\Admin\PageController::class, "deletePage"])->name('delete.page');
 
     // Setting
     Route::get('settings/general-settings', [App\Http\Controllers\Admin\SettingController::class, "index"])->name('settings.general_settings');
     Route::get('settings/website-configuration-settings', [App\Http\Controllers\Admin\SettingController::class, "websiteConfigurationForm"])->name('settings.website_config_settings');
     Route::get('settings/website-qr-generator-configuration-settings', [App\Http\Controllers\Admin\SettingController::class, "websiteQrGeneratorConfigSetting"])->name('settings.website_qr_config_settings');
-    
+
     Route::post('change-general-settings', [App\Http\Controllers\Admin\SettingController::class, "changeGeneralSettings"])->name('change.general.settings');
     Route::post('change-website-settings', [App\Http\Controllers\Admin\SettingController::class, "changeWebsiteSettings"])->name('change.website.settings');
     Route::post('change-website-qr-generator-settings', [App\Http\Controllers\Admin\SettingController::class, "changeWebsiteQrGeneratorSettings"])->name('change.website.qr.generator.settings');

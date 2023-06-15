@@ -1,3 +1,3 @@
 <template>
-    <span>Qr Code</span>
+    <span>{{ $page.props.appName }}</span>
 </template>

@@ -62,12 +62,26 @@
                     </template>
                     <template v-slot:subnav>
                         <div class="ml-11">
-                            <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('dashboard')">
-                                <span class="duration-300 opacity-100 pointer-events-none ease-soft">QR Codes</span>
-                            </Link>
-                            <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('dashboard')">
-                                <span class="duration-300 opacity-100 pointer-events-none ease-soft">Barcodes</span>
-                            </Link>
+                            <div v-if="$page.props.appType === 'QRCODE'">
+                                <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.all.qr')">
+                                    <span class="duration-300 opacity-100 pointer-events-none ease-soft">QR Codes</span>
+                                </Link>
+                            </div>
+
+                            <div v-if="$page.props.appType === 'BARCODE'">
+                                <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.all.barcode')">
+                                    <span class="duration-300 opacity-100 pointer-events-none ease-soft">Barcodes</span>
+                                </Link>
+                            </div>
+
+                            <div v-if="$page.props.appType === 'BOTH'">
+                                <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.all.qr')">
+                                    <span class="duration-300 opacity-100 pointer-events-none ease-soft">QR Codes</span>
+                                </Link>
+                                <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.all.barcode')">
+                                    <span class="duration-300 opacity-100 pointer-events-none ease-soft">Barcodes</span>
+                                </Link>
+                            </div>
                         </div>
                     </template>
                 </Accordian>
@@ -131,7 +145,7 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.dashboard')">
+                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.payment.methods')">
                   <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>settings</title>
@@ -189,7 +203,7 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.dashboard')">
+                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.pages')">
                   <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                     <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>document</title>

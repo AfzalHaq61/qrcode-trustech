@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Inertia\Inertia;
 use App\Models\Gateway;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -29,10 +30,13 @@ class PaymentMethodController extends Controller
     public function index()
     {
         // Get payment methods
-        $payment_methods = Gateway::orderBy('created_at', 'desc')->get();
+        $payment_methods = Gateway::orderBy('created_at', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
 
-        return view('admin.pages.payment-methods.index', compact('payment_methods', 'settings'));
+        return Inertia::render('Admin/PaymentMethods/Index', [
+            'payment_methods' => $payment_methods,
+            'settings' => $settings,
+        ]);
     }
 
     // Add Payment Method
