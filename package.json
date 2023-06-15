@@ -25,6 +25,9 @@
         "html2pdf.js": "^0.10.1",
         "tw-elements": "^1.0.0-beta2",
         "vue": "^3.3.4",
-        "vue-final-modal": "^4.4.2"
+        "vue-final-modal": "^4.4.2",
+        "@tinymce/tinymce-vue": "^4.0.7",
+        "tinymce": "^5.10.4",
+        "tinymce-i18n": "^22.5.2"
     }
 }

@@ -98,8 +98,20 @@
                 <div class="flex-none w-full max-w-full px-3">
                     <div
                         class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-                        <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                        <div class="flex items-center justify-between p-6 pb-0 mb-5 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                             <h6>Custom Pages</h6>
+                            <Link :href="route('admin.add.page')">
+                                <PrimaryButton>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24"
+                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                    <span class="ml-1">Add New Page</span>
+                                </PrimaryButton>
+                            </Link>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
                             <div class="p-0 overflow-x-auto">
@@ -160,8 +172,16 @@
                                             <td
                                                 class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                 <Link
-                                                    :href="route('admin.edit.page', { id: custom_page.slug })"
+                                                    :href="route('admin.edit.custom.page', { id: custom_page.id })"
                                                     class="text-xs font-semibold leading-tight text-slate-400 mr-2">Edit
+                                                </Link>
+                                                <Link
+                                                    :href="route('admin.status.page', { id: custom_page.id })"
+                                                    class="text-xs font-semibold leading-tight text-slate-400 mr-2"><span v-if="custom_page.status === 0">Enable</span><span v-else>Disable</span>
+                                                </Link>
+                                                <Link
+                                                    :href="route('admin.delete.page', { id: custom_page.id })"
+                                                    class="text-xs font-semibold leading-tight text-slate-400 mr-2">Delete
                                                 </Link>
                                             </td>
                                         </tr>

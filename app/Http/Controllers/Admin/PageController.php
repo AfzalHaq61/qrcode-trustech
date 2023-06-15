@@ -71,7 +71,7 @@ class PageController extends Controller
     public function addPage()
     {
         // View
-        return view('admin.pages.pages.add');
+        return Inertia::render('Admin/Pages/Add');
     }
 
     // Save page
@@ -91,7 +91,8 @@ class PageController extends Controller
         $page->name = $request->name;
         $page->title = $request->title;
         $page->slug = $request->slug;
-        $page->body = Purifier::clean($request->body);
+        // $page->body = Purifier::clean($request->body);
+        $page->body = $request->body;
         $page->meta_keywords = $request->meta_keywords;
         $page->meta_description = $request->meta_description;
         $page->save();
@@ -108,7 +109,11 @@ class PageController extends Controller
         $config = Config::get();
 
         // View
-        return view('admin.pages.pages.custom-edit', compact('page', 'settings', 'config'));
+        return Inertia::render('Admin/Pages/CustomEdit', [
+            'page' => $page,
+            'settings' => $settings,
+            'config' => $config
+        ]);
     }
 
     // Edit page
@@ -159,7 +164,8 @@ class PageController extends Controller
         $page->name = $request->name;
         $page->title = $request->title;
         $page->slug = $request->slug;
-        $page->body = Purifier::clean($request->body);
+        // $page->body = Purifier::clean($request->body);
+        $page->body = $request->body;
         $page->meta_keywords = $request->meta_keywords;
         $page->meta_description = $request->meta_description;
         $page->save();

@@ -27,7 +27,7 @@
                                                 :name="'section'+index" :id="'section' + index" v-model="form[`section${index}`]"
                                                 autofocus :placeholder="section.title" cols="10" rows="5" required></textarea>
 
-                                            <!-- <InputError class="mt-2" :message="form.errors.plan_description" /> -->
+                                            <InputError class="mt-2" :message="form.errors.plan_description" />
                                         </div>
                                     </div>
 
