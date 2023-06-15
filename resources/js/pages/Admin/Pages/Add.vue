@@ -84,7 +84,7 @@
 import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
-import { reactive, ref, watch } from 'vue';
+import { watch } from 'vue';
 
 // TinyMCE-Vue
 import Editor from '@tinymce/tinymce-vue';
