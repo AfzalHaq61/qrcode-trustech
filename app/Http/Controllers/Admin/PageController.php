@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Purifier;
 use App\Models\Page;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -33,26 +34,44 @@ class PageController extends Controller
     public function index()
     {
         // Static pages
-        $pages = Page::where('slug', 'home')->orWhere('slug', 'about')->orWhere('slug', 'contact')
-        ->orWhere('slug', 'faq')->orWhere('slug', 'pricing')->orWhere('slug', 'privacy-policy')
-        ->orWhere('slug', 'refund-policy')->orWhere('slug', 'cookies-and-gdpr')->orWhere('slug', 'terms-and-conditions')->groupBy('slug')->get(DB::raw('count(*) as total, pages.*'));
+
+        $pages = Page::whereIn('slug', ['home', 'about', 'contact', 'faq', 'pricing', 'privacy-policy', 'refund-policy', 'cookies-and-gdpr', 'terms-and-conditions'])
+            ->whereIn('id', function ($query) {
+                $query->select(DB::raw('MAX(id)'))
+                    ->from('pages')
+                    ->whereIn('slug', ['home', 'about', 'contact', 'faq', 'pricing', 'privacy-policy', 'refund-policy', 'cookies-and-gdpr', 'terms-and-conditions'])
+                    ->groupBy('slug');
+            })
+            ->paginate(10);
+
         // Custom pages
-        $custom_pages = Page::groupBy('slug')->where('slug', '!=', 'home')->where('slug', '!=', 'about')->where('slug', '!=', 'contact')
-        ->where('slug', '!=', 'faq')->where('slug', '!=', 'pricing')->where('slug', '!=', 'privacy-policy')
-        ->where('slug', '!=', 'refund-policy')->where('slug', '!=', 'terms-and-conditions')->get(DB::raw('count(*) as total, pages.*'));
+
+        $custom_pages = Page::whereNotIn('slug', ['home', 'about', 'contact', 'faq', 'pricing', 'privacy-policy', 'refund-policy', 'cookies-and-gdpr', 'terms-and-conditions'])
+            ->whereIn('id', function ($query) {
+                $query->select(DB::raw('MAX(id)'))
+                    ->from('pages')
+                    ->whereNotIn('slug', ['home', 'about', 'contact', 'faq', 'pricing', 'privacy-policy', 'refund-policy', 'cookies-and-gdpr', 'terms-and-conditions'])
+                    ->groupBy('slug');
+            })
+            ->paginate(10);
 
         $settings = Setting::first();
         $config = Config::get();
 
         // View
-        return view('admin.pages.pages.index', compact('pages', 'custom_pages', 'settings', 'config'));
+        return Inertia::render('Admin/Pages/Index', [
+            'pages' => $pages,
+            'custom_pages' => $custom_pages,
+            'settings' => $settings,
+            'config' => $config
+        ]);
     }
 
     // Add page
     public function addPage()
     {
         // View
-        return view('admin.pages.pages.add');
+        return Inertia::render('Admin/Pages/Add');
     }
 
     // Save page
@@ -72,7 +91,8 @@ class PageController extends Controller
         $page->name = $request->name;
         $page->title = $request->title;
         $page->slug = $request->slug;
-        $page->body = Purifier::clean($request->body);
+        // $page->body = Purifier::clean($request->body);
+        $page->body = $request->body;
         $page->meta_keywords = $request->meta_keywords;
         $page->meta_description = $request->meta_description;
         $page->save();
@@ -89,29 +109,38 @@ class PageController extends Controller
         $config = Config::get();
 
         // View
-        return view('admin.pages.pages.custom-edit', compact('page', 'settings', 'config'));
+        return Inertia::render('Admin/Pages/CustomEdit', [
+            'page' => $page,
+            'settings' => $settings,
+            'config' => $config
+        ]);
     }
 
     // Edit page
-    public function editPage($id)
+    public function editPage($slug)
     {
         // Get page details
-        $sections = Page::where('slug', $id)->get();
+        $sections = Page::where('slug', $slug)->get();
         $settings = Setting::first();
         $config = Config::get();
 
         // View
-        return view('admin.pages.pages.edit', compact('sections', 'settings', 'config'));
+        return Inertia::render('Admin/Pages/Edit', [
+            'slug' => $slug,
+            'sections' => $sections,
+            'settings' => $settings,
+            'config' => $config
+        ]);
     }
 
     // Update page
-    public function updatePage(Request $request, $id)
+    public function updatePage(Request $request, $slug)
     {
         // Update page
-        $sections = Page::where('slug', $id)->get();
+        $sections = Page::where('slug', $slug)->get();
         for ($i = 0; $i < count($sections); $i++) {
             $safe_section_content = $request->input('section' . $i);
-            Page::where('slug', $id)->where('id', $sections[$i]->id)->update(['body' => $safe_section_content]);
+            Page::where('slug', $slug)->where('id', $sections[$i]->id)->update(['body' => $safe_section_content]);
         }
 
         // Page redirect
@@ -135,7 +164,8 @@ class PageController extends Controller
         $page->name = $request->name;
         $page->title = $request->title;
         $page->slug = $request->slug;
-        $page->body = Purifier::clean($request->body);
+        // $page->body = Purifier::clean($request->body);
+        $page->body = $request->body;
         $page->meta_keywords = $request->meta_keywords;
         $page->meta_description = $request->meta_description;
         $page->save();

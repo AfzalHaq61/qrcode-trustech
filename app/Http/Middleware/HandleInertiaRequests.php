@@ -42,6 +42,10 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
             ],
+            'appName' => 'QR Code',
+            'imagePath' => 'http://127.0.0.1:8001/',
+            'appUrl' => 'http://127.0.0.1:8001/',
+            'appType' => 'BOTH'
         ]);
     }
 }

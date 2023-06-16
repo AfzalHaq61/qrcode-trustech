@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use Spatie\Color\Hex;
 use App\Models\Barcode;
 use App\Models\Setting;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class BarCodeController extends Controller
@@ -33,17 +34,20 @@ class BarCodeController extends Controller
     public function index()
     {
         // Get User Bar Codes
-        $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
 
         // View page
-        return view('admin.pages.bar-codes.index', compact('bar_codes', 'settings'));
+        return Inertia::render('Admin/BarCodes/Index', [
+            'bar_codes' => $bar_codes,
+            'settings' => $settings,
+        ]);
     }
 
     // Create Bar Code
     public function CreateBarCode()
     {
-        return view('admin.pages.bar-codes.create');
+        return Inertia::render('Admin/BarCodes/Create');
     }
 
     // Save bar code
@@ -59,7 +63,7 @@ class BarCodeController extends Controller
         }
 
         // Generate barcode
-        $result = $request->barcode_type::getBarcodeSVG($request->content, $request->barcode_format, $request->width, $request->height, $request->color, $showtext);
+        return $result = $request->barcode_type::getBarcodeSVG($request->content, $request->barcode_format, $request->width, $request->height, $request->color, $showtext);
 
         // Generate settings
         $settings =  json_encode(array(
@@ -91,7 +95,9 @@ class BarCodeController extends Controller
         // Queries
         $barcode_details = Barcode::where('barcode_id', $id)->where('user_id', Auth::user()->id)->first();
 
-        return view('admin.pages.bar-codes.edit', compact('barcode_details'));
+        return Inertia::render('Admin/BarCodes/Edit', [
+            'barcode_details' => $barcode_details,
+        ]);
     }
 
     // Update bar code
@@ -162,7 +168,9 @@ class BarCodeController extends Controller
         // Queries
         $barcode_details = Barcode::where('barcode_id', $id)->where('user_id', Auth::user()->id)->first();
 
-        return view('admin.pages.bar-codes.download', compact('barcode_details'));
+        return Inertia::render('Admin/BarCodes/Download', [
+            'barcode_details' => $barcode_details,
+        ]);
     }
 
     // Regenerate Barcode

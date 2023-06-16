@@ -39,7 +39,7 @@
                                 </Link>
 
                                 <div class="mt-10 ml-5 md:mt-16 md:ml-16">
-                                    <img :src="'/assets/img/IncoicePaid.png'" class="w-40 h-40" alt="">
+                                    <img :src="$page.props.imagePath + 'img/payments/paid.png'" class="w-40 h-40" alt="">
                                 </div>
                             </div>
 
@@ -168,7 +168,7 @@
                             </div>
                         </div>
 
-                        <p class="mt-5 text-sm text-gray-500">© 2022 QR Code.</p>
+                        <p class="mt-5 text-sm text-gray-500">© 2022 {{ $page.props.appName }}.</p>
                     </div>
                 <!-- End Card -->
                 </div>

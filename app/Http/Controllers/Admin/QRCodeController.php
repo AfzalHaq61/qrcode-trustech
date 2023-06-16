@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Imagick;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use Spatie\Color\Hex;
 use App\Models\Config;
 use App\Models\QrCode;
 use App\Models\Setting;
 use App\Models\QrCodeItem;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Generator;
 use Illuminate\Support\Facades\Storage;
@@ -38,11 +39,14 @@ class QRCodeController extends Controller
     public function index()
     {
         // Get User QR Codes
-        $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
 
         // View page
-        return view('admin.pages.qr-codes.index', compact('qr_codes', 'settings'));
+        return Inertia::render('Admin/QrCodes/Index', [
+            'qr_codes' => $qr_codes,
+            'settings' => $settings,
+        ]);
     }
 
     // Create QR Code
@@ -565,7 +569,7 @@ class QRCodeController extends Controller
                 $dafault_upi .= "&tn=" . $request->upi_msg;
             }
 
-           // generating & saving the qr code in folder'
+            // generating & saving the qr code in folder'
             $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/upi/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
@@ -620,7 +624,10 @@ class QRCodeController extends Controller
         // Get QR code details
         $qr_code_details = QrCode::where('qr_code_id', $id)->where('qr_codes.user_id', Auth::user()->id)->first();
 
-        return view('admin.pages.qr-codes.edit', compact('qr_code_details'));
+        // View page
+        return Inertia::render('Admin/QrCodes/Edit', [
+            'qr_code_details' => $qr_code_details,
+        ]);
     }
 
     // Update QR Code
@@ -1304,7 +1311,10 @@ class QRCodeController extends Controller
         $qrcode_details = QrCode::where('qr_code_id', $id)->where('user_id', Auth::user()->id)->first();
         $config = Config::get();
 
-        return view('admin.pages.qr-codes.download', compact('qrcode_details', 'config'));
+        return Inertia::render('Admin/QrCodes/Download', [
+            'qrcode_details' => $qrcode_details,
+            'config' => $config,
+        ]);
     }
 
     // Type Wise Qr Codes
@@ -1313,7 +1323,9 @@ class QRCodeController extends Controller
         // Queries
         $qr_codes = QrCode::where('type', $request->type)->where('user_id', Auth::user()->id)->get();
 
-        return view('admin.pages.qr-codes.type-qrcodes', compact('qr_codes'));
+        return Inertia::render('Admin/QrCodes/TypeQrCodes', [
+            'qr_codes' => $qr_codes,
+        ]);
     }
 
     // Regenerate QR Code

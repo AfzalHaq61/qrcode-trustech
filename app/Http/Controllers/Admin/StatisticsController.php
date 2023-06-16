@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
+use Inertia\Inertia;
 use App\Models\QrCode;
 use App\Models\Statistics;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class StatisticsController extends Controller
@@ -65,8 +68,8 @@ class StatisticsController extends Controller
 
             // Get Country wise count
             $countries = Statistics::where('qr_code_id', $id)
-            ->groupBy('country_code')
-            ->get(DB::raw('count(*) as total, statistics.country_code, statistics.iso_code'));
+                ->groupBy('country_code')
+                ->get(DB::raw('count(*) as total, statistics.country_code, statistics.iso_code'));
 
             // Get City wise count
             $cities = Statistics::where('qr_code_id', $id)
@@ -96,7 +99,15 @@ class StatisticsController extends Controller
             // Get QR Code Scanning Count
             $count = Statistics::where('qr_code_id', $id)->count();
 
-            return view('user.pages.statistics.index', compact('countries', 'cities', 'device_types', 'os_names', 'browser_names', 'browser_languages', 'count'));
+            return Inertia::render('Admin/Statistics/Index', [
+                'countries' => $countries,
+                'cities' => $cities,
+                'device_types' => $device_types,
+                'os_names' => $os_names,
+                'browser_names' => $browser_names,
+                'browser_languages' => $browser_languages,
+                'count' => $count
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
