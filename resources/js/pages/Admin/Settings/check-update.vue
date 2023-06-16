@@ -3,13 +3,13 @@
     <SettingSideBarLayout>
 
       <div class="col-span-8">
-        <div class="grid grid-rows-2">
+        
          <div class="mt-10 grid grid-cols-1 gap-x-2  sm:grid-cols-12">
             <div class="sm:col-span-7">
                 <form   role="form">
         <h6 class="text-lg font-bold dark:text-white">Check & Update</h6>
        
-          <div class="mt-10 grid grid-cols-1 gap-x-2  sm:grid-cols-12">
+          <div class="mt-0 grid grid-cols-1 gap-x-2  sm:grid-cols-12">
               <div class="sm:col-span-8">
                   <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Full Name">Envato Purchase Code <span class="text-red-600">*</span></Label>
                   <div class="sm:col-span-3">
@@ -50,7 +50,6 @@
          </div> 
             
  
-      </div>
       </div>
     <!-- side bar menu list -->
       <!-- <div class="col-span-8">

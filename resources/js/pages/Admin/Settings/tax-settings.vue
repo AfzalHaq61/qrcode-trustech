@@ -3,7 +3,7 @@
     <SettingSideBarLayout>
 
       <div class="col-span-8">
-       
+   
       <div class="grid grid-rows-2">
       <div> 
       <form   role="form">
@@ -200,9 +200,14 @@
 <script setup>
 import SettingSideBarLayout from '../../../AdminSettingLayout/sidebar.vue'
 import GeneralConfigSetting from '../../../Components/Settings/GeneralSettings/GeneralConfigurationSetting.vue'
-import { ref } from 'vue'
+import { ref ,onMounted } from 'vue'
 import { useForm } from '@inertiajs/vue3';
+import { Collapse, initTE } from "tw-elements";
 defineProps({ timezonelist: Array ,currencies:Array});
+
+onMounted(() => {
+    initTE({ Collapse });
+});
 const recaptchaEnable=ref([
 {text:'on'},
 {text:'off'},

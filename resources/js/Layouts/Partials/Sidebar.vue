@@ -151,7 +151,7 @@
                   <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Payment Methods</span>
                 </Link>
               </li>
-
+               
               <li class="mt-0.5 w-full">
                 <Accordian>
                     <template v-slot:nav>
