@@ -6,6 +6,8 @@
              
    
             <form   role="form">
+              <h6 class="text-lg font-bold dark:text-white">General Configuration Settings</h6>
+
                 <div class="mt-10 grid grid-cols-1 gap-x-2 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-2">
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Full Name">Application Type <span class="text-red-600">*</span></Label>

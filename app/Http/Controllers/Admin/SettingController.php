@@ -95,7 +95,34 @@ class SettingController extends Controller
      
     }
     public function websiteQrGeneratorConfigSetting(){
-        dd(1);
+        
+      
+        return Inertia::render('Admin/Settings/website-qr-generator-config-settings');
+    }
+    public function paymentMethodConfigurationSetting(){
+
+      return Inertia::render('Admin/Settings/payment-method-configuration-setting');
+    }
+    public function googleConfigurationSetting(){
+
+        return Inertia::render('Admin/Settings/google-configuration-settings');
+    }
+    public function emailConfiguration(){
+        return Inertia::render('Admin/Settings/email-configuration-settings');
+       
+    }
+
+    public function Licence(){
+        
+        return Inertia::render('Admin/Settings/license');
+    }
+    public function settingTax(){
+       
+        return Inertia::render('Admin/Settings/tax-settings');
+    }
+    public function checkUpdate(){
+       
+        return Inertia::render('Admin/Settings/check-update');
     }
     // Update General Setting
     public function changeGeneralSettings(Request $request)
