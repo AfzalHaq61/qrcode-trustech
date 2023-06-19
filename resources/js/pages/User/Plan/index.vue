@@ -44,7 +44,7 @@
    
         <div class="flex items-baseline text-gray-900 dark:text-white">
             <span class="text-3xl font-semibold">$</span>
-            <span class="text-5xl font-extrabold tracking-tight">30</span>
+            <span class="text-4xl font-extrabold tracking-tight">30</span>
             <h5 class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">Per Month</h5>
             <!-- <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span> -->
         </div>
@@ -104,7 +104,7 @@
         <h5 class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">12 Months</h5>
         <div class="flex items-baseline text-gray-900 dark:text-white">
             <span class="text-3xl font-semibold">$</span>
-            <span class="text-5xl font-extrabold tracking-tight">20</span>
+            <span class="text-4xl font-extrabold tracking-tight">20</span>
             <h5 class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">Per Month</h5>
             <!-- <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span> -->
         </div>
@@ -169,7 +169,7 @@
         <h5 class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">6 Months</h5>
         <div class="flex items-baseline text-gray-900 dark:text-white">
             <span class="text-3xl font-semibold">$</span>
-            <span class="text-5xl font-extrabold tracking-tight">25</span>
+            <span class="text-4xl font-extrabold tracking-tight">25</span>
             <h5 class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">Per Month</h5>
             <!-- <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span> -->
         </div>
