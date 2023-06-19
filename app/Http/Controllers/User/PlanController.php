@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use Inertia\Inertia;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
@@ -35,6 +36,9 @@ class PlanController extends Controller
     public function index()
     {
         // Plans
+
+      
+        return Inertia::render('User/Plan/index');
         $plans = Plan::where('status', 1)->get();
 
         // Get access types

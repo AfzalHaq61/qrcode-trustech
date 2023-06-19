@@ -6,7 +6,8 @@ import { createInertiaApp, Head, Link } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import Footer from '@/Layouts/Partials/Footer.vue';
+import layout from "@/Layouts/UserPartials/Layout.vue";
+import Footer from '@/Layouts/Partials/Footer.vue'
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Pagination from "@/Components/Shared/Pagiantion.vue";
 import Notifications from "@/Components/Shared/Notifications.vue";
@@ -24,6 +25,7 @@ createInertiaApp({
             .use(plugin)
             .component('Head', Head)
             .component('Link', Link)
+            .component('UserLayout', layout)
             .component('AdminLayout', AdminLayout)
             .component('Footer', Footer)
             .component('ApplicationLogo', ApplicationLogo)

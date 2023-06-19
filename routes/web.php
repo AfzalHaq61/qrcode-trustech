@@ -39,6 +39,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // Admin routes
+
+
+
 Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
@@ -47,8 +50,8 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     // Check QR Code
     if (env('APP_TYPE') == 'QRCODE' || env('APP_TYPE') == 'BOTH') {
         // Create QR Code
-        Route::get('qrcodes/all', [App\Http\Controllers\Admin\QRCodeController::class, "index"])->name('all.qr');
-        Route::get('qrcode/create', [App\Http\Controllers\Admin\QRCodeController::class, "CreateQr"])->name('create.qr');
+        // Route::get('qrcodes/all', [App\Http\Controllers\Admin\QRCodeController::class, "index"])->name('all.qr');
+        // Route::get('qrcode/create', [App\Http\Controllers\Admin\QRCodeController::class, "CreateQr"])->name('create.qr');
         Route::post('qrcode/save', [App\Http\Controllers\Admin\QRCodeController::class, "saveQr"])->name('save.qr');
         Route::get('qrcode/edit/{id}', [App\Http\Controllers\Admin\QRCodeController::class, "editQr"])->name('edit.qr');
         Route::post('qrcode/update', [App\Http\Controllers\Admin\QRCodeController::class, "updateQr"])->name('update.qr');
@@ -178,6 +181,95 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     Route::get('check', [App\Http\Controllers\Admin\UpdateController::class, 'check'])->name('check');
     Route::post('check-update', [App\Http\Controllers\Admin\UpdateController::class, 'checkUpdate'])->name('check.update');
     Route::post('update-code', [App\Http\Controllers\Admin\UpdateController::class, 'updateCode'])->name('update.code');
+});
+
+
+
+Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+    // Dashboard
+  
+    Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->name('dashboard');
+
+    // Plans
+    Route::get('plans', [App\Http\Controllers\User\PlanController::class, "index"])->name('plans');
+
+    // Check QR Code
+    if (env('APP_TYPE') == 'QRCODE' || env('APP_TYPE') == 'BOTH') {
+        // Create QR Code
+        Route::get('qrcodes/all', [App\Http\Controllers\User\QRCodeController::class, "index"])->name('all.qr');
+        Route::get('qrcode/create', [App\Http\Controllers\User\QRCodeController::class, "CreateQr"])->name('create.qr');
+        Route::post('qrcode/save', [App\Http\Controllers\User\QRCodeController::class, "saveQr"])->name('save.qr');
+        Route::get('qrcode/edit/{id}', [App\Http\Controllers\User\QRCodeController::class, "editQr"])->name('edit.qr');
+        Route::post('qrcode/update', [App\Http\Controllers\User\QRCodeController::class, "updateQr"])->name('update.qr');
+        Route::post('qrcode/regenerate-qr', [App\Http\Controllers\User\QRCodeController::class, "regenerateQr"])->name('regenerate.qr');
+        Route::get('qrcode/statistics/{id}', [App\Http\Controllers\User\StatisticsController::class, "qrStatistics"])->name('qr.statistics');
+    }
+
+    // Check Bar Code
+    if (env('APP_TYPE') == 'BARCODE' || env('APP_TYPE') == 'BOTH') {
+        // Create Bar Code
+        Route::get('barcodes/all', [App\Http\Controllers\User\BarCodeController::class, "index"])->name('all.barcode');
+        Route::get('barcode/create', [App\Http\Controllers\User\BarCodeController::class, "CreateBarCode"])->name('create.barcode');
+        Route::post('barcode/save', [App\Http\Controllers\User\BarCodeController::class, "saveBarCode"])->name('save.barcode');
+        Route::get('barcode/edit/{id}', [App\Http\Controllers\User\BarCodeController::class, "editBarCode"])->name('edit.barcode');
+        Route::post('barcode/update', [App\Http\Controllers\User\BarCodeController::class, "updateBarCode"])->name('update.barcode');
+        Route::post('barcode/regenerate-barcode', [App\Http\Controllers\User\BarCodeController::class, "regenerateBarCode"])->name('regenerate.barcode');
+        // Update QR Code Status
+        Route::get('barcode/update-barcode-status', [App\Http\Controllers\User\BarCodeController::class, "updateBarCodeStatus"])->name('update.barcode.status');
+        // Delete QR Code
+        Route::get('barcode/delete-barcode', [App\Http\Controllers\User\BarCodeController::class, "deleteBarCode"])->name('delete.barcode');
+        // Download Bar Code
+        Route::get('barcode/barcode/{id}', [App\Http\Controllers\User\BarCodeController::class, "downloadBarCode"])->name("download.barcode");
+    }
+
+    // Get Type Wise QR Codes
+    Route::get('/qrcode/qrcodes/{type}', [App\Http\Controllers\User\QRCodeController::class, "getTypeQRCode"])->name("type.qrcodes");
+    // Update QR Code Status
+    Route::get('qrcode/update-qr-status', [App\Http\Controllers\User\QRCodeController::class, "updateQrCodeStatus"])->name('update.qr.status');
+    // Delete QR Code
+    Route::get('qrcode/delete-qr', [App\Http\Controllers\User\QRCodeController::class, "deleteQrCode"])->name('delete.qr');
+
+    // Download QR Code
+    Route::get('qrcode/{id}', [App\Http\Controllers\User\QRCodeController::class, "downloadQrCode"])->name("download.qrcode");
+
+    // Media
+    Route::get('media', [App\Http\Controllers\User\MediaController::class, "media"])->name('media');
+    Route::get('add-media', [App\Http\Controllers\User\MediaController::class, "addMedia"])->name('add.media');
+    Route::post('upload-media', [App\Http\Controllers\User\MediaController::class, "uploadMedia"])->name('upload.media');
+    Route::get('delete-media/{id}', [App\Http\Controllers\User\MediaController::class, "deleteMedia"])->name('media.delete');
+
+    //Addtional Tootls -> QR Maker
+    Route::get('tools/whois-lookup', [App\Http\Controllers\User\AdditionalController::class, "whoisLookup"])->name('whois-lookup');
+    Route::post('tools/whois-lookup', [App\Http\Controllers\User\AdditionalController::class, "resultWhoisLookup"])->name('result.whois-lookup');
+    Route::get('tools/dns-lookup', [App\Http\Controllers\User\AdditionalController::class, "dnsLookup"])->name('dns-lookup');
+    Route::post('tools/dns-lookup', [App\Http\Controllers\User\AdditionalController::class, "resultDnsLookup"])->name('result.dns-lookup');
+    Route::get('tools/ip-lookup', [App\Http\Controllers\User\AdditionalController::class, "ipLookup"])->name('ip-lookup');
+    Route::post('tools/ip-lookup', [App\Http\Controllers\User\AdditionalController::class, "resultIpLookup"])->name('result.ip-lookup');
+
+    // Transactions
+    Route::get('transactions', [App\Http\Controllers\User\TransactionsController::class, "indexTransactions"])->name('transactions');
+    Route::get('view-invoice/{id}', [App\Http\Controllers\User\TransactionsController::class, "viewInvoice"])->name('view.invoice');
+
+    // Billing
+    Route::get('billing/{id}', [App\Http\Controllers\User\BillingController::class, "billing"])->name('billing');
+    Route::post('update-billing', [App\Http\Controllers\User\BillingController::class, "updateBilling"])->name('update.billing');
+
+    // Checkout
+    Route::get('checkout/{id}', [App\Http\Controllers\User\CheckOutController::class, "checkout"])->name('checkout');
+
+    // Account Setting
+    Route::get('account', [App\Http\Controllers\User\AccountController::class, "index"])->name('index.account');
+    Route::get('edit-account', [App\Http\Controllers\User\AccountController::class, "editAccount"])->name('edit.account');
+    Route::post('update-account', [App\Http\Controllers\User\AccountController::class, "updateAccount"])->name('update.account');
+    Route::get('change-password', [App\Http\Controllers\User\AccountController::class, "changePassword"])->name('change.password');
+    Route::post('update-password', [App\Http\Controllers\User\AccountController::class, "updatePassword"])->name('update.password');
+
+    // Change theme
+    Route::get('theme/{id}', [App\Http\Controllers\User\AccountController::class, "changeTheme"])->name('change.theme');
+
+    // Resend Email Verfication
+    Route::get('verify-email-verification', [App\Http\Controllers\User\VerificationController::class, "verifyEmailVerification"])->name('verify.email.verification');
+    Route::get('resend-email-verification', [App\Http\Controllers\User\VerificationController::class, "resendEmailVerification"])->name('resend.email.verification');
 });
 
 require __DIR__ . '/auth.php';

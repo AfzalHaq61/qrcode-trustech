@@ -39,6 +39,7 @@ class UserController extends Controller
     public function index()
     {
         // Queries
+      
         $users = User::where('role_id', '2')->orderBy('created_at', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $config = Config::get();
