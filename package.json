@@ -24,6 +24,7 @@
         "@tinymce/tinymce-vue": "^4.0.7",
         "file-saver": "^2.0.5",
         "html2pdf.js": "^0.10.1",
+        "jsbarcode": "^3.11.5",
         "tinymce": "^5.10.4",
         "tinymce-i18n": "^22.5.2",
         "tw-elements": "^1.0.0-beta2",
