@@ -11,7 +11,7 @@
                 <div class="col-span-3 w-full max-w-full px-3">
                     <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                            <h6>Create QR Code</h6>
+                            <h6><span v-if="stepcount === 1">Dynamic QR</span><span v-if="stepcount === 2">Complete the content of the QR</span><span v-if="stepcount === 3">Design the QR</span></h6>
                         </div>
                         <div v-if="stepcount === 1" class="flex-auto p-6">
                             <div class="grid md:grid-cols-2 md:gap-x-6 gap-y-6">
@@ -166,7 +166,7 @@
                                         <circle cx="12" cy="14" r="2"></circle>
                                         <polyline points="14 4 14 8 8 8 8 4"></polyline>
                                     </svg>
-                                    <span class="ml-1">Generate and Save QR</span>
+                                    <span class="ml-1">Next</span>
                                 </PrimaryButton>
                             </div>
                         </div>
@@ -174,185 +174,339 @@
                         <div v-if="stepcount === 2">
                             <div class="flex-auto px-0 pt-0 pb-2">
                                 <div class="p-6 overflow-x-auto">
-                                    <form @submit.prevent="submit" role="form">
-                                        <div class="md:grid grid-cols-2 md:gap-x-6 mb-6">
-                                            <div>
-                                                <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="name">QR Code
-                                                    Name
-                                                    <span class="text-red-600">*</span></Label>
-                                                <TextInput id="name" type="text" v-model="form.name" autofocus
-                                                    placeholder="Name..." minlength="3" maxlength="100" required />
-
-                                                <InputError class="mt-2" :message="form.errors.name" />
-                                            </div>
-                                            <div class="mb-6 md:mb-0">
-                                                <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="barcode_type">QR
-                                                    Code Type
-                                                    <span class="text-red-600">*</span></Label>
-                                                <select id="qrcode_type" name="qrcode_type" v-model="form.qrcode_type"
-                                                    class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                                                    required>
-                                                    <option value="text">Plain Text</option>
-                                                    <option value="email">Email</option>
-                                                    <option value="sms">Text Message</option>
-                                                    <option value="whatsapp">WhatsApp Message</option>
-                                                    <option value="url">URL</option>
-                                                    <option value="pdf">PDF</option>
-                                                    <option value="location">Map Location</option>
-                                                    <option value="phone">Phone Number</option>
-                                                    <option value="facetime">Facetime</option>
-                                                    <option value="event">Event</option>
-                                                    <option value="wifi">WiFi</option>
-                                                    <option value="crypto">Crypto Payment</option>
-                                                    <option value="paypal">Paypal Payment</option>
-                                                    <option value="vcard">Save Contact</option>
-                                                    <option value="upi">UPI Payment</option>
-                                                </select>
-
-                                                <InputError class="mt-2" :message="form.errors.barcode_type" />
-                                            </div>
-                                        </div>
-
-                                        <div v-if="form.qrcode_type === 'url'" class="mb-6">
-                                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Link Url
-                                                <span class="text-red-600">*</span></Label>
-                                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                                                type="url" name="url" id="url" v-model="form.url" autofocus placeholder="Ex: http://domain.com'...">
-
-                                            <InputError class="mt-2" :message="form.errors.url" />
-                                        </div>
-
+                                     <div id="accordionExample">
+                                    <div
+                                        class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+                                        <h2 class="mb-0" id="headingOne">
+                                        <button
+                                            class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                                            type="button"
+                                            data-te-collapse-init
+                                            data-te-target="#collapseOne"
+                                            aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Accordion Item #1
+                                            <span
+                                            class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                class="h-6 w-6">
+                                                <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                            </span>
+                                        </button>
+                                        </h2>
                                         <div
-                                            class="pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                                            <h6>Advance Settings</h6>
+                                        id="collapseOne"
+                                        class="!visible"
+                                        data-te-collapse-item
+                                        data-te-collapse-show
+                                        aria-labelledby="headingOne"
+                                        data-te-parent="#accordionExample">
+                                        <div class="px-5 py-4">
+                                            <strong>This is the first item's accordion body.</strong> It is
+                                            shown by default, until the collapse plugin adds the appropriate
+                                            classes that we use to style each element. These classes control
+                                            the overall appearance, as well as the showing and hiding via CSS
+                                            transitions. You can modify any of this with custom CSS or
+                                            overriding our default variables. It's also worth noting that just
+                                            about any HTML can go within the <code>.accordion-body</code>,
+                                            though the transition does limit overflow.
                                         </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+                                        <h2 class="mb-0" id="headingTwo">
+                                        <button
+                                            class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                                            type="button"
+                                            data-te-collapse-init
+                                            data-te-collapse-collapsed
+                                            data-te-target="#collapseTwo"
+                                            aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                            Accordion Item #2
+                                            <span
+                                            class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                class="h-6 w-6">
+                                                <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                            </span>
+                                        </button>
+                                        </h2>
+                                        <div
+                                        id="collapseTwo"
+                                        class="!visible hidden"
+                                        data-te-collapse-item
+                                        aria-labelledby="headingTwo"
+                                        data-te-parent="#accordionExample">
+                                        <div class="px-5 py-4">
+                                            <strong>This is the second item's accordion body.</strong> It is
+                                            hidden by default, until the collapse plugin adds the appropriate
+                                            classes that we use to style each element. These classes control
+                                            the overall appearance, as well as the showing and hiding via CSS
+                                            transitions. You can modify any of this with custom CSS or
+                                            overriding our default variables. It's also worth noting that just
+                                            about any HTML can go within the <code>.accordion-body</code>,
+                                            though the transition does limit overflow.
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="rounded-b-lg border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+                                        <h2 class="accordion-header mb-0" id="headingThree">
+                                        <button
+                                            class="group relative flex w-full items-center border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)] [&[data-te-collapse-collapsed]]:rounded-b-[15px] [&[data-te-collapse-collapsed]]:transition-none"
+                                            type="button"
+                                            data-te-collapse-init
+                                            data-te-collapse-collapsed
+                                            data-te-target="#collapseThree"
+                                            aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                            Accordion Item #3
+                                            <span
+                                            class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                class="h-6 w-6">
+                                                <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                            </span>
+                                        </button>
+                                        </h2>
+                                        <div
+                                        id="collapseThree"
+                                        class="!visible hidden"
+                                        data-te-collapse-item
+                                        aria-labelledby="headingThree"
+                                        data-te-parent="#accordionExample">
+                                        <div class="px-5 py-4">
+                                            <strong>This is the third item's accordion body.</strong> It is
+                                            hidden by default, until the collapse plugin adds the appropriate
+                                            classes that we use to style each element. These classes control
+                                            the overall appearance, as well as the showing and hiding via CSS
+                                            transitions. You can modify any of this with custom CSS or
+                                            overriding our default variables. It's also worth noting that just
+                                            about any HTML can go within the <code>.accordion-body</code>,
+                                            though the transition does limit overflow.
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class='mb-6'>
+                                        <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="name">QR Code
+                                            Name
+                                            <span class="text-red-600">*</span></Label>
+                                        <TextInput id="name" type="text" v-model="form.name" autofocus
+                                            placeholder="Name..." minlength="3" maxlength="100" required />
 
-                                        <div class="mb-6">
-                                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="qrcode_style">QR Code Style</Label>
+                                        <InputError class="mt-2" :message="form.errors.name" />
+                                    </div>
 
-                                            <div class="flex space-x-5">
-                                                <div>
-                                                    <Label @input="qrCodeStyle()" :class="{ '': form.qrcode_style === 'square' }" class="font-bold text-xs text-gray-600 rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 cursor-pointer" for="qrcode_style">
-                                                        <span>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="icon icon-tabler me-1 icon-tabler-square"
-                                                                width="24"
-                                                                height="24"
-                                                                viewBox="0 0 24 24"
-                                                                stroke-width="2"
-                                                                stroke="currentColor"
-                                                                fill="none"
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round">
-                                                                <desc>Download more icon
-                                                                    variants from
-                                                                    https://tabler-icons.io/i/square
-                                                                </desc>
-                                                                <path stroke="none"
-                                                                    d="M0 0h24v24H0z"
-                                                                    fill="none"></path>
-                                                                <rect x="4"
-                                                                    y="4"
-                                                                    width="16"
-                                                                    height="16"
-                                                                    rx="2"></rect>
-                                                            </svg>
-                                                            Square
-                                                        </span>
-                                                    </Label>
-                                                </div>
-                                                <div>
-                                                    <Label class="font-bold text-xs flex focus:shad ow-soft-primary-outline text-sm leading-5.6 ease-soft appearance-none border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" for="color">
-                                                        <input
-                                                            class="border-none"
-                                                            type="radio" id="color" v-model="form.color" autofocus placeholder="Color..."
-                                                            required>
-                                                        <span>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="icon icon-tabler me-1 icon-tabler-square"
-                                                                width="24"
-                                                                height="24"
-                                                                viewBox="0 0 24 24"
-                                                                stroke-width="2"
-                                                                stroke="currentColor"
-                                                                fill="none"
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round">
-                                                                <desc>Download more icon
-                                                                    variants from
-                                                                    https://tabler-icons.io/i/square
-                                                                </desc>
-                                                                <path stroke="none"
-                                                                    d="M0 0h24v24H0z"
-                                                                    fill="none"></path>
-                                                                <rect x="4"
-                                                                    y="4"
-                                                                    width="16"
-                                                                    height="16"
-                                                                    rx="2"></rect>
-                                                            </svg>
-                                                            Square
-                                                        </span>
-                                                    </Label>
-                                                </div>
-                                                <div>
-                                                    <Label class="font-bold text-xs flex focus:shad ow-soft-primary-outline text-sm leading-5.6 ease-soft appearance-none border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" for="color">
-                                                        <input
-                                                            class="border-none"
-                                                            type="radio" id="color" v-model="form.color" autofocus placeholder="Color..."
-                                                            required>
-                                                        <span>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="icon icon-tabler me-1 icon-tabler-square"
-                                                                width="24"
-                                                                height="24"
-                                                                viewBox="0 0 24 24"
-                                                                stroke-width="2"
-                                                                stroke="currentColor"
-                                                                fill="none"
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round">
-                                                                <desc>Download more icon
-                                                                    variants from
-                                                                    https://tabler-icons.io/i/square
-                                                                </desc>
-                                                                <path stroke="none"
-                                                                    d="M0 0h24v24H0z"
-                                                                    fill="none"></path>
-                                                                <rect x="4"
-                                                                    y="4"
-                                                                    width="16"
-                                                                    height="16"
-                                                                    rx="2"></rect>
-                                                            </svg>
-                                                            Square
-                                                        </span>
-                                                    </Label>
-                                                </div>
+                                    <div v-if="form.qrcode_type === 'url'" class="mb-6">
+                                        <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Link Url
+                                            <span class="text-red-600">*</span></Label>
+                                        <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                                            type="url" name="url" id="url" v-model="form.url" autofocus placeholder="Ex: http://domain.com'...">
+
+                                        <InputError class="mt-2" :message="form.errors.url" />
+                                    </div>
+
+                                    <div class="flex justify-end space-x-5 mt-4">
+                                            <div>
+                                                <BackButton @click="stepCountBackFunction" :class="{ 'opacity-25': form.processing }"
+                                                    :disabled="form.processing">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        class="icon icon-tabler icon-tabler-device-floppy" width="24" height="24"
+                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path
+                                                            d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2">
+                                                        </path>
+                                                        <circle cx="12" cy="14" r="2"></circle>
+                                                        <polyline points="14 4 14 8 8 8 8 4"></polyline>
+                                                    </svg>
+                                                    <span class="ml-1">Back</span>
+                                                </BackButton>
                                             </div>
 
-                                            <InputError class="mt-2" :message="form.errors.color" />
+                                            <div>
+                                                <PrimaryButton @click="stepCountFunction" :class="{ 'opacity-25': form.processing }"
+                                                    :disabled="form.processing">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        class="icon icon-tabler icon-tabler-device-floppy" width="24" height="24"
+                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path
+                                                            d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2">
+                                                        </path>
+                                                        <circle cx="12" cy="14" r="2"></circle>
+                                                        <polyline points="14 4 14 8 8 8 8 4"></polyline>
+                                                    </svg>
+                                                    <span class="ml-1">Next</span>
+                                                </PrimaryButton>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-if="stepcount === 3">
+                            <div class="flex-auto px-0 pt-0 pb-2">
+                                <div class="p-6 overflow-x-auto">
+                                    <div class="mb-6">
+                                        <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="qrcode_style">QR Code Style</Label>
+
+                                        <div class="flex space-x-5">
+                                            <div>
+                                                <Label @input="qrCodeStyle()" :class="{ '': form.qrcode_style === 'square' }" class="font-bold text-xs text-gray-600 rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 cursor-pointer" for="qrcode_style">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler me-1 icon-tabler-square"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            stroke-width="2"
+                                                            stroke="currentColor"
+                                                            fill="none"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round">
+                                                            <desc>Download more icon
+                                                                variants from
+                                                                https://tabler-icons.io/i/square
+                                                            </desc>
+                                                            <path stroke="none"
+                                                                d="M0 0h24v24H0z"
+                                                                fill="none"></path>
+                                                            <rect x="4"
+                                                                y="4"
+                                                                width="16"
+                                                                height="16"
+                                                                rx="2"></rect>
+                                                        </svg>
+                                                        Square
+                                                    </span>
+                                                </Label>
+                                            </div>
+                                            <div>
+                                                <Label class="font-bold text-xs flex focus:shad ow-soft-primary-outline text-sm leading-5.6 ease-soft appearance-none border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" for="color">
+                                                    <input
+                                                        class="border-none"
+                                                        type="radio" id="color" v-model="form.color" autofocus placeholder="Color..."
+                                                        required>
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler me-1 icon-tabler-square"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            stroke-width="2"
+                                                            stroke="currentColor"
+                                                            fill="none"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round">
+                                                            <desc>Download more icon
+                                                                variants from
+                                                                https://tabler-icons.io/i/square
+                                                            </desc>
+                                                            <path stroke="none"
+                                                                d="M0 0h24v24H0z"
+                                                                fill="none"></path>
+                                                            <rect x="4"
+                                                                y="4"
+                                                                width="16"
+                                                                height="16"
+                                                                rx="2"></rect>
+                                                        </svg>
+                                                        Square
+                                                    </span>
+                                                </Label>
+                                            </div>
+                                            <div>
+                                                <Label class="font-bold text-xs flex focus:shad ow-soft-primary-outline text-sm leading-5.6 ease-soft appearance-none border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" for="color">
+                                                    <input
+                                                        class="border-none"
+                                                        type="radio" id="color" v-model="form.color" autofocus placeholder="Color..."
+                                                        required>
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler me-1 icon-tabler-square"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            stroke-width="2"
+                                                            stroke="currentColor"
+                                                            fill="none"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round">
+                                                            <desc>Download more icon
+                                                                variants from
+                                                                https://tabler-icons.io/i/square
+                                                            </desc>
+                                                            <path stroke="none"
+                                                                d="M0 0h24v24H0z"
+                                                                fill="none"></path>
+                                                            <rect x="4"
+                                                                y="4"
+                                                                width="16"
+                                                                height="16"
+                                                                rx="2"></rect>
+                                                        </svg>
+                                                        Square
+                                                    </span>
+                                                </Label>
+                                            </div>
                                         </div>
 
-                                        <div class="mb-6">
-                                            <Label @input="regenerateQrCode" class="mb-2 ml-1 font-bold text-xs text-slate-700"
-                                                for="color">Color
-                                                <span class="text-red-600">*</span></Label>
-                                            <input
-                                                class="focus:shad ow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                                                type="color" id="color" v-model="form.color" autofocus placeholder="Color..."
-                                                required>
+                                        <InputError class="mt-2" :message="form.errors.color" />
+                                    </div>
 
-                                            <InputError class="mt-2" :message="form.errors.color" />
-                                        </div>
+                                    <div class="mb-6">
+                                        <Label @input="regenerateQrCode" class="mb-2 ml-1 font-bold text-xs text-slate-700"
+                                            for="color">Color
+                                            <span class="text-red-600">*</span></Label>
+                                        <input
+                                            class="focus:shad ow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                                            type="color" id="color" v-model="form.color" autofocus placeholder="Color..."
+                                            required>
 
+                                        <InputError class="mt-2" :message="form.errors.color" />
+                                    </div>
+
+                                    <div>
+                                        <span class="font-bold text-sm text-slate-700">Note: Double-check your QR Code once
+                                            before using it.</span>
+                                    </div>
+
+                                    <div class="flex justify-end space-x-5 mt-4">
                                         <div>
-                                            <span class="font-bold text-sm text-slate-700">Note: Double-check your QR Code once
-                                                before using it.</span>
-                                        </div>
-
-                                        <div class="flex items-center justify-end mt-4">
-                                            <PrimaryButton :class="{ 'opacity-25': form.processing }"
+                                            <BackButton @click="stepCountBackFunction" :class="{ 'opacity-25': form.processing }"
                                                 :disabled="form.processing">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     class="icon icon-tabler icon-tabler-device-floppy" width="24" height="24"
@@ -365,10 +519,28 @@
                                                     <circle cx="12" cy="14" r="2"></circle>
                                                     <polyline points="14 4 14 8 8 8 8 4"></polyline>
                                                 </svg>
-                                                <span class="ml-1">Generate and Save QR</span>
+                                                <span class="ml-1">Back</span>
+                                            </BackButton>
+                                        </div>
+
+                                        <div>
+                                            <PrimaryButton @click="stepCountFunction" :class="{ 'opacity-25': form.processing }"
+                                                :disabled="form.processing">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-device-floppy" width="24" height="24"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path
+                                                        d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2">
+                                                    </path>
+                                                    <circle cx="12" cy="14" r="2"></circle>
+                                                    <polyline points="14 4 14 8 8 8 8 4"></polyline>
+                                                </svg>
+                                                <span class="ml-1">Next</span>
                                             </PrimaryButton>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -447,6 +619,16 @@ import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import { onMounted } from "vue";
+import {
+    Collapse,
+    initTE,
+} from "tw-elements";
+
+
+onMounted(() => {
+    initTE({ Collapse });
+});
 
 const stepcount = ref(1);
 
@@ -515,6 +697,14 @@ const form = useForm({
 function stepCountFunction() {
     if(form.qrcode_type != ''){
         stepcount.value += 1;
+    } else {
+        aler('Select Qr Code Type');
+    }
+}
+
+function stepCountBackFunction() {
+    if(form.qrcode_type != ''){
+        stepcount.value -= 1;
     } else {
         aler('Select Qr Code Type');
     }

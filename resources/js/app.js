@@ -13,6 +13,7 @@ import Pagination from "@/Components/Shared/Pagiantion.vue";
 import Notifications from "@/Components/Shared/Notifications.vue";
 import Accordian from "@/Components/Shared/Accordian.vue";
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import BackButton from '@/Components/BackButton.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
@@ -33,6 +34,7 @@ createInertiaApp({
             .component('Notifications', Notifications)
             .component('Accordian', Accordian)
             .component('PrimaryButton', PrimaryButton)
+            .component('BackButton', PrimaryButton)
             .component('Checkbox', Checkbox)
             .use(ZiggyVue, Ziggy)
             .mount(el);
