@@ -13,7 +13,7 @@
                         class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex items-center justify-between p-6 pb-0 mb-2 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                             <h6>Qr Codes</h6>
-                            <Link :href="route('admin.add.plan')">
+                            <Link :href="route('admin.create.qr')">
                                 <PrimaryButton><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                         stroke-linecap="round" stroke-linejoin="round">

@@ -63,7 +63,7 @@ class BarCodeController extends Controller
         }
 
         // Generate barcode
-        return $result = $request->barcode_type::getBarcodeSVG($request->content, $request->barcode_format, $request->width, $request->height, $request->color, $showtext);
+        $result = $request->barcode_type::getBarcodeSVG($request->content, $request->barcode_format, $request->width, $request->height, $request->color, $showtext);
 
         // Generate settings
         $settings =  json_encode(array(
@@ -178,12 +178,12 @@ class BarCodeController extends Controller
     {
         // Show text
         $showtext = true;
-        if ($request->showtext == "false") {
+        if ($request->showtext == false) {
             $showtext = false;
         }
 
         // Default content
-        $content = '9876543210';
+        $content = '1234567890';
         if ($request->content) {
             $content = $request->content;
         }

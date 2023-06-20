@@ -52,7 +52,7 @@ class QRCodeController extends Controller
     // Create QR Code
     public function CreateQr()
     {
-        return view('admin.pages.qr-codes.create');
+        return Inertia::render('Admin/QrCodes/Create');
     }
 
     // Save QR Code
@@ -109,7 +109,6 @@ class QRCodeController extends Controller
 
         // Check QR Code Type (Text)
         if ($request->qrcode_type == 'text') {
-
             // generating & saving the qr code in folder
             $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/text/' . $qr_code_id, $directory . $qrImage);
 
@@ -1360,6 +1359,7 @@ class QRCodeController extends Controller
             // Set eye style
             $qrcode->eye($request->eye_color_style);
         }
+
         // Set QR code size
         $qrcode->style($request->qrcode_style)->size($request->size)->margin(1)->errorCorrection($request->qrcode_ecc);
 
