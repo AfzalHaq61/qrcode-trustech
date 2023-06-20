@@ -3,7 +3,7 @@
 
 <template>
     <Head title="Dashboard" />
-    <Layout>
+    <UserLayout>
         <div class="w-full px-6 py-6 mx-auto">
             <!-- row 1 -->
             <div class="flex flex-wrap -mx-3">
@@ -946,4 +946,4 @@
         <!-- Footer -->
         <Footer />
     </div>
-</Layout></template>
+</UserLayout></template>

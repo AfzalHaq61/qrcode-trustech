@@ -6,22 +6,21 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 </script>
 
 <template>
+
     <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+             
+      
+             
               <nav>
                 <!-- breadcrumb -->
-                <ol v-if="breadcrumbs">
-                <li v-for="(breadcrumb, index) in breadcrumbs" :key="index">
-                    <a :href="breadcrumb.url">{{ breadcrumb.text }}</a>
-                </li>
-            </ol>
                 <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
                   <li class="text-sm leading-normal">
-                    <a class="opacity-50 text-slate-700" href="javascript:;">Pages1</a>
+                    <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
                   </li>
-                  <li class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']" aria-current="page">Dashboard3</li>
+                  <li class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']" aria-current="page">Dashboard</li>
                 </ol>
-                <h6 class="mb-0 font-bold capitalize">Dashboard2</h6>
+                <h6 class="mb-0 font-bold capitalize">Dashboard</h6>
               </nav>
 
               <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -35,16 +34,12 @@ import DropdownLink from '@/Components/DropdownLink.vue';
                 </div>
                 <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
                   <!-- online builder btn  -->
-                  
                   <li>
-                    <p v-if="breadcrumbs">{{breadcrumbs}}</p>
-                   
                     <div class="flex items-center">
                         <i class="fa fa-user sm:mr-1"></i>
                         <NavLink :href="route('admin.dashboard')" :active="route().current('dashboard')">
                             <span class="hidden sm:inline">Dashboard</span>
                         </NavLink>
-                        
                     </div>
                   </li>
                   <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -180,14 +175,26 @@ import DropdownLink from '@/Components/DropdownLink.vue';
           </nav>
 </template>
 <script>
+import { usePage } from '@inertiajs/vue3';
+import { computed } from 'vue'
+
 export default {
-    computed: {
-        breadcrumbs() {
-            return this.$page.props.breadcrumbs;
-        },
+    setup() {
+        // Insert an element between all elements, insertBetween([1, 2, 3], '/') results in [1, '/', 2, '/', 3]
+        const insertBetween = (items, insertion) => {
+            return items.flatMap(
+                (value, index, array) =>
+                    array.length - 1 !== index
+                        ? [value, insertion]
+                        : value,
+            )
+        }
+
+        const breadcrumbs = computed(() => insertBetween(usePage().props.value.breadcrumbs || [], '/'))
+
+        return {
+            breadcrumbs,
+        }
     },
-};
+}
 </script>
-
-
-

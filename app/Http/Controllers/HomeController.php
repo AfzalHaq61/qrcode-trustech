@@ -13,6 +13,10 @@ class HomeController extends Controller
     }
     public function index()
     {
-        return Inertia::render('Admin/Index');
+        if(auth()->user()->role_id==2){
+            return Inertia::render('User/Index');
+        }else{
+            return Inertia::render('Admin/Index');
+        }
     }
 }

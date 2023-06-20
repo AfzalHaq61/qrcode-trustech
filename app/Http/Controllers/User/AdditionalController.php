@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use Inertia\Inertia;
 use App\Models\Plan;
 use App\Models\User;
 use Iodev\Whois\Factory as Whois;
@@ -33,7 +34,9 @@ class AdditionalController extends Controller
     // Whois Lookup
     public function whoisLookup()
     {
+        
         // Check active plans
+        return Inertia::render('User/Additional-tools/whois-lookup');
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
@@ -71,6 +74,7 @@ class AdditionalController extends Controller
     public function dnsLookup()
     {
         // Check active plans
+        return Inertia::render('User/Additional-tools/dns-lookup');
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
@@ -108,6 +112,8 @@ class AdditionalController extends Controller
     public function ipLookup()
     {
         // Check active plans
+        
+        return Inertia::render('User/Additional-tools/ip-lookup');
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
