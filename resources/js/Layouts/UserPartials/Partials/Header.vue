@@ -6,8 +6,12 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 </script>
 
 <template>
+
     <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+             
+      
+             
               <nav>
                 <!-- breadcrumb -->
                 <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
@@ -170,3 +174,27 @@ import DropdownLink from '@/Components/DropdownLink.vue';
             </div>
           </nav>
 </template>
+<script>
+import { usePage } from '@inertiajs/vue3';
+import { computed } from 'vue'
+
+export default {
+    setup() {
+        // Insert an element between all elements, insertBetween([1, 2, 3], '/') results in [1, '/', 2, '/', 3]
+        const insertBetween = (items, insertion) => {
+            return items.flatMap(
+                (value, index, array) =>
+                    array.length - 1 !== index
+                        ? [value, insertion]
+                        : value,
+            )
+        }
+
+        const breadcrumbs = computed(() => insertBetween(usePage().props.value.breadcrumbs || [], '/'))
+
+        return {
+            breadcrumbs,
+        }
+    },
+}
+</script>

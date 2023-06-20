@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Plan;
 use Inertia\Inertia;
+use App\Services\BreadcrumbService;
 use App\Models\Config;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -45,15 +46,20 @@ class PlanController extends Controller
     }
 
     // Add Plan
-    public function addPlan()
+    public function addPlan(BreadcrumbService $breadcrumbService)
     {
         // Queries
+        $breadcrumbs = $breadcrumbService->generate();
+       
+       
+      
         $config = Config::get();
         $settings = Setting::where('status', 1)->first();
 
         return Inertia::render('Admin/Plans/Add', [
             'settings' => $settings,
             'config' => $config,
+            'breadcrumbs'=>$breadcrumbs
         ]);
     }
 
