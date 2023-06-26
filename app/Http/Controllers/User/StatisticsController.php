@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\User;
 
+use Carbon\Carbon;
+use Inertia\Inertia;
 use App\Models\QrCode;
 use App\Models\Statistics;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 
 class StatisticsController extends Controller
 {
@@ -44,11 +45,37 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Text', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -63,10 +90,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.text', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Text', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
 
         } else {
@@ -102,11 +129,37 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Email', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -121,10 +174,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.email', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Email', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -159,11 +212,37 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Sms', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -178,10 +257,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.sms', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Sms', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -216,11 +295,36 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Redirect::to(json_decode($qrcode_details->settings)->whatsapp_send_msg_value);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -235,10 +339,8 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
+                // View page
                 return Redirect::to(json_decode($qrcode_details->settings)->whatsapp_send_msg_value);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -273,11 +375,36 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Redirect::to(json_decode($qrcode_details->settings)->url_value);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -292,10 +419,8 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
+                // View page
                 return Redirect::to(json_decode($qrcode_details->settings)->url_value);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -330,11 +455,38 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Pdf', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -349,10 +501,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.pdf', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Pdf', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -387,11 +539,38 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Location', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -406,10 +585,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.location', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Location', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -444,11 +623,38 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/phone', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -463,10 +669,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.phone', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Phone', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -501,11 +707,38 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Facetime', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -520,10 +753,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.facetime', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Facetime', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -558,11 +791,38 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Event', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
                 // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
@@ -577,10 +837,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.event', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Event', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -615,12 +875,39 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
-               // Save statistics
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Wifi', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
+                // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
                 $statistics->iso_code = $location->iso_code;
@@ -634,10 +921,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.wifi', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Wifi', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -672,12 +959,39 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
-               // Save statistics
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Crypto', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
+                // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
                 $statistics->iso_code = $location->iso_code;
@@ -691,10 +1005,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.crypto', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Crypto', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -729,12 +1043,37 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
-               /// Save statistics
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Redirect::to(json_decode($qrcode_details->settings)->paypal_link_value);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
+                // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
                 $statistics->iso_code = $location->iso_code;
@@ -748,10 +1087,9 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
+                // View page
                 return Redirect::to(json_decode($qrcode_details->settings)->paypal_link_value);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -786,12 +1124,39 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
-               // Save statistics
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Vcard', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
+                // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
                 $statistics->iso_code = $location->iso_code;
@@ -805,10 +1170,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.vcard', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Vcard', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -843,12 +1208,39 @@ class StatisticsController extends Controller
                 $browser_lang = 'en';
             }
 
-            // Check active plan
-            $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
-            $current_time = Carbon::now();
+            if(Auth::user()->role_id == 2) {
+                // User
+                // Check active plan
+                $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+                $current_time = Carbon::now();
 
-            if ($current_time < $plan_validity) {
-               // Save statistics
+                if ($current_time < $plan_validity) {
+                    // Save statistics
+                    $statistics = new Statistics();
+                    $statistics->qr_code_id = $id;
+                    $statistics->iso_code = $location->iso_code;
+                    $statistics->country_code = $location->country;
+                    $statistics->os_name = $agent->platform();
+                    $statistics->browser_name = $agent->browser();
+                    $statistics->city_name = $location->city;
+                    $statistics->referrer_host = "direct";
+                    $statistics->referrer_path = "";
+                    $statistics->device_type = $agent->device();
+                    $statistics->browser_language = $browser_lang;
+                    $statistics->save();
+
+                    // View page
+                    return Inertia::render('QrCodes/Upi', [
+                        'content' => $qrcode_details->settings,
+                    ]);
+
+                } else {
+                    // Redirect to Expired page
+                    return Inertia::render('Errors/Expired');
+                }
+            } else {
+                // Admin
+                // Save statistics
                 $statistics = new Statistics();
                 $statistics->qr_code_id = $id;
                 $statistics->iso_code = $location->iso_code;
@@ -862,10 +1254,10 @@ class StatisticsController extends Controller
                 $statistics->browser_language = $browser_lang;
                 $statistics->save();
 
-                return view('qrcode.pages.upi', [ 'content' => $qrcode_details->settings]);
-            } else {
-                // Redirect to Expired page
-                return view('qrcode.pages.expired');
+                // View page
+                return Inertia::render('QrCodes/Upi', [
+                    'content' => $qrcode_details->settings,
+                ]);
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));

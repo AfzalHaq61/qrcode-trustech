@@ -50,8 +50,8 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     // Check QR Code
     if (env('APP_TYPE') == 'QRCODE' || env('APP_TYPE') == 'BOTH') {
         // Create QR Code
-        // Route::get('qrcodes/all', [App\Http\Controllers\Admin\QRCodeController::class, "index"])->name('all.qr');
-        // Route::get('qrcode/create', [App\Http\Controllers\Admin\QRCodeController::class, "CreateQr"])->name('create.qr');
+        Route::get('qrcodes/all', [App\Http\Controllers\Admin\QRCodeController::class, "index"])->name('all.qr');
+        Route::get('qrcode/create', [App\Http\Controllers\Admin\QRCodeController::class, "CreateQr"])->name('create.qr');
         Route::post('qrcode/save', [App\Http\Controllers\Admin\QRCodeController::class, "saveQr"])->name('save.qr');
         Route::get('qrcode/edit/{id}', [App\Http\Controllers\Admin\QRCodeController::class, "editQr"])->name('edit.qr');
         Route::post('qrcode/update', [App\Http\Controllers\Admin\QRCodeController::class, "updateQr"])->name('update.qr');
@@ -144,17 +144,17 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     Route::get('settings/general-settings', [App\Http\Controllers\Admin\SettingController::class, "index"])->name('settings.general_settings');
     Route::get('settings/website-configuration-settings', [App\Http\Controllers\Admin\SettingController::class, "websiteConfigurationForm"])->name('settings.website_config_settings');
     Route::get('settings/website-qr-generator-configuration-settings', [App\Http\Controllers\Admin\SettingController::class, "websiteQrGeneratorConfigSetting"])->name('settings.website_qr_config_settings');
-    
+
     Route::get('settings/payment-method-configuration-setting', [App\Http\Controllers\Admin\SettingController::class, "paymentMethodConfigurationSetting"])->name('settings.payment_method_config_setting');
-    
+
     Route::get('settings/google-configuration-settings', [App\Http\Controllers\Admin\SettingController::class, "googleConfigurationSetting"])->name('settings.google_configuration_setting');
     Route::get('settings/email-configuration', [App\Http\Controllers\Admin\SettingController::class, "emailConfiguration"])->name('settings.email_configuration');
-    
+
     Route::get('settings/license', [App\Http\Controllers\Admin\SettingController::class, "Licence"])->name('settings.licence');
     Route::get('settings/tax-settings', [App\Http\Controllers\Admin\SettingController::class, "settingTax"])->name('settings.tax_setting');
     Route::get('settings/check-update', [App\Http\Controllers\Admin\SettingController::class, "checkUpdate"])->name('settings.check_update');
-    
-    
+
+
 
     Route::post('change-general-settings', [App\Http\Controllers\Admin\SettingController::class, "changeGeneralSettings"])->name('change.general.settings');
     Route::post('change-website-settings', [App\Http\Controllers\Admin\SettingController::class, "changeWebsiteSettings"])->name('change.website.settings');
@@ -187,7 +187,7 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
 
 Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
-  
+
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->name('dashboard');
 
     // Plans
@@ -271,5 +271,22 @@ Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' =
     Route::get('verify-email-verification', [App\Http\Controllers\User\VerificationController::class, "verifyEmailVerification"])->name('verify.email.verification');
     Route::get('resend-email-verification', [App\Http\Controllers\User\VerificationController::class, "resendEmailVerification"])->name('resend.email.verification');
 });
+
+// Dynamic links
+Route::get('qr/text/{id}', [App\Http\Controllers\User\StatisticsController::class, "text"])->name('text');
+Route::get('qr/email/{id}', [App\Http\Controllers\User\StatisticsController::class, "email"])->name('email');
+Route::get('qr/sms/{id}', [App\Http\Controllers\User\StatisticsController::class, "sms"])->name('sms');
+Route::get('qr/whatsapp/{id}', [App\Http\Controllers\User\StatisticsController::class, "whatsapp"])->name('whatsapp');
+Route::get('qr/url/{id}', [App\Http\Controllers\User\StatisticsController::class, "url"])->name('url');
+Route::get('qr/pdf/{id}', [App\Http\Controllers\User\StatisticsController::class, "pdf"])->name('pdf');
+Route::get('qr/location/{id}', [App\Http\Controllers\User\StatisticsController::class, "location"])->name('location');
+Route::get('qr/phone/{id}', [App\Http\Controllers\User\StatisticsController::class, "phone"])->name('phone');
+Route::get('qr/facetime/{id}', [App\Http\Controllers\User\StatisticsController::class, "facetime"])->name('facetime');
+Route::get('qr/event/{id}', [App\Http\Controllers\User\StatisticsController::class, "event"])->name('event');
+Route::get('qr/wifi/{id}', [App\Http\Controllers\User\StatisticsController::class, "wifi"])->name('wifi');
+Route::get('qr/crypto/{id}', [App\Http\Controllers\User\StatisticsController::class, "crypto"])->name('crypto');
+Route::get('qr/paypal/{id}', [App\Http\Controllers\User\StatisticsController::class, "paypal"])->name('paypal');
+Route::get('qr/vcard/{id}', [App\Http\Controllers\User\StatisticsController::class, "vcard"])->name('vcard');
+Route::get('qr/upi/{id}', [App\Http\Controllers\User\StatisticsController::class, "upi"])->name('upi');
 
 require __DIR__ . '/auth.php';
