@@ -100,8 +100,8 @@
                                                             <MenuItem v-slot="{ active }">
                                                                 <Link :href="route('admin.edit.qr', { id: qr_code.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
                                                             </MenuItem>
-                                                            <MenuItem v-slot="{ active }">
-                                                                <Link :href="route('admin.update.qr.status', { id: qr_code.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="qr_code.status === 0">Activate</span><span v-else>Deactivate</span></Link>
+                                                            <MenuItem v-slot="{ active }" @click="open = true">
+                                                                <Link :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="qr_code.status === 0">Activate</span><span v-else>Deactivate</span></Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
                                                                 <Link :href="route('admin.delete.qr', { id: qr_code.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</Link>
@@ -129,6 +129,7 @@
 <script setup>
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { ref } from 'vue'
+import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
 const open = ref(true)
 

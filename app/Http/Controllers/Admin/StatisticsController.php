@@ -15,6 +15,85 @@ use Illuminate\Support\Facades\Redirect;
 
 class StatisticsController extends Controller
 {
+    // Text
+    public function text(Request $request, $id)
+    {
+        // Check custom url found
+        $qrcode_count = QrCode::where('qr_code_id', $id)->count();
+
+        // count
+        if ($qrcode_count >= 1) {
+            // Queries
+            $qrcode_details = QrCode::where('qr_code_id', $id)->first();
+
+            // User ip address
+            $ip = $request->ip();
+
+            // Get location details
+            // $location = geoip()->getLocation($ip);
+
+            // Get User Agent
+            $agent = new Agent();
+            $agent->setHttpHeaders($ip);
+
+            if(isset($agent->languages()[1])){
+                $browser_lang = $agent->languages()[1];
+            }
+            else {
+                $browser_lang = 'en';
+            }
+
+            // Save statistics
+            $statistics = new Statistics();
+            $statistics->qr_code_id = $id;
+            $statistics->iso_code = 123;
+            $statistics->country_code = 'pakistan';
+            $statistics->os_name = $agent->platform();
+            $statistics->browser_name = $agent->browser();
+            $statistics->city_name = 'city';
+            $statistics->referrer_host = "direct";
+            $statistics->referrer_path = "";
+            $statistics->device_type = $agent->device();
+            $statistics->browser_language = $browser_lang;
+            $statistics->save();
+
+            // View page
+            return Inertia::render('QrCodes/Text', [
+                'content' => $qrcode_details->settings,
+            ]);
+
+            // Check active plan
+            // $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
+            // $current_time = Carbon::now();
+
+            // if ($current_time < $plan_validity) {
+                // Save statistics
+                // $statistics = new Statistics();
+                // $statistics->qr_code_id = $id;
+                // $statistics->iso_code = $location->iso_code;
+                // $statistics->country_code = $location->country;
+                // $statistics->os_name = $agent->platform();
+                // $statistics->browser_name = $agent->browser();
+                // $statistics->city_name = $location->city;
+                // $statistics->referrer_host = "direct";
+                // $statistics->referrer_path = "";
+                // $statistics->device_type = $agent->device();
+                // $statistics->browser_language = $browser_lang;
+                // $statistics->save();
+
+                // View page
+            //     return Inertia::render('QrCodes/Text', [
+            //         'content' => $qrcode_details->settings,
+            //     ]);
+            // } else {
+                // Redirect to Expired page
+            //     return Inertia::render('Errors/Expired');
+            // }
+
+        } else {
+            return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
+        }
+    }
     // Dynamic link
     public function dynamicLink(Request $request, $id)
     {

@@ -110,7 +110,7 @@ class QRCodeController extends Controller
         // Check QR Code Type (Text)
         if ($request->qrcode_type == 'text') {
             // generating & saving the qr code in folder
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/text/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/text/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -136,7 +136,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'url') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/url/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/url/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -167,7 +167,7 @@ class QRCodeController extends Controller
             $pdf = $request->file('content');
             $pdf_path = Storage::putFile('public/pdfs', $pdf);
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/pdf/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/pdf/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -193,7 +193,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'phone') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/phone/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/phone/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -219,7 +219,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'sms') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/sms/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/sms/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -247,7 +247,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'email') {
 
             // generating & saving the qr code in folder
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/email/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/email/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -277,7 +277,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'whatsapp') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/whatsapp/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/whatsapp/' . $qr_code_id, $directory . $qrImage);
 
             // Default Message
             $phone = " ";
@@ -319,7 +319,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'facetime') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/facetime/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/facetime/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -345,7 +345,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'location') {
 
             // generating & saving the qr code in folder
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/location/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/location/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -373,7 +373,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'wifi') {
 
             // generating & saving the qr code in folder
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/wifi/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/wifi/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -405,7 +405,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'event') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/event/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/event/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -439,7 +439,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'crypto') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/crypto/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/crypto/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -471,7 +471,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'vcard') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/vcard/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/vcard/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -523,7 +523,7 @@ class QRCodeController extends Controller
         if ($request->qrcode_type == 'paypal') {
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/paypal/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/paypal/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -569,7 +569,7 @@ class QRCodeController extends Controller
             }
 
             // generating & saving the qr code in folder'
-            $qrcode->encoding('UTF-8')->format('png')->generate(env('APP_URL') . '/qr/upi/' . $qr_code_id, $directory . $qrImage);
+            $qrcode->encoding('UTF-8')->format('png')->generate(url('/') . '/qr/upi/' . $qr_code_id, $directory . $qrImage);
 
             // Generate settings
             $settings =  json_encode(array(
@@ -1320,7 +1320,7 @@ class QRCodeController extends Controller
     public function getTypeQRCode(Request $request, $type)
     {
         // Queries
-        $qr_codes = QrCode::where('type', $request->type)->where('user_id', Auth::user()->id)->get();
+        $qr_codes = QrCode::where('type', $request->type)->where('user_id', Auth::user()->id)->paginate(10);
 
         return Inertia::render('Admin/QrCodes/TypeQrCodes', [
             'qr_codes' => $qr_codes,
