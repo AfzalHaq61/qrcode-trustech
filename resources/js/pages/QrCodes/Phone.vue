@@ -6,7 +6,7 @@
         </div>
         <div class="p-6 w-1/2 relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
             <div class="flex items-center justify-between pb-0 mb-2 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                <h6>Plain Text</h6>
+                <h6>Phone</h6>
             </div>
             <div class="mb-2">
                 <Label class="mb-1 block font-bold text-sm text-slate-700">Mobile Number</Label>
