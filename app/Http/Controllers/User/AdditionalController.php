@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Services\BreadcrumbService;
 
 class AdditionalController extends Controller
 {
@@ -32,11 +33,15 @@ class AdditionalController extends Controller
      */
 
     // Whois Lookup
-    public function whoisLookup()
+    public function whoisLookup(BreadcrumbService $breadcrumbService)
     {
         
         // Check active plans
-        return Inertia::render('User/Additional-tools/whois-lookup');
+        $breadcrumbs = $breadcrumbService->generate();
+   
+        return Inertia::render('User/Additional-tools/whois-lookup',[
+            'breadcrumbs'=>$breadcrumbs
+        ]);
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
@@ -71,10 +76,14 @@ class AdditionalController extends Controller
     }
 
     // DNS Lookup
-    public function dnsLookup()
+    public function dnsLookup(BreadcrumbService $breadcrumbService)
     {
         // Check active plans
-        return Inertia::render('User/Additional-tools/dns-lookup');
+        $breadcrumbs = $breadcrumbService->generate();
+    
+        return Inertia::render('User/Additional-tools/dns-lookup',[
+            'breadcrumbs'=>$breadcrumbs
+        ]);
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
@@ -109,11 +118,14 @@ class AdditionalController extends Controller
     }
 
     // IP Lookup
-    public function ipLookup()
+    public function ipLookup(BreadcrumbService $breadcrumbService)
     {
         // Check active plans
-        
-        return Inertia::render('User/Additional-tools/ip-lookup');
+        $breadcrumbs = $breadcrumbService->generate();
+   
+        return Inertia::render('User/Additional-tools/ip-lookup',[
+            'breadcrumbs'=>$breadcrumbs
+        ]);
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan

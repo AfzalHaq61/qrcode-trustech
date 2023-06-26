@@ -19,6 +19,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): Response
     {
+    
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
@@ -30,15 +31,22 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+
+        
         $request->authenticate();
 
         $request->session()->regenerate();
 
         if (Auth::check() && Auth::user()->role_id == 1) {
-            return Inertia::render('Admin.Index');
+            
+          
+            return redirect(RouteServiceProvider::adminDashboard);
+            // return Inertia::render('Admin.Index');
+          
         }
 
-        return Inertia::render('User.Index');
+        return redirect(RouteServiceProvider::HOME);
+        // return Inertia::render('User.Index');
     }
 
     /**

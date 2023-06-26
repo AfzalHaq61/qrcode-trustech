@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Gateway;
 use App\Models\Setting;
@@ -13,13 +14,24 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Services\BreadcrumbService;
 
 class CheckOutController extends Controller
 {
     // Checkout
-    public function checkout(Request $request, $id)
+    public function paymentStripe($id){
+        dd(\auth()->user());
+        return Inertia::render('User/Payment/payment-stripe');
+    }
+    public function checkout(Request $request, $id,BreadcrumbService $breadcrumbService)
     {
-        // Choosed plan
+       
+
+        $breadcrumbs = $breadcrumbService->generate();
+   
+        return Inertia::render('User/Checkout/Index',[
+            'breadcrumbs'=>$breadcrumbs
+        ]);
         $selected_plan = Plan::where('id', $id)->where('status', 1)->first();
 
         // Check selected plan status

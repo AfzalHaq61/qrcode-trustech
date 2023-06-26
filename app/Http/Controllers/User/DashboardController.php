@@ -9,6 +9,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Barcode;
+use Inertia\Inertia;
 use App\Models\QrCode;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,6 +34,9 @@ class DashboardController extends Controller
     // Dashboard
     public function index()
     {
+        
+       
+        return Inertia::render('User/Index');
         // User current plan details
         $plan = User::where('id', Auth::user()->id)->first();
         $active_plan = json_decode($plan->plan_details);

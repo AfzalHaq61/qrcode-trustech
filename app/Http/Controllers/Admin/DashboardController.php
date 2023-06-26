@@ -19,6 +19,9 @@ class DashboardController extends Controller
     // Dashboard
     public function index()
     {
+      
+       
+        return Inertia::render('Admin/Index');
         // Dashboard counts
         $settings = Setting::where('status', 1)->first();
         $config = Config::get();
