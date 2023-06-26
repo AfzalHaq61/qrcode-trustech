@@ -42,7 +42,8 @@ Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 
 
 
 
-Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+
+Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified','admin'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, "index"])->name('dashboard');
@@ -50,8 +51,9 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     // Check QR Code
     if (env('APP_TYPE') == 'QRCODE' || env('APP_TYPE') == 'BOTH') {
         // Create QR Code
-        // Route::get('qrcodes/all', [App\Http\Controllers\Admin\QRCodeController::class, "index"])->name('all.qr');
-        // Route::get('qrcode/create', [App\Http\Controllers\Admin\QRCodeController::class, "CreateQr"])->name('create.qr');
+       
+        Route::get('qrcodes/all', [App\Http\Controllers\Admin\QRCodeController::class, "index"])->name('all.qr');
+        Route::get('qrcode/create', [App\Http\Controllers\Admin\QRCodeController::class, "CreateQr"])->name('create.qr');
         Route::post('qrcode/save', [App\Http\Controllers\Admin\QRCodeController::class, "saveQr"])->name('save.qr');
         Route::get('qrcode/edit/{id}', [App\Http\Controllers\Admin\QRCodeController::class, "editQr"])->name('edit.qr');
         Route::post('qrcode/update', [App\Http\Controllers\Admin\QRCodeController::class, "updateQr"])->name('update.qr');
@@ -185,9 +187,10 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
 
 
 
-Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth','user'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
   
+    Route::get('payment-stripe/{id}',[App\Http\Controllers\User\CheckOutController::class, "paymentStripe"])->name("payment.stripe");
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->name('dashboard');
 
     // Plans

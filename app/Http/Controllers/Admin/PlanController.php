@@ -50,7 +50,7 @@ class PlanController extends Controller
     {
         // Queries
         $breadcrumbs = $breadcrumbService->generate();
-       
+      
        
       
         $config = Config::get();

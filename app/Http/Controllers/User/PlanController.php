@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Inertia\Inertia;
+use App\Services\BreadcrumbService;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
@@ -33,12 +34,16 @@ class PlanController extends Controller
      */
 
     // plans
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
         // Plans
 
-      
-        return Inertia::render('User/Plan/index');
+        $breadcrumbs = $breadcrumbService->generate();
+       
+       
+        return Inertia::render('User/Plan/index',[
+            'breadcrumbs'=>$breadcrumbs
+        ]);
         $plans = Plan::where('status', 1)->get();
 
         // Get access types

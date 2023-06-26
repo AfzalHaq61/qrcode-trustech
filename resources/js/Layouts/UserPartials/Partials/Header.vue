@@ -11,16 +11,20 @@ import DropdownLink from '@/Components/DropdownLink.vue';
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
              
       
-             
-              <nav>
-                <!-- breadcrumb -->
-                <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
-                  <li class="text-sm leading-normal">
-                    <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
-                  </li>
-                  <li class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']" aria-current="page">Dashboard</li>
+           
+             <nav>
+                <ol v-if="breadcrumbs" class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+                 
+                  <!-- <li class="text-sm leading-normal" v-for="(breadcrumb, index) in breadcrumbs" :key="index">
+                    <a class="opacity-50 text-slate-700" :href="breadcrumb.url">{{ breadcrumb.text }}</a>
+                  </li> -->
+                  <template v-for="(breadcrumb, index) in breadcrumbs" :key="index">
+                     <li  class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600"
+                          :class="{ [`before:content-['/']`]: index != 0 }"
+                          aria-current="page"><Link :href="breadcrumb.url">{{ breadcrumb.text }}</Link></li>
+                  </template>
                 </ol>
-                <h6 class="mb-0 font-bold capitalize">Dashboard</h6>
+                <h6 v-if="breadcrumbs" class="mb-0 font-bold capitalize" :href="breadcrumbs.slice(-1)[0].url">{{breadcrumbs.slice(-1)[0].text}}</h6>
               </nav>
 
               <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -175,26 +179,11 @@ import DropdownLink from '@/Components/DropdownLink.vue';
           </nav>
 </template>
 <script>
-import { usePage } from '@inertiajs/vue3';
-import { computed } from 'vue'
-
 export default {
-    setup() {
-        // Insert an element between all elements, insertBetween([1, 2, 3], '/') results in [1, '/', 2, '/', 3]
-        const insertBetween = (items, insertion) => {
-            return items.flatMap(
-                (value, index, array) =>
-                    array.length - 1 !== index
-                        ? [value, insertion]
-                        : value,
-            )
-        }
-
-        const breadcrumbs = computed(() => insertBetween(usePage().props.value.breadcrumbs || [], '/'))
-
-        return {
-            breadcrumbs,
-        }
+    computed: {
+        breadcrumbs() {
+            return this.$page.props.breadcrumbs;
+        },
     },
-}
+};
 </script>
