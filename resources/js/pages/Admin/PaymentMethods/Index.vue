@@ -1,6 +1,8 @@
 <template>
     <Head title="Payment Methods Index" />
     <AdminLayout>
+        
+        <ConfirmationModel ref="myChild"  :modalData="modalData"/>
         <div class="w-full px-6 py-6 mx-auto">
             <!-- table 1 -->
 
@@ -13,7 +15,7 @@
                         class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                         <div
                             class="flex justify-between p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                            <h6>Payment Methods</h6>
+                            <h6>Payment Methods </h6>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
                             <div class="p-0 overflow-x-auto">
@@ -64,10 +66,9 @@
                                             </td>
                                             <td
                                                 class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                <Link :href="route('admin.delete.payment.method', { id: payment_method.id })"
-                                                    class="text-xs font-semibold leading-tight text-slate-400 mr-2"><span
-                                                    v-if="payment_method.status == 0">Activate</span><span v-else>Dectivate</span>
-                                                </Link>
+                                               <button  class="text-xs font-semibold leading-tight text-slate-400 mr-2"   @click="activateDeactive(payment_method.id,payment_method.status)"><span
+                                                    v-if="payment_method.status == 0">Activate</span><span v-else>Dectivate</span></button>
+                                        
                                             </td>
                                         </tr>
                                     </tbody>
@@ -85,9 +86,29 @@
 
 <script setup>
 
+import {onActivated } from 'vue';
+import ConfirmationModel from '../../../Components/Modals/Modal.vue'
 const props = defineProps({
     payment_methods: Object,
-    settings: Object,
+    settings: Object
+
+});
+const id = ref(null);
+const modalData = ref({
+        title:'Are you sure?',
+        desc:'If you proceed, you will active/deactivate this payment method data.',
+        btnText:'Yes,Proceed',
+        link:''  
+})
+const myChild = ref(null);
+const activateDeactive=((idd,status)=>{
+    id.value=idd;
+    myChild.value.childMethod();
+     
+    modalData.value = {
+        ...modalData.value,
+        link: route('admin.delete.payment.method',{ 'id': idd })
+    }
 });
 
 </script>

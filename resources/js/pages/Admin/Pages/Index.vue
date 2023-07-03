@@ -199,8 +199,9 @@
     </AdminLayout>
 </template>
 
-<script setup>
 
+<script setup>
+import { ref } from 'vue'
 const props = defineProps({
     pages: Object,
     custom_pages: Object,

@@ -6,6 +6,7 @@
 
                 <!-- Success Messege -->
                 <Notifications />
+                <ConfirmationModel ref="myChild"  :modalData="modalData"/>
 
                 <div class="flex flex-wrap -mx-3">
                     <div class="flex-none w-full max-w-full px-3">
@@ -14,70 +15,6 @@
                             <h6>Users</h6>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
-                            <div class="space-y-2">
-  <!-- Button trigger vertically centered modal-->
-  <button
-    type="button"
-    class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-    data-te-toggle="modal"
-    data-te-target="#exampleModalCenter"
-    data-te-ripple-init
-    data-te-ripple-color="light">
-    Vertically centered modal
-  </button>
-
-
-</div>
-
-
-
-<!--Verically centered modal-->
-<div
-  data-te-modal-init
-  style="left: 21.5rem; !important"
-  class="fixed left-10 top-0 z-[1055] hidden h-full w-3/5 overflow-y-auto overflow-x-hidden outline-none"
-  id="exampleModalCenter"
-  tabindex="-1"
-  aria-labelledby="exampleModalCenterTitle"
-  aria-modal="true"
-  role="dialog">
-  <div
-    data-te-modal-dialog-ref
-    class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
-    <div
-      class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-      
-      <i class="fa-solid fa-check"></i>
-
-      <!--Modal body-->
-     
-
-      <!--Modal footer-->
-      <div
-        class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-        <button
-          type="button"
-          class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-          data-te-modal-dismiss
-          data-te-ripple-init
-          data-te-ripple-color="light">
-          Close
-        </button>
-        <button
-          type="button"
-          class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-          data-te-ripple-init
-          data-te-ripple-color="light">
-          Save changes
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
                             <div class="p-0 overflow-x-auto">
                             <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
                                 <thead class="align-bottom">
@@ -115,8 +52,8 @@
                                     <td class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                     <Link :href="route('admin.edit.user', { id: user.id })" class="text-xs font-semibold leading-tight text-slate-400 mr-2">Edit</Link>
                                     <Link :href="route('admin.change.user.plan', { id: user.id })" class="text-xs font-semibold leading-tight text-slate-400 mr-2">Change Plan</Link>
-                                    <Link :href="route('admin.update.status', { id: user.id })"  class="text-xs font-semibold leading-tight text-slate-400 mr-2"><span v-if="user.status == 0">Activate</span><span v-else>Dectivate</span> </Link>
-                                    <Link :href="route('admin.delete.user', { id: user.id })" class="text-xs font-semibold leading-tight text-slate-400">Delete</Link>
+                                    <button  @click="activateDeactivate(user.id)" class="text-xs font-semibold leading-tight text-slate-400 mr-2"><span v-if="user.status == 0">Activate</span><span v-else>Dectivate</span> </button>
+                                    <button  @click="deleteRecord(user.id)"  class="text-xs font-semibold leading-tight text-slate-400">Delete</Button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -137,6 +74,7 @@
 
 <script setup>
 import { ref,onMounted } from 'vue';
+import ConfirmationModel from '../../../Components/Modals/Modal.vue'
 import {
   Modal,
   initTE,
@@ -149,6 +87,34 @@ const props = defineProps({
 onMounted(() => {
     initTE({ Modal });
   });
+  const myChild = ref(null);
+  const modalData = ref({
+        title:'',
+        desc:'',
+        btnText:'Yes,Proceed',
+        link:''  
+ });
+ const deleteRecord=((idd)=>{
+    
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'WARNING!',
+        desc:'This action will remove user account and user data. It is not revertable action.',
+        link:route('admin.update.status', { 'id': idd })
+    } 
+    
+});
+const activateDeactivate=((idd)=>{
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'Are you sure?',
+        desc:'If you proceed, you will active/deactivate this user data.',
+        link:route('admin.update.status', { 'id': idd })
+    } 
+});
+
 
 </script>
 

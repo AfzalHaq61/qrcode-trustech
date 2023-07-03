@@ -5,6 +5,7 @@
             <!-- table 1 -->
 
             <!-- Success Messege -->
+            <ConfirmationModel ref="myChild"  :modalData="modalData"/>
             <Notifications />
 
             <div class="flex flex-wrap -mx-3">
@@ -77,10 +78,10 @@
                                                 <Link :href="route('admin.edit.plan', { id: plan.id })"
                                                     class="text-xs font-semibold leading-tight text-slate-400 mr-2">Edit
                                                 </Link>
-                                                <Link :href="route('admin.delete.plan', { id: plan.id })"
+                                                <button @click="activateDeactive(plan.id)"
                                                     class="text-xs font-semibold leading-tight text-slate-400 mr-2"><span
                                                     v-if="plan.status == 0">Activate</span><span v-else>Dectivate</span>
-                                                </Link>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -97,13 +98,28 @@
 </template>
 
 <script setup>
-
+import ConfirmationModel from '../../../Components/Modals/Modal.vue'
 const props = defineProps({
     plans: Object,
     currencies: Object,
     settings: Object,
     config: Object,
 });
+const modalData = ref({
+        title:'Are you sure?',
+        desc:'If you proceed, you will active/deactivate this payment method data.',
+        btnText:'Yes,Proceed',
+        link:''  
+})
+const myChild = ref(null);
+const activateDeactive=((idd)=>{
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        link: route('admin.delete.plan',{ 'id': idd })
+    }
+});
+
 
 </script>
 
