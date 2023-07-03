@@ -1,6 +1,6 @@
 <template>
     <Head title="Invoice" />
-    <AdminLayout>
+    <UserLayout>
         <div class="bg-gray-50 dark:bg-slate-900">
       <!-- Invoice -->
             <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto my-4 sm:my-10">
@@ -175,7 +175,7 @@
             </div>
       <!-- End Invoice -->
         </div>
-    </AdminLayout>
+    </UserLayout>
 </template>
 
 <script setup>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
+use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use App\Models\Currency;
@@ -11,7 +13,6 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 
 class TransactionsController extends Controller
 {
@@ -41,12 +42,16 @@ class TransactionsController extends Controller
 
         if ($current_time < $plan_validity) {
             // Queries
-            $transactions = Transaction::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+            $transactions = Transaction::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
             $settings = Setting::where('status', 1)->first();
             $currencies = Currency::get();
 
-            // Page view
-            return view('user.pages.transactions.index', compact('transactions', 'settings', 'currencies'));
+            // View page
+            return Inertia::render('User/Transactions/Index', [
+                'transactions' => $transactions,
+                'settings' => $settings,
+                'currencies' => $currencies,
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
@@ -61,6 +66,13 @@ class TransactionsController extends Controller
         $config = Config::get();
         $currencies = Currency::get();
         $transaction['billing_details'] = json_decode($transaction['invoice_details'], true);
-        return view('user.pages.transactions.view-invoice', compact('transaction', 'settings', 'config', 'currencies'));
+
+        // View invoice page
+        return Inertia::render('User/Transactions/ViewInvoice', [
+            'transaction' => $transaction,
+            'settings' => $settings,
+            'config' => $config,
+            'currencies' => $currencies,
+        ]);
     }
 }

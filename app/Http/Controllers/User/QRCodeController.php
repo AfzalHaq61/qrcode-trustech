@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use Imagick;
+use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use Spatie\Color\Hex;
 use App\Models\Config;
 use App\Models\QrCode;
@@ -15,7 +17,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Generator;
 use Illuminate\Support\Facades\Storage;
-use Carbon\Carbon;
 
 class QRCodeController extends Controller
 {
@@ -39,12 +40,14 @@ class QRCodeController extends Controller
     public function index()
     {
         // Get User QR Codes
-        $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
 
         // View page
-        return view('user.pages.qr-codes.index', compact('qr_codes', 'settings'));
-
+        return Inertia::render('User/QrCodes/Index', [
+            'qr_codes' => $qr_codes,
+            'settings' => $settings,
+        ]);
     }
 
     // Create QR Code
@@ -72,7 +75,7 @@ class QRCodeController extends Controller
             // Check user created qr code count
             if ($qr_code_count < $no_qrcodes) {
                 // View page
-                return view('user.pages.qr-codes.create');
+                return Inertia::render('User/QrCodes/Create');
             } else {
                 return redirect()->route('user.all.qr')->with('failed', trans('Maximum creation limit is exceeded, Please upgrade your plan.'));
             }
@@ -657,7 +660,10 @@ class QRCodeController extends Controller
             // Get QR code details
             $qr_code_details = QrCode::where('qr_code_id', $id)->where('qr_codes.user_id', Auth::user()->id)->first();
 
-            return view('user.pages.qr-codes.edit', compact('qr_code_details'));
+            // View page
+            return Inertia::render('User/QrCodes/Edit', [
+                'qr_code_details' => $qr_code_details
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
@@ -1391,7 +1397,10 @@ class QRCodeController extends Controller
             $qrcode_details = QrCode::where('qr_code_id', $id)->where('user_id', Auth::user()->id)->first();
             $config = Config::get();
 
-            return view('user.pages.qr-codes.download', compact('qrcode_details', 'config'));
+            // View page
+            return Inertia::render('User/QrCodes/Download', [
+                'qrcode_details' => $qrcode_details,
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
@@ -1402,9 +1411,12 @@ class QRCodeController extends Controller
     public function getTypeQRCode(Request $request, $type)
     {
         // Queries
-        $qr_codes = QrCode::where('type', $request->type)->where('user_id', Auth::user()->id)->get();
+        $qr_codes = QrCode::where('type', $request->type)->where('user_id', Auth::user()->id)->paginate(10);
 
-        return view('user.pages.qr-codes.type-qrcodes', compact('qr_codes'));
+        // View page
+        return Inertia::render('User/QrCodes/TypeQrCodes', [
+            'qr_codes' => $qr_codes,
+        ]);
     }
 
     // Regenerate QR Code

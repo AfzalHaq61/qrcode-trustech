@@ -1,6 +1,6 @@
 <template>
     <Head title="Barcode Create" />
-    <AdminLayout>
+    <UserLayout>
         <div class="w-full px-6 py-6 mx-auto">
             <!-- table 1 -->
 
@@ -152,7 +152,7 @@
                 </div>
             </div>
         </div>
-    </AdminLayout>
+    </UserLayout>
 </template>
 
 <script setup>
@@ -212,7 +212,7 @@ watch(() => form.barcode_type, (newBarcode_type) => {
 
 const regenerateBarCode = async () => {
     try {
-        const response = await axios.post(route('admin.regenerate.barcode'), form);
+        const response = await axios.post(route('user.regenerate.barcode'), form);
         barcodeImage.value = response.data.source;
     } catch (error) {
         console.error(error);
@@ -242,6 +242,6 @@ function downloadBarcode() {
 };
 
 const submit = () => {
-    form.post(route('admin.update.barcode'));
+    form.post(route('user.update.barcode'));
 };
 </script>

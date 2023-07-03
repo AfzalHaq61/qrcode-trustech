@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\User;
 
+use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use Inertia\Inertia;
 use Spatie\Color\Hex;
 use App\Models\Barcode;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 
 class BarCodeController extends Controller
 {
@@ -45,11 +46,14 @@ class BarCodeController extends Controller
 
         if ($current_time < $plan_validity) {
             // Get User Bar Codes
-            $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+            $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
             $settings = Setting::where('status', 1)->first();
 
             // View page
-            return view('user.pages.bar-codes.index', compact('bar_codes', 'settings'));
+            return Inertia::render('User/BarCodes/Index', [
+                'bar_codes' => $bar_codes,
+                'settings' => $settings,
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
@@ -75,7 +79,7 @@ class BarCodeController extends Controller
 
         // Check user created qr code count
         if ($bar_code_counts < $no_barcodes) {
-            return view('user.pages.bar-codes.create');
+            return Inertia::render('User/BarCodes/Create');
         } else {
             return redirect()->route('user.all.barcode')->with('failed', trans('Maximum barcode creation limit is exceeded, Please upgrade your plan.'));
         }
@@ -126,7 +130,10 @@ class BarCodeController extends Controller
         // Queries
         $barcode_details = Barcode::where('barcode_id', $id)->where('user_id', Auth::user()->id)->first();
 
-        return view('user.pages.bar-codes.edit', compact('barcode_details'));
+        // View page
+        return Inertia::render('User/BarCodes/Edit', [
+            'barcode_details' => $barcode_details
+        ]);
     }
 
     // Update bar code
@@ -218,7 +225,9 @@ class BarCodeController extends Controller
         // Queries
         $barcode_details = Barcode::where('barcode_id', $id)->where('user_id', Auth::user()->id)->first();
 
-        return view('user.pages.bar-codes.download', compact('barcode_details'));
+        return Inertia::render('User/BarCodes/Download', [
+            'barcode_details' => $barcode_details,
+        ]);
     }
 
     // Regenerate Barcode

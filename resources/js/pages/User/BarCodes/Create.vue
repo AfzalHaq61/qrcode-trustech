@@ -1,6 +1,6 @@
 <template>
     <Head title="Barcode Create" />
-    <AdminLayout>
+    <UserLayout>
         <div class="w-full px-6 py-6 mx-auto">
             <!-- table 1 -->
 
@@ -164,7 +164,7 @@
                 </div>
             </div>
         </div>
-    </AdminLayout>
+    </UserLayout>
 </template>
 
 <script setup>
@@ -243,6 +243,6 @@ function downloadBarcode() {
 };
 
 const submit = () => {
-    form.post(route('admin.save.barcode'));
+    form.post(route('user.save.barcode'));
 };
 </script>

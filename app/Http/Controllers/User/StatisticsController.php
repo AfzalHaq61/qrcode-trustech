@@ -1275,7 +1275,7 @@ class StatisticsController extends Controller
 
             // Get Country wise count
             $countries = Statistics::where('qr_code_id', $id)
-            ->groupBy('country_code')
+            ->groupBy('country_code', 'iso_code')
             ->get(DB::raw('count(*) as total, statistics.country_code, statistics.iso_code'));
 
             // Get City wise count
@@ -1306,7 +1306,16 @@ class StatisticsController extends Controller
             // Get QR Code Scanning Count
             $count = Statistics::where('qr_code_id', $id)->count();
 
-            return view('user.pages.statistics.index', compact('countries', 'cities', 'device_types', 'os_names', 'browser_names', 'browser_languages', 'count'));
+            return Inertia::render('User/Statistics/Index', [
+                'countries' => $countries,
+                'cities' => $cities,
+                'device_types' => $device_types,
+                'os_names' => $os_names,
+                'browser_names' => $browser_names,
+                'browser_languages' => $browser_languages,
+                'count' => $count
+            ]);
+
         } else {
             // Redirect plan
             return redirect()->route('user.plans');

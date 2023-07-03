@@ -9,7 +9,7 @@
                         <div class="flex items-center justify-between p-6 pb-0 mb-2 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                             <h6>Statistics</h6>
                         </div>
-                        <div class="grid grid-cols-2 gap-6 p-6">
+                        <div class="grid md:grid-cols-2 gap-6 p-6">
                             <!-- Countries -->
                             <div>
                                 <div class="flex mb-2">

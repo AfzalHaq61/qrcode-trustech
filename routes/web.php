@@ -43,7 +43,7 @@ Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 
 
 
 
-Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified','admin'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, "index"])->name('dashboard');
@@ -187,7 +187,7 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
 
 
 
-Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth','user'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
   
     Route::get('payment-stripe/{id}',[App\Http\Controllers\User\CheckOutController::class, "paymentStripe"])->name("payment.stripe");
