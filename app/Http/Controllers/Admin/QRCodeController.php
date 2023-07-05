@@ -38,6 +38,7 @@ class QRCodeController extends Controller
     // All User QR Codes
     public function index()
     {
+    
         // Get User QR Codes
         $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
