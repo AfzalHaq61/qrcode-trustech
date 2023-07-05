@@ -28,9 +28,9 @@ class BreadcrumbService
         $routeParams = $currentRoute->parameters();
        
        
-        if($request->route()->getPrefix()=='/admin'){
+        if($request->route()->getPrefix()=='admin'){
                 
-              
+             
                
                 // Generate breadcrumbs based on the route name
                 if ($routeName === 'admin.add.plan') {
@@ -53,7 +53,7 @@ class BreadcrumbService
                         ];
                 }
                 elseif ($routeName === 'admin.settings.website_config_settings') {
-
+                     
                     // Add a breadcrumb for another specific route
                         $breadcrumbs[] = [
                             'text' => 'Settings',

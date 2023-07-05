@@ -96,6 +96,7 @@ class SettingController extends Controller
         $config = Config::get();
         $settings = Setting::first();
         $breadcrumbs = $breadcrumbService->generate();
+        
 
         return Inertia::render('Admin/Settings/website-config-settings', [
             'config' => $config,
