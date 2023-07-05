@@ -86,64 +86,83 @@ class SettingController extends Controller
             'timezonelist' => $timezonelist,
             'currencies' => $currencies,
             'config' => $config,
-            'breadcrumbs'=>$breadcrumbs
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 
-    public function websiteConfigurationForm(BreadcrumbService $breadcrumbService){
+    public function websiteConfigurationForm(BreadcrumbService $breadcrumbService)
+    {
+
+        $config = Config::get();
+        $settings = Setting::first();
         $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/website-config-settings',[
-            'breadcrumbs'=>$breadcrumbs
+
+        return Inertia::render('Admin/Settings/website-config-settings', [
+            'config' => $config,
+            'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
         ]);
-          
-     
-    }
-    public function websiteQrGeneratorConfigSetting(BreadcrumbService $breadcrumbService){
-        
-      
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/website-qr-generator-config-settings',[
-            'breadcrumbs'=>$breadcrumbs
-        ]);
-    }
-    public function paymentMethodConfigurationSetting(BreadcrumbService  $breadcrumbService){
-       
-       $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/payment-method-configuration-setting',[
-        'breadcrumbs'=>$breadcrumbs
-        ]);
-    }
-    public function googleConfigurationSetting(BreadcrumbService  $breadcrumbService){
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/google-configuration-settings',[
-            'breadcrumbs'=>$breadcrumbs
-            ]);
-    }
-    public function emailConfiguration(BreadcrumbService  $breadcrumbService){
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/email-configuration-settings',[
-            'breadcrumbs'=>$breadcrumbs
-            ]);
-       
     }
 
-    public function Licence(BreadcrumbService  $breadcrumbService){
+    public function websiteQrGeneratorConfigSetting(BreadcrumbService $breadcrumbService)
+    {
+
+        $config = Config::get();
+        $settings = Setting::first();
         $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/license',[
-            'breadcrumbs'=>$breadcrumbs
-            ]);
+
+        return Inertia::render('Admin/Settings/website-qr-generator-config-settings', [
+            'config' => $config,
+            'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
+        ]);
     }
-    public function settingTax(BreadcrumbService  $breadcrumbService){
+
+    public function paymentMethodConfigurationSetting(BreadcrumbService  $breadcrumbService)
+    {
         $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/tax-settings',[
-            'breadcrumbs'=>$breadcrumbs
-            ]);
+        return Inertia::render('Admin/Settings/payment-method-configuration-setting', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
     }
-    public function checkUpdate(BreadcrumbService  $breadcrumbService){
+
+    public function googleConfigurationSetting(BreadcrumbService  $breadcrumbService)
+    {
         $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/check-update',[
-            'breadcrumbs'=>$breadcrumbs
-            ]);
+        return Inertia::render('Admin/Settings/google-configuration-settings', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    public function emailConfiguration(BreadcrumbService  $breadcrumbService)
+    {
+        $breadcrumbs = $breadcrumbService->generate();
+
+        return Inertia::render('Admin/Settings/email-configuration-settings', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    public function Licence(BreadcrumbService  $breadcrumbService)
+    {
+        $breadcrumbs = $breadcrumbService->generate();
+        return Inertia::render('Admin/Settings/license', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+    public function settingTax(BreadcrumbService  $breadcrumbService)
+    {
+        $breadcrumbs = $breadcrumbService->generate();
+        return Inertia::render('Admin/Settings/tax-settings', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+    public function checkUpdate(BreadcrumbService  $breadcrumbService)
+    {
+        $breadcrumbs = $breadcrumbService->generate();
+        return Inertia::render('Admin/Settings/check-update', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
     }
     // Update General Setting
     public function changeGeneralSettings(Request $request)

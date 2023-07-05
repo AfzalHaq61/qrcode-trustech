@@ -51,7 +51,7 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     // Check QR Code
     if (env('APP_TYPE') == 'QRCODE' || env('APP_TYPE') == 'BOTH') {
         // Create QR Code
-       
+
         Route::get('qrcodes/all', [App\Http\Controllers\Admin\QRCodeController::class, "index"])->name('all.qr');
         Route::get('qrcode/create', [App\Http\Controllers\Admin\QRCodeController::class, "CreateQr"])->name('create.qr');
         Route::post('qrcode/save', [App\Http\Controllers\Admin\QRCodeController::class, "saveQr"])->name('save.qr');
@@ -156,8 +156,6 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     Route::get('settings/tax-settings', [App\Http\Controllers\Admin\SettingController::class, "settingTax"])->name('settings.tax_setting');
     Route::get('settings/check-update', [App\Http\Controllers\Admin\SettingController::class, "checkUpdate"])->name('settings.check_update');
 
-
-
     Route::post('change-general-settings', [App\Http\Controllers\Admin\SettingController::class, "changeGeneralSettings"])->name('change.general.settings');
     Route::post('change-website-settings', [App\Http\Controllers\Admin\SettingController::class, "changeWebsiteSettings"])->name('change.website.settings');
     Route::post('change-website-qr-generator-settings', [App\Http\Controllers\Admin\SettingController::class, "changeWebsiteQrGeneratorSettings"])->name('change.website.qr.generator.settings');
@@ -189,7 +187,7 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
 
 Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
-  
+
     Route::get('payment-stripe/{id}',[App\Http\Controllers\User\CheckOutController::class, "paymentStripe"])->name("payment.stripe");
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->name('dashboard');
 

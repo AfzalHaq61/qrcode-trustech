@@ -64,19 +64,19 @@
                     </template>
                     <template v-slot:subnav>
                         <div class="ml-11">
-                            <div v-if="$page.props.appType === 'QRCODE'">
+                            <div v-if="$page.props.APP_TYPE === 'QRCODE'">
                                 <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.all.qr')">
                                     <span class="duration-300 opacity-100 pointer-events-none ease-soft">QR Codes</span>
                                 </Link>
                             </div>
 
-                            <div v-if="$page.props.appType === 'BARCODE'">
+                            <div v-if="$page.props.APP_TYPE === 'BARCODE'">
                                 <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.all.barcode')">
                                     <span class="duration-300 opacity-100 pointer-events-none ease-soft">Barcodes</span>
                                 </Link>
                             </div>
 
-                            <div v-if="$page.props.appType === 'BOTH'">
+                            <div v-if="$page.props.APP_TYPE === 'BOTH'">
                                 <Link class="py-1 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.all.qr')">
                                     <span class="duration-300 opacity-100 pointer-events-none ease-soft">QR Codes</span>
                                 </Link>

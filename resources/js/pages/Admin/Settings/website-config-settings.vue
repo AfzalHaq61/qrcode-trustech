@@ -1,151 +1,160 @@
 <template>
-                
     <SettingSideBarLayout>
+        <div class="col-span-8 w-full px-6 py-6 mx-auto">
+            <!-- Website Configuration Settings -->
+            <form @submit.prevent="submit" role="form">
+                    <h6 class="text-lg font-bold dark:text-white">Website Configuration Settings</h6>
 
-      <div class="col-span-8">
+                    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-6 mb-5">
+                        <div class="px-1 sm:col-span-6">
+                            <Label class="mb-2 ml-0 font-bold text-xs text-slate-700" for="banner image">Theme Colors <span class="text-red-600">*</span></Label>
+                            <div class="radio-group">
+                                <label class="radio-container">
+                                    <input value="blue" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark"></span>
+                                </label>
 
-      <form   role="form">
-        <h6 class="text-lg font-bold dark:text-white">Website Configuration Settings</h6>
+                                <label class="radio-container">
+                                    <input value="indigo" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark-one"></span>
+                                </label>
 
-        <div class="mt-10 grid grid-cols-1 gap-x-2 gap-y-8 sm:grid-cols-6">
-            
-            <div class="px-1 sm:col-span-6">
-              <Label class="mb-2 ml-0 font-bold text-xs text-slate-700" for="banner image">Theme Colors <span class="text-red-600">*</span></Label>                
-      <div class="radio-group">
-              <label class="radio-container">
-              <input value="#3131de" type="radio" name="theme_color">
-              <span class="checkmark"></span>
+                                <label class="radio-container">
+                                    <input value="green" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark-two"></span>
+                                </label>
 
-              </label>
-              <label class="radio-container">
-              <input value="#150347"  type="radio" name="theme_color">
-              <span class="checkmark-one"></span>
+                                <label class="radio-container">
+                                    <input value="yellow" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark-three"></span>
+                                </label>
 
-              </label>
-              <label class="radio-container">
-              <input value="#06a84a" type="radio" name="theme_color">
-              <span class="checkmark-two"></span>
+                                <label class="radio-container">
+                                    <input value="red" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark-four"></span>
+                                </label>
 
-              </label>
-              <label class="radio-container">
-              <input value="#b3a106" type="radio" name="theme_color">
-              <span class="checkmark-three"></span>
+                                <label class="radio-container">
+                                    <input value="purple" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark-five"></span>
+                                </label>
 
-              </label>
+                                <label class="radio-container">
+                                    <input value="pink" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark-six"></span>
+                                </label>
 
-              <label class="radio-container">
-              <input value="#bd101e" type="radio" name="theme_color">
-              <span class="checkmark-four"></span>
-              </label>
-              <label class="radio-container">
-              <input value="#720872" type="radio" name="theme_color">
-              <span class="checkmark-five"></span>
-              </label>
-              <label class="radio-container">
-              <input value="#773943" type="radio" name="theme_color">
-              <span class="checkmark-six"></span>
-              </label>
-              <label class="radio-container">
-              <input value="#808080" type="radio" name="theme_color">
-              <span class="checkmark-seven"></span>
-              </label>
+                                <label class="radio-container">
+                                    <input value="gray" v-model="form.app_theme" type="radio" name="app_theme">
+                                    <span class="checkmark-seven"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-0 grid grid-cols-1 gap-6 sm:grid-cols-6 mb-5">
+                        <div class="sm:col-span-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="banner image">Banner Image <span class="text-red-600">*</span></Label>
+                            <div class="sm:col-span-3">
+                                <input @change="getPrimaryImage($event)" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                                    type="file" name="primary_image" id="primary_image" autofocus placeholder="Banner Image ..." accept=".png,.jpg,.jpeg,.gif,.svg">
+                                <span class="mb-2 ml-1 font-bold text-xs text-slate-700">recommended size: 1000 x 667</span>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Email">Website Logo <span class="text-red-600">*</span></Label>
+                            <input @change="getSiteLogo($event)" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                                type="file" name="site_logo" id="site_logo" autofocus placeholder="Website Logo ..." accept=".png,.jpg,.jpeg,.gif,.svg">
+                            <span class="mb-2 ml-1 font-bold text-xs text-slate-700">recommended size: 200 x 90</span>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Email">Favicon <span class="text-red-600">*</span></Label>
+                            <input @change="getFavIcon($event)" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                                type="file" name="favi_icon" id="favi_icon" autofocus placeholder="Favicon ..." accept=".png,.jpg,.jpeg,.gif,.svg">
+                            <span class="mb-2 ml-1 font-bold text-xs text-slate-700">recommended size: 200 x 200</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-6 mb-5">
+                        <div class="sm:col-span-3">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="app_name">App Name<span class="text-red-600"> *</span></Label>
+                            <input
+                                v-model="form.app_name" id="app_name" name="app_name" placeholder="App Name ..." readonly
+                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            />
+                        </div>
+                        <div class="sm:col-span-3">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="site_name">Site Name<span class="text-red-600"> *</span></Label>
+                            <input
+                                v-model="form.site_name" id="site_name" name="site_name" placeholder="Site Name ..." required
+                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-6">
+                        <div class="sm:col-span-3">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="seo_meta_desc">SEO Meta Description<span class="text-red-600"> *</span></Label>
+                            <textarea  v-model="form.seo_meta_desc" id="seo_meta_desc" name="seo_meta_desc" placeholder="SEO Meta Description ..." required rows="3" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"></textarea>
+                        </div>
+                        <div class="sm:col-span-3">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="meta_keywords">SEO Keywords<span class="text-red-600"> *</span></Label>
+                            <textarea v-model="form.meta_keywords" id="meta_keywords" name="meta_keywords" placeholder="SEO Keywords (Keyword 1, Keyword 2 ..." required rows="3" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+                        <PrimaryButton :class="{ 'opacity-25': form.processing }"
+                            :disabled="form.processing">
+                            Update
+                        </PrimaryButton>
+                    </div>
+            </form>
       </div>
-            </div>
-      </div>  
-
-     
-          <div class="mt-0 grid grid-cols-1 gap-x-2 gap-y-8 sm:grid-cols-6">
-            
-              <div class="sm:col-span-2">
-                  <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="banner image">Banner Image <span class="text-red-600">*</span></Label>
-                  <div class="sm:col-span-3">
-    
-                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-                    <span>recommended size: 1000 x 667</span>
-                  </div> 
-          
-              </div>
-              <div class="sm:col-span-2">
-                      <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Email">Website Logo <span class="text-red-600">*</span></Label>
-                      <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-                      <span>recommended size: 200 x 90</span> 
-              </div>
-              <div class="sm:col-span-2">
-                      <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Email">Favicon <span class="text-red-600">*</span></Label>
-                      <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-                      <span>recommended size: 200 x 200</span>
-              </div>
-          </div>
-          <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div class="sm:col-span-3">
-                        <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">App Name<span class="text-red-600">*</span></Label>
-                        <input
-                        v-model="form.appName"
-                        class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                       
-                       
-                        />
-                       
-                    </div>
-                    <div class="sm:col-span-3">
-                        <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Site Name<span class="text-red-600">*</span></Label>
-                         <input
-                         v-model="form.siteName"
-                        class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                       
-                        /> 
-                    </div>
-         </div>
-
-         <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div class="sm:col-span-3">
-                        <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">SEO Meta Description<span class="text-red-600">*</span></Label>
-                        <textarea  v-model="form.seoMetaDescription" id="message" rows="2" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Write your thoughts here..."></textarea>
-
-
-                    </div>
-                    <div class="sm:col-span-3">
-                        <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">SEO Keywords<span class="text-red-600">*</span></Label>
-                         <textarea id="message" v-model="form.seoKeyword" rows="2" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Write your thoughts here..."></textarea>
-
-                    </div>
-         </div>
-
-      
-        
-
-          <div class="flex items-center justify-end mt-4">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                   Update
-                 </button>
-          </div>
-      </form>
-       
-         
-      </div>
-    <!-- side bar menu list -->
-      <!-- <div class="col-span-8">
-        <GeneralConfigSetting/>
-      </div> -->
-        <!-- main content -->
-    </SettingSideBarLayout>        
-
-          
+    </SettingSideBarLayout>
 </template>
 
 <script setup>
+import { usePage } from '@inertiajs/vue3'
 import SettingSideBarLayout from '../../../AdminSettingLayout/sidebar.vue'
-import GeneralConfigSetting from '../../../Components/Settings/GeneralSettings/GeneralConfigurationSetting.vue'
-import { ref } from 'vue'
 import { useForm } from '@inertiajs/vue3';
 
-const form = useForm({
-    seoKeyword: '',
-    seoMetaDescription: 'Ultimate QR is the advance customizable QR code generator. Ultimate QR is simple and modern application to create powerful QR Codes.',
-    appName: '',
-    seoKeyword:'qr code maker, qr code generator , barcode maker, barcode generator',
+const page = usePage();
+
+const props = defineProps({
+    config: Object,
+    settings: Object
 });
+
+const form = useForm({
+    app_theme: props.config[11].config_value,
+    primary_image: '',
+    site_logo: '',
+    favi_icon: '',
+    app_name: page.props.appName,
+    site_name: props.settings.site_name,
+    seo_meta_desc: props.settings.seo_meta_description,
+    meta_keywords: props.settings.seo_keywords
+});
+
+function getPrimaryImage($event) {
+    form.primary_image = $event.target.files[0];
+}
+
+function getSiteLogo($event) {
+    form.site_logo = $event.target.files[0];
+}
+
+function getFavIcon($event) {
+    form.favi_icon = $event.target.files[0];
+}
+
+const submit = () => {
+    form.post(route('admin.change.website.settings'));
+};
+
 </script>
+
 <style scoped>
 .radio-group {
   display: flex;
@@ -170,12 +179,10 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: #3131de;
-  border: 1px solid #3131de;
+  background: blue;
+  border: 1px solid blue;
   margin-right: 5px;
 }
-
-
 .checkmark::after {
   content: "";
   position: absolute;
@@ -195,8 +202,8 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: #150347;
-  border: 1px solid #150347;
+  background: indigo;
+  border: 1px solid indigo;
   margin-right: 5px;
 }
 
@@ -221,13 +228,11 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: #06a84a;
-  border: 1px solid #06a84a;
+  background: green;
+  border: 1px solid green;
 ;
   margin-right: 5px;
 }
-
-
 .checkmark-two::after {
   content: "";
   position: absolute;
@@ -247,14 +252,11 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: #b3a106;
-  border: 1px solid #b3a106;
+  background: yellow;
+  border: 1px solid yellow;
 ;
   margin-right: 5px;
 }
-
-
-
 .checkmark-three::after {
   content: "";
   position: absolute;
@@ -274,8 +276,8 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: #bd101e;
-  border: 1px solid #bd101e;
+  background: red;
+  border: 1px solid red;
 ;
   margin-right: 5px;
 }
@@ -299,9 +301,8 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: rgb(114, 8, 114);
-  border: 1px solid #720872;
-;
+  background: purple;
+  border: 1px solid purple;
   margin-right: 5px;
 }
 
@@ -324,9 +325,8 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: rgb(184, 66, 85);
-  border: 1px solid #773943;
-;
+  background: pink;
+  border: 1px solid pink;
   margin-right: 5px;
 }
 
@@ -349,9 +349,8 @@ const form = useForm({
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: #808080;
-  border: 1px solid #808080;
-;
+  background: gray;
+  border: 1px solid gray;
   margin-right: 5px;
 }
 
@@ -368,9 +367,6 @@ const form = useForm({
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
-
-
-
 
 .radio-container input[type="radio"]:checked + .checkmark::after {
   opacity: 1;
@@ -398,11 +394,6 @@ const form = useForm({
 .radio-container input[type="radio"]:checked + .checkmark-seven::after {
   opacity: 1;
 }
-
-/* .radio-container:hover  {
-  opacity: 0.5;
-} */
-
 
 </style>
 

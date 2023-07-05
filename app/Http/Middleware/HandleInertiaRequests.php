@@ -45,7 +45,10 @@ class HandleInertiaRequests extends Middleware
             'appName' => 'QR Code',
             'imagePath' => 'http://127.0.0.1:8001/',
             'appUrl' => 'http://127.0.0.1:8001/',
-            'appType' => 'BOTH'
+            'TIMEZONE' => env('TIMEZONE'),
+            'APP_TYPE' => env('APP_TYPE'),
+            'COOKIE_CONSENT_ENABLED' => env('COOKIE_CONSENT_ENABLED'),
+            'SIZE_LIMIT' => env('SIZE_LIMIT'),
         ]);
     }
 }

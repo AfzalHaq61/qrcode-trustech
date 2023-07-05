@@ -62,7 +62,7 @@
 
                                             <InputError class="mt-2" :message="form.errors.meta_description" />
                                         </div>
-                                </div>
+                                    </div>
 
                                     <div class="flex items-center justify-end mt-4">
                                         <PrimaryButton :class="{ 'opacity-25': form.processing }"

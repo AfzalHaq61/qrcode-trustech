@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Inertia\Inertia;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +30,7 @@ class AuthenticationLogController extends Controller
     public function index()
     {
         // Queries
-        $logs = DB::table('authentication_log')->orderBy('id', 'desc')->get();
+        $logs = DB::table('authentication_log')->orderBy('id', 'desc')->paginate(10);
 
         // Loop
         for ($i = 0; $i < count($logs); $i++) {
@@ -59,6 +60,9 @@ class AuthenticationLogController extends Controller
             $logs[$i]->browser = $agent->browser();
         }
 
-        return view('admin.pages.logs.index', compact('logs'));
+        // View page
+        return Inertia::render('Admin/Logs/Index', [
+            'logs' => $logs
+        ]);
     }
 }
