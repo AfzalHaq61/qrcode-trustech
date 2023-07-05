@@ -44,7 +44,7 @@ class UserController extends Controller
         $users = User::where('role_id', '2')->orderBy('created_at', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $config = Config::get();
-
+        
         return Inertia::render('Admin/Users/Index', [
             'users' => $users,
             'settings' => $settings,

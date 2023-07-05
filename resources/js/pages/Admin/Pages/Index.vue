@@ -5,6 +5,7 @@
 
             <!-- Success Messege -->
             <Notifications />
+            <ConfirmationModel ref="myChild"  :modalData="modalData"/>
 
             <!-- Static pages table -->
             <div class="flex flex-wrap -mx-3">
@@ -175,14 +176,14 @@
                                                     :href="route('admin.edit.custom.page', { id: custom_page.id })"
                                                     class="text-xs font-semibold leading-tight text-slate-400 mr-2">Edit
                                                 </Link>
-                                                <Link
-                                                    :href="route('admin.status.page', { id: custom_page.id })"
+                                                <button
+                                                    @click="activateDeactivate(custom_page.id)"
                                                     class="text-xs font-semibold leading-tight text-slate-400 mr-2"><span v-if="custom_page.status === 0">Enable</span><span v-else>Disable</span>
-                                                </Link>
-                                                <Link
-                                                    :href="route('admin.delete.page', { id: custom_page.id })"
+                                                </button>
+                                                <button
+                                                     @click="deleteRecord(custom_page.id)"
                                                     class="text-xs font-semibold leading-tight text-slate-400 mr-2">Delete
-                                                </Link>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -202,6 +203,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import ConfirmationModel from '../../../Components/Modals/Modal.vue'
 const props = defineProps({
     pages: Object,
     custom_pages: Object,
@@ -209,9 +211,39 @@ const props = defineProps({
     currencies: Object,
 });
 
+
+const myChild = ref(null);
+  const modalData = ref({
+        title:'',
+        desc:'',
+        btnText:'Yes,Proceed',
+        link:''  
+ });
+    const deleteRecord=((idd)=>{
+        
+        myChild.value.childMethod();
+        modalData.value = {
+            ...modalData.value,
+            title:'WARNING!',
+            desc:'This action will remove user account and user data. It is not revertable action.',
+            link:route('admin.delete.page', { id:idd })
+        } 
+        
+    });
+    const activateDeactivate=((idd)=>{
+        myChild.value.childMethod();
+        modalData.value = {
+            ...modalData.value,
+            title:'Are you sure?',
+            desc:'If you proceed, you will active/deactivate this user data.',
+            link:route('admin.status.page', { id: idd })
+        } 
+    });
+
 </script>
 
 <script>
+
 export default {
     methods: {
         formatDate(date) {

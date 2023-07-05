@@ -33,6 +33,7 @@ class BarCodeController extends Controller
     // All User Bar Codes
     public function index()
     {
+       
         // Get User Bar Codes
         $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
