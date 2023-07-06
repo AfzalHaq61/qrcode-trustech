@@ -5,6 +5,7 @@
             <!-- table 1 -->
 
             <!-- Success Messege -->
+            <ConfirmationModel ref="myChild"  :modalData="modalData"/>
             <Notifications />
 
             <div class="flex flex-wrap -mx-3">
@@ -101,10 +102,10 @@
                                                                 <Link :href="route('admin.edit.qr', { id: qr_code.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
-                                                                <Link :href="route('admin.update.qr.status', { id: qr_code.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="qr_code.status === 0">Activate</span><span v-else>Deactivate</span></Link>
+                                                                <button @click="activateDeactivate(qr_code.qr_code_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="qr_code.status === 0">Activate</span><span v-else>Deactivate</span></button>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
-                                                                <Link :href="route('admin.delete.qr', { id: qr_code.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</Link>
+                                                                <button  @click="deleteRecord(qr_code.qr_code_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</button>
                                                             </MenuItem>
                                                             </div>
                                                         </MenuItems>
@@ -129,13 +130,45 @@
 <script setup>
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { ref } from 'vue'
+import ConfirmationModel from '../../../Components/Modals/Modal.vue'
 
 const open = ref(true)
+
 
 const props = defineProps({
     qr_codes: Object,
     settings: Object,
 });
+
+const myChild = ref(null);
+  const modalData = ref({
+        title:'',
+        desc:'',
+        btnText:'Yes,Proceed',
+        link:''  
+ });
+ const deleteRecord=((idd)=>{
+    
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'WARNING!',
+        desc:'This action will remove user account and user data. It is not revertable action.',
+        link:route('admin.delete.qr', { id: idd })
+    } 
+    
+});
+
+const activateDeactivate=((idd)=>{
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'Are you sure?',
+        desc:'If you proceed, you will active/deactivate this user data.',
+        link:route('admin.update.qr.status', { id: idd })
+    } 
+});
+
 
 </script>
 

@@ -270,6 +270,8 @@ class StatisticsController extends Controller
     // Whatsapp
     public function whatsapp(Request $request, $id)
     {
+        dd(1);
+      
         // Check custom url found
         $qrcode_count = QrCode::where('qr_code_id', $id)->count();
 

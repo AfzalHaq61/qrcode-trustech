@@ -6,6 +6,7 @@
 
             <!-- Success Messege -->
             <Notifications />
+            <ConfirmationModel ref="myChild"  :modalData="modalData"/>
 
             <div class="flex flex-wrap -mx-3">
                 <div class="flex-none w-full max-w-full px-3">
@@ -87,8 +88,8 @@
                                                 </Link>
                                                 <Link v-if="transaction.payment_status != 'PENDING'" :href="route('admin.trans.status', { id: transaction.id, status: 'PENDING'})"
                                                     class="text-xs font-semibold leading-tight text-slate-400 mr-2">Pending</Link>
-                                                <Link v-if="transaction.payment_status != 'SUCCESS'" :href="route('admin.trans.status', { id: transaction.id, status: 'SUCCESS' })"
-                                                    class="text-xs font-semibold leading-tight text-slate-400 mr-2">Success</Link>
+                                                <button @click="success(transaction.id)" v-if="transaction.payment_status != 'SUCCESS'" 
+                                                    class="text-xs font-semibold leading-tight text-slate-400 mr-2">Success</button>
                                                 <Link v-if="transaction.payment_status != 'FAILED'" :href="route('admin.trans.status', { id: transaction.id, status: 'FAILED' })"
                                                     class="text-xs font-semibold leading-tight text-slate-400">Failed</Link>
                                             </td>
@@ -108,11 +109,31 @@
 </template>
 
 <script setup>
-
+import { ref } from 'vue'
+import ConfirmationModel from '../../../Components/Modals/Modal.vue'
 const props = defineProps({
     transactions: Object,
     settings: Object,
     currencies: Object,
+});
+
+const myChild = ref(null);
+  const modalData = ref({
+        title:'',
+        desc:'',
+        btnText:'Yes,Proceed',
+        link:''  
+ });
+ const success=((idd)=>{
+    
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'Are you sure?',
+        desc:'If you proceed with this transaction, you will have payment status success this plan.',
+        link:route('admin.trans.status', { id: idd, status: 'SUCCESS' })
+    } 
+    
 });
 
 </script>
