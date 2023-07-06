@@ -36,6 +36,7 @@ class TransactionController extends Controller
     public function index()
     {
         // Queries
+   
         $transactions = Transaction::where('payment_gateway_name', '!=', 'Offline')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $currencies = Currency::get();
@@ -96,6 +97,7 @@ class TransactionController extends Controller
     // Offline transactions
     public function offlineTransactions()
     {
+        
         // All offline transactions
         $transactions = Transaction::where('payment_gateway_name', 'Offline')->paginate(10);
         $settings = Setting::where('status', 1)->first();
