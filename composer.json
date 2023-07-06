@@ -9,6 +9,7 @@
         "diglactic/laravel-breadcrumbs": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.8",
+        "io-developer/php-whois": "^4.1",
         "jenssegers/agent": "^2.6",
         "joedixon/laravel-translation": "^2.2",
         "laravel/framework": "^10.10",

@@ -35,13 +35,10 @@ class AdditionalController extends Controller
     // Whois Lookup
     public function whoisLookup(BreadcrumbService $breadcrumbService)
     {
-        
+
         // Check active plans
         $breadcrumbs = $breadcrumbService->generate();
-   
-        return Inertia::render('User/Additional-tools/whois-lookup',[
-            'breadcrumbs'=>$breadcrumbs
-        ]);
+
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
@@ -53,7 +50,9 @@ class AdditionalController extends Controller
 
         if ($current_time < $plan_validity) {
             // Page rendor
-            return view('user.pages.additional.whois-lookup');
+            return Inertia::render('User/Additional/WhoisLookup', [
+                'breadcrumbs' => $breadcrumbs
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
@@ -61,8 +60,10 @@ class AdditionalController extends Controller
     }
 
     // Search Whois Lookup
-    public function resultWhoisLookup(Request $request)
+    public function resultWhoisLookup(Request $request, BreadcrumbService $breadcrumbService)
     {
+        $breadcrumbs = $breadcrumbService->generate();
+
         // Queries
         $domain = str_replace(['http://', 'https://', 'www.'], '', $request->input('domain'));
 
@@ -72,18 +73,19 @@ class AdditionalController extends Controller
         } catch (\Exception $e) {
         }
 
-        return view('user.pages.additional.whois-lookup', ['domain' => $domain, 'result' => $whoisRecords]);
+        return Inertia::render('User/Additional/WhoisLookup', [
+            'breadcrumbs' => $breadcrumbs,
+            'domain' => $domain,
+            'result' => $whoisRecords
+        ]);
     }
 
     // DNS Lookup
     public function dnsLookup(BreadcrumbService $breadcrumbService)
     {
-        // Check active plans
         $breadcrumbs = $breadcrumbService->generate();
-    
-        return Inertia::render('User/Additional-tools/dns-lookup',[
-            'breadcrumbs'=>$breadcrumbs
-        ]);
+
+        // Check active plans
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
@@ -95,7 +97,9 @@ class AdditionalController extends Controller
 
         if ($current_time < $plan_validity) {
             // Page rendor
-            return view('user.pages.additional.dns-lookup');
+            return Inertia::render('User/Additional/DNSLookup', [
+                'breadcrumbs' => $breadcrumbs
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
@@ -103,8 +107,9 @@ class AdditionalController extends Controller
     }
 
     // Search DNS Lookup
-    public function resultDnsLookup(Request $request)
+    public function resultDnsLookup(Request $request, BreadcrumbService $breadcrumbService)
     {
+        $breadcrumbs = $breadcrumbService->generate();
         // Queries
         $domain = str_replace(['http://', 'https://'], '', $request->input('domain'));
 
@@ -114,30 +119,34 @@ class AdditionalController extends Controller
             $dnsRecords = [];
         }
 
+        return Inertia::render('User/Additional/DNSLookup', [
+            'breadcrumbs' => $breadcrumbs,
+            'domain' => $domain,
+            'results' => $dnsRecords
+        ]);
         return view('user.pages.additional.dns-lookup', ['domain' => $domain, 'results' => $dnsRecords]);
     }
 
     // IP Lookup
     public function ipLookup(BreadcrumbService $breadcrumbService)
     {
-        // Check active plans
         $breadcrumbs = $breadcrumbService->generate();
-   
-        return Inertia::render('User/Additional-tools/ip-lookup',[
-            'breadcrumbs'=>$breadcrumbs
-        ]);
+
+        // Check active plans
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
         // Check user plan
         $plan = User::where('id', Auth::user()->id)->first();
 
-         // Check active plan
+        // Check active plan
         $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
         $current_time = Carbon::now();
 
         if ($current_time < $plan_validity) {
             // Page rendor
-            return view('user.pages.additional.ip-lookup');
+            return Inertia::render('User/Additional/IPLookup', [
+                'breadcrumbs' => $breadcrumbs
+            ]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
@@ -145,8 +154,10 @@ class AdditionalController extends Controller
     }
 
     // Search IP Lookup
-    public function resultIpLookup(Request $request)
+    public function resultIpLookup(Request $request, BreadcrumbService $breadcrumbService)
     {
+        $breadcrumbs = $breadcrumbService->generate();
+
         // Queries
         try {
             $result = (new GeoIP(storage_path('app/geoip/GeoLite2-City.mmdb')))->city($request->input('ip'))->raw;
@@ -154,6 +165,10 @@ class AdditionalController extends Controller
             $result = false;
         }
 
-        return view('user.pages.additional.ip-lookup', ['content' => $request->input('content'), 'result' => $result]);
+        return Inertia::render('User/Additional/IPLookup', [
+            'breadcrumbs' => $breadcrumbs,
+            'content' => $request->input('content'),
+            'result' => $result
+        ]);
     }
 }
