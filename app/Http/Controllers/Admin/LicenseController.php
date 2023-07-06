@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Exception;
+use Inertia\Inertia;
 use App\Models\Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request as serverReq;
+use App\Services\BreadcrumbService;
 
 class LicenseController extends Controller
 {
@@ -27,11 +29,16 @@ class LicenseController extends Controller
      */
 
     //  License
-    public function license()
+    public function license(BreadcrumbService $breadcrumbService)
     {
         // Queries
         $config = Config::get();
-        return view('admin.pages.license.index', compact('config'));
+        $breadcrumbs = $breadcrumbService->generate();
+
+        return Inertia::render('Admin/License/License', [
+            'config' => $config,
+            'breadcrumbs' => $breadcrumbs
+        ]);
     }
 
     // Verify License
@@ -68,7 +75,7 @@ class LicenseController extends Controller
                 ]);
 
                 // Success message and redirect
-                return redirect()->back()->with('success', $resp_data['message'].' Purchase code verified successfully.');
+                return redirect()->back()->with('success', $resp_data['message'] . ' Purchase code verified successfully.');
             } else {
                 // Failed message and redirect
                 return redirect()->back()->with('failed', $resp_data['message']);

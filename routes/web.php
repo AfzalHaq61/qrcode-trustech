@@ -152,10 +152,6 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     Route::get('settings/google-configuration-settings', [App\Http\Controllers\Admin\SettingController::class, "googleConfigurationSetting"])->name('settings.google_configuration_setting');
     Route::get('settings/email-configuration', [App\Http\Controllers\Admin\SettingController::class, "emailConfiguration"])->name('settings.email_configuration');
 
-    Route::get('settings/license', [App\Http\Controllers\Admin\SettingController::class, "Licence"])->name('settings.licence');
-    Route::get('settings/tax-settings', [App\Http\Controllers\Admin\SettingController::class, "settingTax"])->name('settings.tax_setting');
-    Route::get('settings/check-update', [App\Http\Controllers\Admin\SettingController::class, "checkUpdate"])->name('settings.check_update');
-
     Route::post('change-general-settings', [App\Http\Controllers\Admin\SettingController::class, "changeGeneralSettings"])->name('change.general.settings');
     Route::post('change-website-settings', [App\Http\Controllers\Admin\SettingController::class, "changeWebsiteSettings"])->name('change.website.settings');
     Route::post('change-website-qr-generator-settings', [App\Http\Controllers\Admin\SettingController::class, "changeWebsiteQrGeneratorSettings"])->name('change.website.qr.generator.settings');
@@ -185,10 +181,10 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
 
 
 
-Route::group(['as' => 'user.','name' => 'user','prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+Route::group(['as' => 'user.', 'name' => 'user', 'prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
-    Route::get('payment-stripe/{id}',[App\Http\Controllers\User\CheckOutController::class, "paymentStripe"])->name("payment.stripe");
+    Route::get('payment-stripe/{id}', [App\Http\Controllers\User\CheckOutController::class, "paymentStripe"])->name("payment.stripe");
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->name('dashboard');
 
     // Plans

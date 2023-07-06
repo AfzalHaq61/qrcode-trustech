@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use ZipArchive;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use App\Services\BreadcrumbService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request as serverReq;
 
@@ -28,14 +30,21 @@ class UpdateController extends Controller
      */
 
     // Check
-    public function check()
+    public function check(BreadcrumbService  $breadcrumbService)
     {
         // Queries
         $settings = Setting::first();
         $purchase_code = env('PURCHASE_CODE');
         $config = Config::get();
 
-        return view('admin.pages.update.index', compact('purchase_code', 'settings', 'config'));
+        $breadcrumbs = $breadcrumbService->generate();
+
+        return Inertia::render('Admin/Update/Index', [
+            'breadcrumbs' => $breadcrumbs,
+            'purchase_code' => $purchase_code,
+            'settings' => $settings,
+            'config' => $config
+        ]);
     }
 
     // Check Update
@@ -63,13 +72,12 @@ class UpdateController extends Controller
         $resp_data = json_decode($res->getBody(), true);
 
         if ($resp_data) {
-            if ($resp_data['status'] == true)  
-            {
+            if ($resp_data['status'] == true) {
                 // Queries
                 $settings = Setting::first();
                 $purchase_code = env('PURCHASE_CODE');
                 // Response
-                $response = ['message' => $resp_data['message'] , 'version' => $resp_data['version'], 'update' => $resp_data['update'], 'notes' => $resp_data['notes']];
+                $response = ['message' => $resp_data['message'], 'version' => $resp_data['version'], 'update' => $resp_data['update'], 'notes' => $resp_data['notes']];
                 return view('admin.pages.update.index', compact('response', 'settings', 'purchase_code', 'config'));
             } else {
                 $errorMessage = $resp_data['message'];
@@ -105,18 +113,18 @@ class UpdateController extends Controller
         if ($res->getStatusCode() == 200) {
             // Get file
             $download = uniqid();
-            file_put_contents(public_path($download.'.zip'), $res->getBody());
+            file_put_contents(public_path($download . '.zip'), $res->getBody());
 
             // ZipArchive
             $unzip = new ZipArchive;
-            $out = $unzip->open($download.'.zip');
+            $out = $unzip->open($download . '.zip');
 
             if ($out === TRUE) {
                 // Exact zip
                 $unzip->extractTo('../');
                 $unzip->close();
                 // Delete zip
-                unlink($download.'.zip');
+                unlink($download . '.zip');
 
                 // Update version
                 Config::where('config_key', 'app_version')->update([
@@ -129,7 +137,7 @@ class UpdateController extends Controller
                 // Failed message and redirect
                 return redirect()->route('admin.check')->with('failed', trans('Installation failed.'));
             }
-        } else{
+        } else {
             // Success message and redirect
             $resp_data = json_decode($res->getBody(), true);
             return redirect()->route('admin.check')->with('failed', $resp_data['message']);

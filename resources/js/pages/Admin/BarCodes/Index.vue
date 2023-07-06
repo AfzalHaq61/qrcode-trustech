@@ -159,7 +159,7 @@ const myChild = ref(null);
   const modalData = ref({
         title:'',
         desc:'',
-        btnText:'Yes,Proceed',
+        btnText:'Yes, proceed',
         link:''  
  });
  const deleteRecord=((idd)=>{

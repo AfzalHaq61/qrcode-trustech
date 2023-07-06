@@ -34,7 +34,7 @@ class SettingController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    // Settings
+    // GeneralConfigurationSettings
     public function index(BreadcrumbService $breadcrumbService)
     {
         // Queries
@@ -42,6 +42,104 @@ class SettingController extends Controller
         $currencies = Currency::get();
         $settings = Setting::first();
         $config = Config::get();
+
+        // Get image limit
+        $image_limit = [
+            'SIZE_LIMIT' => env('SIZE_LIMIT', '')
+        ];
+
+        $settings['image_limit'] = $image_limit;
+        $breadcrumbs = $breadcrumbService->generate();
+
+        return Inertia::render('Admin/Settings/GeneralConfigurationSettings', [
+            'settings' => $settings,
+            'timezonelist' => $timezonelist,
+            'currencies' => $currencies,
+            'config' => $config,
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    // WebsiteConfigurationSettings
+    public function websiteConfigurationForm(BreadcrumbService $breadcrumbService)
+    {
+
+        $config = Config::get();
+        $settings = Setting::first();
+        $breadcrumbs = $breadcrumbService->generate();
+
+
+        return Inertia::render('Admin/Settings/WebsiteConfigurationSettings', [
+            'config' => $config,
+            'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    // WebsiteQrGeneratorConfigurationSettings.
+    public function websiteQrGeneratorConfigSetting(BreadcrumbService $breadcrumbService)
+    {
+
+        $config = Config::get();
+        $settings = Setting::first();
+        $breadcrumbs = $breadcrumbService->generate();
+
+        return Inertia::render('Admin/Settings/WebsiteQrGeneratorConfigurationSettings', [
+            'config' => $config,
+            'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    // PaymentMethodConfigurationSettings
+    public function paymentMethodConfigurationSetting(BreadcrumbService  $breadcrumbService)
+    {
+        $config = Config::get();
+        $settings = Setting::first();
+        $breadcrumbs = $breadcrumbService->generate();
+
+        return Inertia::render('Admin/Settings/PaymentMethodConfigurationSettings', [
+            'config' => $config,
+            'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    // GoogleConfigurationSettings.
+    public function googleConfigurationSetting(BreadcrumbService  $breadcrumbService)
+    {
+        $settings = Setting::first();
+        $breadcrumbs = $breadcrumbService->generate();
+
+        // Get Recaptcha configuration details
+        $recaptcha_configuration = [
+            'RECAPTCHA_ENABLE' => env('RECAPTCHA_ENABLE', ''),
+            'RECAPTCHA_SITE_KEY' => env('RECAPTCHA_SITE_KEY', ''),
+            'RECAPTCHA_SECRET_KEY' => env('RECAPTCHA_SECRET_KEY', '')
+        ];
+
+        // Get google configuration details
+        $google_configuration = [
+            'GOOGLE_ENABLE' => env('GOOGLE_ENABLE', ''),
+            'GOOGLE_CLIENT_ID' => env('GOOGLE_CLIENT_ID', ''),
+            'GOOGLE_CLIENT_SECRET' => env('GOOGLE_CLIENT_SECRET', ''),
+            'GOOGLE_REDIRECT' => env('GOOGLE_REDIRECT', '')
+        ];
+
+        $settings['recaptcha_configuration'] = $recaptcha_configuration;
+        $settings['google_configuration'] = $google_configuration;
+
+        return Inertia::render('Admin/Settings/GoogleConfigurationSettings', [
+            'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    // EmailConfigurationSettings
+    public function emailConfiguration(BreadcrumbService  $breadcrumbService)
+    {
+        $settings = Setting::first();
+        $breadcrumbs = $breadcrumbService->generate();
 
         // Get email configuration details
         $email_configuration = [
@@ -55,116 +153,14 @@ class SettingController extends Controller
             'name' => env('MAIL_FROM_NAME', $settings->site_name),
         ];
 
-        // Get google configuration details
-        $google_configuration = [
-            'GOOGLE_ENABLE' => env('GOOGLE_ENABLE', ''),
-            'GOOGLE_CLIENT_ID' => env('GOOGLE_CLIENT_ID', ''),
-            'GOOGLE_CLIENT_SECRET' => env('GOOGLE_CLIENT_SECRET', ''),
-            'GOOGLE_REDIRECT' => env('GOOGLE_REDIRECT', '')
-        ];
-
-        // Get image limit
-        $image_limit = [
-            'SIZE_LIMIT' => env('SIZE_LIMIT', '')
-        ];
-
-        // Get Recaptcha configuration details
-        $recaptcha_configuration = [
-            'RECAPTCHA_ENABLE' => env('RECAPTCHA_ENABLE', ''),
-            'RECAPTCHA_SITE_KEY' => env('RECAPTCHA_SITE_KEY', ''),
-            'RECAPTCHA_SECRET_KEY' => env('RECAPTCHA_SECRET_KEY', '')
-        ];
-
         $settings['email_configuration'] = $email_configuration;
-        $settings['google_configuration'] = $google_configuration;
-        $settings['recaptcha_configuration'] = $recaptcha_configuration;
-        $settings['image_limit'] = $image_limit;
-        $breadcrumbs = $breadcrumbService->generate();
 
-        return Inertia::render('Admin/Settings/Index', [
-            'settings' => $settings,
-            'timezonelist' => $timezonelist,
-            'currencies' => $currencies,
-            'config' => $config,
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
-
-    public function websiteConfigurationForm(BreadcrumbService $breadcrumbService)
-    {
-
-        $config = Config::get();
-        $settings = Setting::first();
-        $breadcrumbs = $breadcrumbService->generate();
-        
-
-        return Inertia::render('Admin/Settings/website-config-settings', [
-            'config' => $config,
+        return Inertia::render('Admin/Settings/EmailConfigurationSettings', [
             'settings' => $settings,
             'breadcrumbs' => $breadcrumbs
         ]);
     }
 
-    public function websiteQrGeneratorConfigSetting(BreadcrumbService $breadcrumbService)
-    {
-
-        $config = Config::get();
-        $settings = Setting::first();
-        $breadcrumbs = $breadcrumbService->generate();
-
-        return Inertia::render('Admin/Settings/website-qr-generator-config-settings', [
-            'config' => $config,
-            'settings' => $settings,
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
-
-    public function paymentMethodConfigurationSetting(BreadcrumbService  $breadcrumbService)
-    {
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/payment-method-configuration-setting', [
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
-
-    public function googleConfigurationSetting(BreadcrumbService  $breadcrumbService)
-    {
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/google-configuration-settings', [
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
-
-    public function emailConfiguration(BreadcrumbService  $breadcrumbService)
-    {
-        $breadcrumbs = $breadcrumbService->generate();
-
-        return Inertia::render('Admin/Settings/email-configuration-settings', [
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
-
-    public function Licence(BreadcrumbService  $breadcrumbService)
-    {
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/license', [
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
-    public function settingTax(BreadcrumbService  $breadcrumbService)
-    {
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/tax-settings', [
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
-    public function checkUpdate(BreadcrumbService  $breadcrumbService)
-    {
-        $breadcrumbs = $breadcrumbService->generate();
-        return Inertia::render('Admin/Settings/check-update', [
-            'breadcrumbs' => $breadcrumbs
-        ]);
-    }
     // Update General Setting
     public function changeGeneralSettings(Request $request)
     {
@@ -283,7 +279,7 @@ class SettingController extends Controller
         ]);
 
         // Page redirect
-        return redirect()->route('admin.settings')->with('success', trans('QR Generator Settings Updated Successfully!'));
+        return redirect()->back()->with('success', trans('QR Generator Settings Updated Successfully!'));
     }
 
     // Update Payments Setting
@@ -351,7 +347,10 @@ class SettingController extends Controller
         $settings = Setting::first();
 
         // Page view
-        return view('admin.pages.tax.index', compact('config', 'settings'));
+        return Inertia::render('Admin/Tax/Index', [
+            'settings' => $settings,
+            'config' => $config,
+        ]);
     }
 
     // Update tax setting

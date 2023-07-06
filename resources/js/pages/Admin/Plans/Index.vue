@@ -108,7 +108,7 @@ const props = defineProps({
 const modalData = ref({
         title:'Are you sure?',
         desc:'If you proceed, you will active/deactivate this payment method data.',
-        btnText:'Yes,Proceed',
+        btnText:'Yes, proceed',
         link:''  
 })
 const myChild = ref(null);
