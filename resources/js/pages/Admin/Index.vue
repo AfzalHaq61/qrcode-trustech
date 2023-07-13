@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
                                         <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
                                         <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
                                         <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
                                         <i class="ni leading-none ni-cart text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -132,8 +132,9 @@
                                     </div>
                                 </div>
                                 <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
-                                    <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl">
-                                        <img src="assets/img/shapes/waves-white.svg"
+                                    <div class="h-full bg-themeColor rounded-xl">
+                                        
+                                        <img src="{{ asset('assets/img/shapes/waves-white.svg') }}"
                                             class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                                         <div class="relative flex items-center justify-center h-full">
                                             <img class="relative z-20 w-full pt-6"
@@ -435,7 +436,7 @@
                                                     <a href="javascript:;"
                                                         class="relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-1.jpg" class="w-full rounded-full"
+                                                        <img src="admin/assets/img/team-1.jpg" class="w-full rounded-full"
                                                             alt="team1" />
                                                     </a>
                                                     <div data-target="tooltip"
