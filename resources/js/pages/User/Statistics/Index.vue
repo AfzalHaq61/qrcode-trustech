@@ -32,7 +32,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / countries.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400" :style="{ width: `${100 / countries.length}%` }" :aria-valuenow="country.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / country.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / countries.length}%` }" :aria-valuenow="country.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / country.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / cities.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400" :style="{ width: `${100 / cities.length}%` }" :aria-valuenow="city.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / city.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / cities.length}%` }" :aria-valuenow="city.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / city.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / device_types.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400" :style="{ width: `${100 / device_types.length}%` }" :aria-valuenow="device_type.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / device_type.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / device_types.length}%` }" :aria-valuenow="device_type.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / device_type.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / os_names.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400" :style="{ width: `${100 / os_names.length}%` }" :aria-valuenow="os_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / os_name.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / os_names.length}%` }" :aria-valuenow="os_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / os_name.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / browser_names.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400" :style="{ width: `${100 / browser_names.length}%` }" :aria-valuenow="browser_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_name.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / browser_names.length}%` }" :aria-valuenow="browser_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_name.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / browser_languages.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400" :style="{ width: `${100 / browser_languages.length}%` }" :aria-valuenow="browser_language.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_language.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / browser_languages.length}%` }" :aria-valuenow="browser_language.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_language.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ count }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400" :style="{ width: `${ count }%` }" :aria-valuenow="count" aria-valuemin="0" aria-valuemax="100" :aria-label="`${count}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${ count }%` }" :aria-valuenow="count" aria-valuemin="0" aria-valuemax="100" :aria-label="`${count}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>

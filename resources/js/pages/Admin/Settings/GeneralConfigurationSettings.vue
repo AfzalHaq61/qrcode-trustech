@@ -11,7 +11,7 @@
                     <div class="sm:col-span-2">
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="app_type">Application Type <span class="text-red-600">*</span></Label>
                         <div class="sm:col-span-3">
-                            <select v-model="form.app_type"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" required>
+                            <select v-model="form.app_type"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
                                 <option value="QRCODE">QR Code</option>
                                 <option value="BARCODE">Barcode</option>
                                 <option value="BOTH">Both</option>
@@ -22,7 +22,7 @@
                     <!-- Timezone -->
                     <div class="sm:col-span-2">
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="timezone">Timezone <span class="text-red-600">*</span></Label>
-                        <select  v-model="form.timezone"   class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" required>
+                        <select  v-model="form.timezone"   class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
                             <option v-for="timezone in timezonelist" :value="timezone">{{ timezone }}</option>
                         </select>
                     </div>
@@ -30,7 +30,7 @@
                     <!-- Currency -->
                     <div class="sm:col-span-2">
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="currency">Currency <span class="text-red-600">*</span></Label>
-                        <select  v-model="form.currency" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" required>
+                        <select  v-model="form.currency" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
                             <option v-for="currency in  currencies" :value=" currency.name ">{{ currency.name }}</option>
                         </select>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="sm:col-span-2">
                         <h6 class="text-fuchsia-600/100">Default Plan Term Settings</h6>
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="term">Default Plan Term <span class="text-red-600">*</span></Label>
-                        <select v-model="form.term"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" required>
+                        <select v-model="form.term"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
                             <option value="monthly">Monthly</option>
                             <option value="yearly">Yearly</option>
                         </select>
@@ -51,7 +51,7 @@
                     <div class="sm:col-span-2">
                         <h6 class="text-fuchsia-600/100">Cookie Consent Settings</h6>
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="cookie">Cookie Consent Settings <span class="text-red-600">*</span></Label>
-                        <select v-model="form.cookie"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" required>
+                        <select v-model="form.cookie"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
                             <option value="true">Enable</option>
                             <option value="">Disable</option>
                         </select>
@@ -63,7 +63,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="image_limit">Size</Label>
                         <input
                             type="number"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.image_limit"
                             ref="input"
                             required
@@ -79,7 +79,7 @@
                     <!-- Share Content Settings -->
                     <div class="sm:col-span-4">
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="share_content">Share Content<span class="text-red-600"> *</span></Label>
-                        <textarea id="message" v-model="form.share_content" rows="4" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Write your thoughts here..." required></textarea>
+                        <textarea id="message" v-model="form.share_content" rows="4" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" placeholder="Write your thoughts here..." required></textarea>
                         <InputError class="mt-2"  />
                     </div>
 
@@ -105,7 +105,7 @@
                                 <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                 https://embed.tawk.to/
                                 </span>
-                                <input type="text" v-model="form.tawk_chat_bot_key" id="website-admin" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-tr-lg rounded-br-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Tawk Chat Key" required>
+                                <input type="text" v-model="form.tawk_chat_bot_key" id="website-admin" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-tr-lg rounded-br-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" placeholder="Tawk Chat Key" required>
                             </div>
                         <InputError class="mt-2"  />
                     </div>
