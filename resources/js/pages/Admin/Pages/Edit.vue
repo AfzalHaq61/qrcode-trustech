@@ -23,7 +23,7 @@
                                                 for="plan_description">{{ section.title }}
                                                 <span class="text-red-600">*</span></Label>
                                             <textarea
-                                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                 :name="'section'+index" :id="'section' + index" v-model="form[`section${index}`]"
                                                 autofocus :placeholder="section.title" cols="10" rows="5" required></textarea>
 

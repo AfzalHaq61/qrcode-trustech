@@ -32,6 +32,7 @@ export default {
         },
         colors: ({ colors }) => ({
         inherit: colors.inherit,
+        themeColor: 'var(--color-primary)',
         current: colors.current,
         transparent: colors.transparent,
         black: colors.black,
@@ -49,8 +50,8 @@ export default {
             700: "#344767",
             800: "#3a416f",
             900: "#0f172a",
-        },
-
+        },     
+        
         gray: {
             DEFAULT: colors.gray,
             50: "#f8f9fa",
@@ -64,7 +65,7 @@ export default {
             800: "#252f40",
             900: "#141727",
         },
-
+       
         zinc: {
             DEFAULT: colors.zinc,
             50: "#fafafa",

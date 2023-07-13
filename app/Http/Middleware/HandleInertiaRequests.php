@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use App\Models\Config;
+use DB;
 use Tightenco\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware
@@ -42,13 +44,21 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
             ],
+            'themeColor' => $this->themeColor(),
             'appName' => 'QR Code',
-            'imagePath' => 'http://127.0.0.1:8001/',
-            'appUrl' => 'http://127.0.0.1:8001/',
+            'imagePath' => 'http://127.0.0.1:8000/',
+            'appUrl' => 'http://127.0.0.1:8000/',
             'TIMEZONE' => env('TIMEZONE'),
             'APP_TYPE' => env('APP_TYPE'),
             'COOKIE_CONSENT_ENABLED' => env('COOKIE_CONSENT_ENABLED'),
             'SIZE_LIMIT' => env('SIZE_LIMIT'),
         ]);
+    }
+
+    //get theme color
+    public function themeColor(){
+        $query = DB::table('configs')->select('config_value')->where('id', 12)->first();
+
+        return $query;
     }
 }

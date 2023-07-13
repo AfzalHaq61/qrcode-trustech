@@ -198,6 +198,7 @@ class SettingController extends Controller
     // Update Website Setting
     public function changeWebsiteSettings(Request $request)
     {
+        
         Setting::where('id', '1')->update([
             'site_name' => $request->site_name, 'seo_meta_description' => $request->seo_meta_desc, 'seo_keywords' => $request->meta_keywords
         ]);

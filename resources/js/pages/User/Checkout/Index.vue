@@ -27,10 +27,29 @@
                                     <div class="col-span-4">${{ selected_plan.plan_price == '0' ? 0 : formatNumber((selected_plan.plan_price) * (selected_plan.validity / 30)) }}</div>
                                 </div>
 
+<<<<<<< HEAD
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-3 ml-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Full Name<span class="text-red-600">*</span></Label>
+                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+
+                        </div>
+                        <div class="sm:col-span-3 mr-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Email<span class="text-red-600">*</span></Label>
+                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-6 ml-2 mr-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Address<span class="text-red-600">*</span></Label>
+                            <textarea id="message" rows="2" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"></textarea>
+=======
                                 <div v-if="config[25].config_value > 0" class="grid grid-cols-12 font-medium text-sm text-slate-500 border-b border-gray-300 py-2 px-5">
                                     <div class="col-span-8">{{ config[24].config_value }}</div>
                                     <div class="col-span-4">${{ formatNumber(((selected_plan.plan_price * config[25].config_value) / 100) * (selected_plan.validity / 30)) }}</div>
                                 </div>
+>>>>>>> 791aa52870c11e41e07d26829228eb160d85e2a0
 
                                 <div class="grid grid-cols-12 font-bold text-sm text-slate-700 py-2 px-5">
                                     <div class="col-span-8">Total Payable</div>
@@ -41,6 +60,36 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-3 ml-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Phone<span class="text-red-600">*</span></Label>
+                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+
+                        </div>
+                        <div class="sm:col-span-3 mr-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">City<span class="text-red-600">*</span></Label>
+                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-3 ml-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Billing State/Province<span class="text-red-600">*</span></Label>
+                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+
+                        </div>
+                        <div class="sm:col-span-3 mr-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Postal Code<span class="text-red-600">*</span></Label>
+                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mb-2">
+                        <div class="sm:col-span-3 ml-2">
+                            <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Code<span class="text-red-600">*</span></Label>
+                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+=======
                 <div class="col-span-2">
                     <div class="flex flex-wrap -mx-3">
                         <div class="flex-none w-full max-w-full px-3">
@@ -146,6 +195,7 @@
                                             />
                                         </div>
                                     </div>
+>>>>>>> 791aa52870c11e41e07d26829228eb160d85e2a0
 
                                     <div class="grid grid-cols-1 gap-6 mb-5 sm:grid-cols-6">
                                         <div class="sm:col-span-3 ml-2">

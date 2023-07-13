@@ -8,7 +8,7 @@
 
                 <!-- Paypal Settings -->
                 <div class="mt-10 pb-0 mb-0  border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6 class="text-fuchsia-600/100">PayPal Settings</h6>
+                    <h6 class="text-themeColor-600/100">PayPal Settings</h6>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-6">
@@ -16,7 +16,7 @@
                     <div class="sm:col-span-2">
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="paypal_mode">Mode <span class="text-red-600">*</span></Label>
                         <div class="sm:col-span-3">
-                            <select v-model="form.paypal_mode" id="paypal_mode" name="paypal_mode" required class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow">
+                            <select v-model="form.paypal_mode" id="paypal_mode" name="paypal_mode" required class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                                 <option value="sandbox">Sandbox</option>
                                 <option value="live">Live</option>
                             </select>
@@ -28,7 +28,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="paypal_client_key">Client Key <span class="text-red-600">*</span></Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.paypal_client_key"
                             name="paypal_client_key"
                             id="paypal_client_key"
@@ -43,7 +43,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="paypal_secret">Secret</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.paypal_secret"
                             name="paypal_secret"
                             id="paypal_secret"
@@ -56,7 +56,7 @@
 
                 <!-- Razorpay Settings -->
                 <div class="mt-10 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6 class="text-fuchsia-600/100">Razorpay Settings</h6>
+                    <h6 class="text-themeColor-600/100">Razorpay Settings</h6>
                 </div>
 
 
@@ -66,7 +66,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="razorpay_client_key">Client Key<span class="text-red-600"> *</span></Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.razorpay_client_key"
                             name="razorpay_client_key"
                             id="razorpay_client_key"
@@ -81,7 +81,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="razorpay_secret">Secret<span class="text-red-600"> *</span></Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.razorpay_secret"
                             name="razorpay_secret"
                             id="razorpay_secret"
@@ -94,7 +94,7 @@
 
                 <!-- Stripe Settings -->
                 <div class="mt-10 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6 class="text-fuchsia-600/100">Stripe Settings</h6>
+                    <h6 class="text-themeColor-600/100">Stripe Settings</h6>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-6">
@@ -103,7 +103,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="stripe_publishable_key">Publishable Key<span class="text-red-600"> *</span></Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.stripe_publishable_key"
                             name="stripe_publishable_key"
                             id="stripe_publishable_key"
@@ -118,7 +118,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="stripe_secret">Secret<span class="text-red-600"> *</span></Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.stripe_secret"
                             name="stripe_secret"
                             id="stripe_secret"
@@ -131,7 +131,7 @@
 
                 <!-- Offline (Bank Transfer) Settings -->
                 <div class="mt-10 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6 class="text-fuchsia-600/100">Offline (Bank Transfer) Settings</h6>
+                    <h6 class="text-themeColor-600/100">Offline (Bank Transfer) Settings</h6>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -145,7 +145,7 @@
                             ref="input"
                             rows="4"
                             required
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow">
+                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                         </textarea>
                     </div>
                 </div>

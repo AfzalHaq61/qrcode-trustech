@@ -9,7 +9,7 @@
                 <!-- Enable or disable QR -->
                 <div class="sm:col-span-3">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Show QR Generator in Website<span class="text-red-600"> *</span></Label>
-                    <select v-model="form.show"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" required>
+                    <select v-model="form.show"  class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
                         <option value="1">Show</option>
                         <option value="0">Hide</option>
                     </select>
@@ -21,7 +21,7 @@
                     <input
                         type="text" name="qr_count" id="qr_count"
                         v-model="form.qr_count" placeholder="Maximum QR code count ..."
-                        class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                        class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                     />
                     <span class="mb-2 ml-1 font-bold text-[10px] text-slate-700">Maximum QR Counts (per actions) that can be generated from ip address and per day</span>
                 </div>
