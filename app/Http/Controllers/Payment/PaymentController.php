@@ -21,7 +21,7 @@ class PaymentController extends Controller
             $validated = $request->validate([
                 'billing_name' => 'required',
                 'billing_email' => 'required',
-                // 'billing_phone' => 'required',
+                'billing_phone' => 'required',
                 'billing_address' => 'required',
                 'billing_city' => 'required',
                 'billing_state' => 'required',
@@ -33,7 +33,7 @@ class PaymentController extends Controller
             User::where('id', Auth::user()->id)->update([
                 'billing_name' => $request->billing_name,
                 'billing_email' => $request->billing_email,
-                // 'billing_phone' => $request->billing_phone,
+                'billing_phone' => $request->billing_phone,
                 'billing_address' => $request->billing_address,
                 'billing_city' => $request->billing_city,
                 'billing_state' => $request->billing_state,

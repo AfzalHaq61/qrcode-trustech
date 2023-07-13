@@ -39,11 +39,7 @@ class PlanController extends Controller
         // Plans
 
         $breadcrumbs = $breadcrumbService->generate();
-       
-       
-        return Inertia::render('User/Plan/index',[
-            'breadcrumbs'=>$breadcrumbs
-        ]);
+
         $plans = Plan::where('status', 1)->get();
 
         // Get access types
@@ -99,6 +95,7 @@ class PlanController extends Controller
         // Queries
         $config = Config::get();
         $settings = Setting::where('status', 1)->first();
+
         $currency = Currency::where('iso_code', $config[1]->config_value)->first();
 
         // Current user plan details
@@ -119,6 +116,15 @@ class PlanController extends Controller
             $remaining_days = $current_date->diffInDays($plan_validity, false);
         }
 
-        return view('user.pages.plans.index', compact('plans', 'settings', 'currency', 'active_plan', 'remaining_days', 'config', 'free_plan'));
+        return Inertia::render('User/Plan/Index', [
+            'breadcrumbs' => $breadcrumbs,
+            'plans' => $plans,
+            'settings' => $settings,
+            'currency' => $currency,
+            'active_plan' => $active_plan,
+            'remaining_days' => $remaining_days,
+            'config' => $config,
+            'free_plan' => $free_plan
+        ]);
     }
 }

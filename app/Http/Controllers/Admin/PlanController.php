@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Plan;
 use Inertia\Inertia;
-use App\Services\BreadcrumbService;
 use App\Models\Config;
 use App\Models\Setting;
+use Stripe\StripeClient;
 use Illuminate\Http\Request;
+use App\Services\BreadcrumbService;
 use App\Http\Controllers\Controller;
 
 class PlanController extends Controller
@@ -50,16 +51,14 @@ class PlanController extends Controller
     {
         // Queries
         $breadcrumbs = $breadcrumbService->generate();
-      
-       
-      
+
         $config = Config::get();
         $settings = Setting::where('status', 1)->first();
 
         return Inertia::render('Admin/Plans/Add', [
             'settings' => $settings,
             'config' => $config,
-            'breadcrumbs'=>$breadcrumbs
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 
@@ -220,7 +219,7 @@ class PlanController extends Controller
         }
 
         $config = Config::get();
-        $stripe = new \Stripe\StripeClient($config[10]->config_value);
+        $stripe = new StripeClient($config[10]->config_value);
 
         // Current plan price
         $plan_price = $request->plan_price * ($request->validity / 30);

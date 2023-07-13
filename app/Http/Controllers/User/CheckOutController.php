@@ -19,19 +19,15 @@ use App\Services\BreadcrumbService;
 class CheckOutController extends Controller
 {
     // Checkout
-    public function paymentStripe($id){
+    public function paymentStripe($id)
+    {
         dd(\auth()->user());
         return Inertia::render('User/Payment/payment-stripe');
     }
-    public function checkout(Request $request, $id,BreadcrumbService $breadcrumbService)
+    public function checkout(Request $request, $id, BreadcrumbService $breadcrumbService)
     {
-       
-
         $breadcrumbs = $breadcrumbService->generate();
-   
-        return Inertia::render('User/Checkout/Index',[
-            'breadcrumbs'=>$breadcrumbs
-        ]);
+
         $selected_plan = Plan::where('id', $id)->where('status', 1)->first();
 
         // Check selected plan status
@@ -125,7 +121,15 @@ class CheckOutController extends Controller
                     // Calculate total
                     $total = ((int)($plan_price) * (int)($tax) / 100) + (int)($plan_price);
 
-                    return view('user.pages.checkout.index', compact('settings', 'config', 'currency', 'selected_plan', 'gateways', 'total'));
+                    return Inertia::render('User/Checkout/Index', [
+                        'breadcrumbs' => $breadcrumbs,
+                        'settings' => $settings,
+                        'config' => $config,
+                        'currency' => $currency,
+                        'selected_plan' => $selected_plan,
+                        'gateways' => $gateways,
+                        'total' => $total
+                    ]);
                 }
             }
         }

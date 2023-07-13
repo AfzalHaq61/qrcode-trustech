@@ -19,9 +19,11 @@
     },
     "dependencies": {
         "@headlessui/vue": "^1.7.14",
-        "@inertiajs/vue3": "^1.0.7",
-        "@tinymce/tinymce-vue": "^4.0.7",
         "@heroicons/vue": "^1.0.6",
+        "@inertiajs/vue3": "^1.0.7",
+        "@stripe/stripe-js": "^1.54.1",
+        "@tinymce/tinymce-vue": "^4.0.7",
+        "@vue-stripe/vue-stripe": "^4.5.0",
         "file-saver": "^2.0.5",
         "html2pdf.js": "^0.10.1",
         "jsbarcode": "^3.11.5",
@@ -29,6 +31,7 @@
         "tinymce-i18n": "^22.5.2",
         "tw-elements": "^1.0.0-beta2",
         "vue": "^3.3.4",
-        "vue-final-modal": "^4.4.2"
+        "vue-final-modal": "^4.4.2",
+        "vue-use-stripe": "^0.1.1"
     }
 }
