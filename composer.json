@@ -12,6 +12,7 @@
         "io-developer/php-whois": "^4.1",
         "jenssegers/agent": "^2.6",
         "joedixon/laravel-translation": "^2.2",
+        "laravel/cashier": "^14.12",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
@@ -19,6 +20,7 @@
         "robertboes/inertia-breadcrumbs": "^0.3.0",
         "simplesoftwareio/simple-qrcode": "~4",
         "spatie/color": "^1.5",
+        "stripe/stripe-php": "^10.16",
         "tightenco/ziggy": "^1.0",
         "torann/geoip": "^3.0"
     },

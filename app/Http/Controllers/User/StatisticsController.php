@@ -38,14 +38,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -95,7 +94,6 @@ class StatisticsController extends Controller
                     'content' => $qrcode_details->settings,
                 ]);
             }
-
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
         }
@@ -122,14 +120,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -205,14 +202,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -270,8 +266,6 @@ class StatisticsController extends Controller
     // Whatsapp
     public function whatsapp(Request $request, $id)
     {
-        dd(1);
-      
         // Check custom url found
         $qrcode_count = QrCode::where('qr_code_id', $id)->count();
 
@@ -290,14 +284,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -320,7 +313,6 @@ class StatisticsController extends Controller
 
                     // View page
                     return Redirect::to(json_decode($qrcode_details->settings)->whatsapp_send_msg_value);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -370,14 +362,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -400,7 +391,6 @@ class StatisticsController extends Controller
 
                     // View page
                     return Redirect::to(json_decode($qrcode_details->settings)->url_value);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -429,7 +419,7 @@ class StatisticsController extends Controller
         }
     }
 
-     // PDF
+    // PDF
     public function pdf(Request $request, $id)
     {
         // Check custom url found
@@ -450,14 +440,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -482,7 +471,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Pdf', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -534,14 +522,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -566,7 +553,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Location', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -618,14 +604,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -650,7 +635,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/phone', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -702,14 +686,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -734,7 +717,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Facetime', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -786,14 +768,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -818,7 +799,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Event', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -870,14 +850,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -902,7 +881,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Wifi', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -954,14 +932,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -986,7 +963,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Crypto', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -1038,14 +1014,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -1068,7 +1043,6 @@ class StatisticsController extends Controller
 
                     // View page
                     return Redirect::to(json_decode($qrcode_details->settings)->paypal_link_value);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -1091,7 +1065,6 @@ class StatisticsController extends Controller
 
                 // View page
                 return Redirect::to(json_decode($qrcode_details->settings)->paypal_link_value);
-
             }
         } else {
             return redirect()->route('user.dashboard')->with('failed', trans('URL not found.'));
@@ -1119,14 +1092,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -1151,7 +1123,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Vcard', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -1182,7 +1153,7 @@ class StatisticsController extends Controller
         }
     }
 
-     // UPI
+    // UPI
     public function upi(Request $request, $id)
     {
         // Check custom url found
@@ -1203,14 +1174,13 @@ class StatisticsController extends Controller
             $agent = new Agent();
             $agent->setHttpHeaders($ip);
 
-            if(isset($agent->languages()[1])){
+            if (isset($agent->languages()[1])) {
                 $browser_lang = $agent->languages()[1];
-            }
-            else {
+            } else {
                 $browser_lang = 'en';
             }
 
-            if(Auth::user()->role_id == 2) {
+            if (Auth::user()->role_id == 2) {
                 // User
                 // Check active plan
                 $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
@@ -1235,7 +1205,6 @@ class StatisticsController extends Controller
                     return Inertia::render('QrCodes/Upi', [
                         'content' => $qrcode_details->settings,
                     ]);
-
                 } else {
                     // Redirect to Expired page
                     return Inertia::render('Errors/Expired');
@@ -1277,8 +1246,8 @@ class StatisticsController extends Controller
 
             // Get Country wise count
             $countries = Statistics::where('qr_code_id', $id)
-            ->groupBy('country_code', 'iso_code')
-            ->get(DB::raw('count(*) as total, statistics.country_code, statistics.iso_code'));
+                ->groupBy('country_code', 'iso_code')
+                ->get(DB::raw('count(*) as total, statistics.country_code, statistics.iso_code'));
 
             // Get City wise count
             $cities = Statistics::where('qr_code_id', $id)
@@ -1317,7 +1286,6 @@ class StatisticsController extends Controller
                 'browser_languages' => $browser_languages,
                 'count' => $count
             ]);
-
         } else {
             // Redirect plan
             return redirect()->route('user.plans');

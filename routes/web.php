@@ -179,8 +179,6 @@ Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespa
     Route::post('update-code', [App\Http\Controllers\Admin\UpdateController::class, 'updateCode'])->name('update.code');
 });
 
-
-
 Route::group(['as' => 'user.', 'name' => 'user', 'prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
@@ -188,7 +186,7 @@ Route::group(['as' => 'user.', 'name' => 'user', 'prefix' => 'user', 'namespace'
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->name('dashboard');
 
     // Plans
-    Route::get('plans', [App\Http\Controllers\User\PlanController::class, "index"])->name('plans');
+    Route::get('Plans', [App\Http\Controllers\User\PlanController::class, "index"])->name('plans');
 
     // Check QR Code
     if (env('APP_TYPE') == 'QRCODE' || env('APP_TYPE') == 'BOTH') {
@@ -267,6 +265,37 @@ Route::group(['as' => 'user.', 'name' => 'user', 'prefix' => 'user', 'namespace'
     // Resend Email Verfication
     Route::get('verify-email-verification', [App\Http\Controllers\User\VerificationController::class, "verifyEmailVerification"])->name('verify.email.verification');
     Route::get('resend-email-verification', [App\Http\Controllers\User\VerificationController::class, "resendEmailVerification"])->name('resend.email.verification');
+});
+
+// Google auth routes
+Route::get('/google-login', [App\Http\Controllers\Auth\LoginController::class, "redirectToProvider"])->name('login.google');
+Route::get('/sign-in-with-google', [App\Http\Controllers\Auth\LoginController::class, "handleProviderCallback"]);
+
+
+Route::group(['middleware' => 'checkType'], function () {
+
+    // Choose Payment Gateway
+    Route::post('/prepare-payment/{planId}', [App\Http\Controllers\Payment\PaymentController::class, "preparePaymentGateway"])->name('prepare.payment.gateway');
+
+    // Choose Payment Gateway
+    Route::post('/cancel/subscription', [App\Http\Controllers\Payment\PaymentController::class, "cancelSubscribtion"])->name('cancel.subscibtion');
+
+    // PayPal Payment Gateway
+    Route::get('/payment-paypal/{planId}', [App\Http\Controllers\Payment\PaypalController::class, "paywithpaypal"])->name('paywithpaypal');
+    Route::get('/payment/status', [App\Http\Controllers\Payment\PaypalController::class, "paypalPaymentStatus"])->name('paypalPaymentStatus');
+
+    // RazorPay
+    Route::get('payment-razorpay/{planId}', [App\Http\Controllers\Payment\RazorPayController::class, "prepareRazorpay"])->name('paywithrazorpay');
+    Route::get('razorpay-payment-status/{oid}/{paymentId}', [App\Http\Controllers\Payment\RazorPayController::class, "razorpayPaymentStatus"])->name('razorpay.payment.status');
+
+    // Stripe
+    Route::get('/payment-stripe/{planId}', [App\Http\Controllers\Payment\StripeController::class, "stripeCheckout"])->name('paywithstripe');
+    Route::post('/stripe-payment-status/{paymentSlug}', [App\Http\Controllers\Payment\StripeController::class, "stripePaymentStatus"])->name('stripe.payment.status');
+    Route::get('/stripe-payment-cancel-subscribtion', [App\Http\Controllers\Payment\StripeController::class, "stripePaymentCancelSubscribtion"])->name('stripe.payment.cancel.subscribtion');
+
+    // Offline
+    Route::get('/payment-offline/{planId}', [App\Http\Controllers\Payment\OfflineController::class, "offlineCheckout"])->name('paywithoffline');
+    Route::post('/mark-offline-payment', [App\Http\Controllers\Payment\OfflineController::class, "markOfflinePayment"])->name('mark.payment.payment');
 });
 
 // Dynamic links

@@ -1,80 +1,167 @@
 <template>
-<div v-for="data in planData" :key="data.index">
-
-    <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 relative overflow-hidden">
-        <div class="absolute right-0 top-0 h-16 w-16">
-            <div v-if="data.active==1" class="absolute transform rotate-45 bg-green-600 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]">
+    <div v-if="plan.plan_name != 'Free Trial'" class="w-full max-w-sm p-8 bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border relative overflow-hidden">
+        <!-- Check plan is "recommended" -->
+        <div v-if="plan.recommended == '1'" class="absolute right-0 top-0 h-16 w-16">
+            <div class="absolute transform rotate-45 bg-green-600 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
                 </svg>
             </div>
         </div>
-        <h5 class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">{{ data.months }} Months</h5>
 
-        <div class="flex items-baseline text-gray-900 dark:text-white">
-            <span class="text-3xl font-semibold">$</span>
-            <span class="text-4xl font-extrabold tracking-tight">{{ data.monthlyPrice }} </span>
-            <h5 class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">Per Month</h5>
-
+        <div class="font-bold text-5xl text-slate-700">
+            <span class="block mb-5">${{ plan.plan_price }}</span>
+            <h5 class="font-bold text-sm text-slate-700">Per Month</h5>
         </div>
 
-        <ul role="list" class="space-y-2 my-7">
+        <hr class="h-px my-5 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
+
+        <ul role="list">
             <li class="flex space-x-3">
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Invoiced each quarter</span>
+                <span class="font-bold text-sm text-slate-700">{{ plan.plan_description }}</span>
             </li>
-            <li class="flex space-x-3">
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">10 QRCode Types ?</span>
+
+            <!-- QRCode Types -->
+            <li class="flex">
+                <span class="font-bold text-sm text-slate-700 mr-2">{{ plan.no_access_qr == '999' ? 'Unlimited' : plan.no_access_qr }} QRCode Types</span>
+                <div class="flex items-center justify-center font-bold text-xs text-slate-700 bg-gray-100 rounded-full w-6 cursor-pointer hover:bg-fuchsia-600 hover:text-white" data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    :title="plan.access_types">?
+                </div>
             </li>
-            <li class="flex space-x-3">
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">100 QRCodes</span>
+
+            <!-- No. Of QRCodes -->
+            <li>
+                <span class="font-bold text-sm text-slate-700">{{ plan.no_qrcodes == '999' ? 'Unlimited' : plan.no_qrcodes }} QRCodes</span>
             </li>
-            <li class="flex space-x-3">
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">96 Barcodes</span>
+
+            <!-- No. Of Barcodes -->
+            <li>
+                <span class="font-bold text-sm text-slate-700">{{ plan.no_barcodes == '999' ? 'Unlimited' : plan.no_barcodes }} Barcodes</span>
             </li>
-            <li class="flex space-x-3">
-                <!-- Icon -->
-                <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Check icon</title>
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Additional Tools</span>
+
+            <hr class="h-px my-5 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
+
+            <!-- Additional Tools -->
+            <li>
+                <span v-if="plan.additional_tools == '1'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 12l5 5l10 -10" />
+                    </svg>
+                </span>
+                <span v-else>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-danger"
+                        width="24" height="24" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <line x1="18" y1="6" x2="6"
+                            y2="18" />
+                        <line x1="6" y1="6" x2="18"
+                            y2="18" />
+                    </svg>
+                </span>
+                <span class="font-bold text-sm text-slate-700">Additional Tools</span>
             </li>
-            <li class="flex space-x-3">
-                <!-- Icon -->
-                <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Check icon</title>
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Enable Analytics</span>
+
+            <!-- Enable Analytics -->
+            <li>
+                <span v-if="plan.enable_analaytics == '1'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l5 5l10 -10" />
+                        </svg>
+                    </span>
+                    <span v-else>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-danger"
+                            width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="18" y1="6" x2="6"
+                                y2="18" />
+                            <line x1="6" y1="6" x2="18"
+                                y2="18" />
+                        </svg>
+                    </span>
+                <span class="font-bold text-sm text-slate-700">Enable Analytics</span>
             </li>
-            <li class="flex space-x-3">
-                <!-- Icon -->
-                <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Check icon</title>
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Hide Branding</span>
+
+            <!-- Hide Branding -->
+            <li>
+                <span v-if="plan.hide_branding == '1'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l5 5l10 -10" />
+                        </svg>
+                    </span>
+                    <span v-else>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-danger"
+                            width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="18" y1="6" x2="6"
+                                y2="18" />
+                            <line x1="6" y1="6" x2="18"
+                                y2="18" />
+                        </svg>
+                    </span>
+                <span class="font-bold text-sm text-slate-700">Hide Branding</span>
             </li>
-            <li class="flex space-x-3">
-                <!-- Icon -->
-                <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Check icon</title>
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">Support</span>
+
+            <!-- Support -->
+            <li>
+                <span v-if="plan.support == '1'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l5 5l10 -10" />
+                        </svg>
+                    </span>
+                    <span v-else>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-danger"
+                            width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="18" y1="6" x2="6"
+                                y2="18" />
+                            <line x1="6" y1="6" x2="18"
+                                y2="18" />
+                        </svg>
+                    </span>
+                <span class="font-bold text-sm text-slate-700">Support</span>
             </li>
         </ul>
-        <Link :href="route('user.checkout', { id: 1 })" class="text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-blue-600 to-cyan-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Choose plan</Link>
-    </div>
 
-</div>
+        <div class="mt-10">
+            <Link :href="route('user.checkout', { id: plan.id })"
+                class="w-full inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">
+                Choose plan
+            </Link>
+        </div>
+    </div>
 </template>
 
 <script setup>
-       
-     const props = defineProps(['data'])
-     const planData=props.data;
-   
+
+const props = defineProps({
+    plan: Object,
+    currency: Object
+});
 
 </script>
