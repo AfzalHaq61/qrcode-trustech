@@ -13,6 +13,7 @@ import Pagination from "@/Components/Shared/Pagiantion.vue";
 import Notifications from "@/Components/Shared/Notifications.vue";
 import Accordian from "@/Components/Shared/Accordian.vue";
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import DashboardButton from '@/Components/DashboardButton.vue';
 import BackButton from '@/Components/BackButton.vue';
 import CancelButton from '@/Components/CancelButton.vue';
 import Checkbox from '@/Components/Checkbox.vue';
@@ -34,6 +35,7 @@ createInertiaApp({
             .component('Pagination', Pagination)
             .component('Notifications', Notifications)
             .component('Accordian', Accordian)
+            .component('DashboardButton', DashboardButton)
             .component('PrimaryButton', PrimaryButton)
             .component('BackButton', BackButton)
             .component('CancelButton', CancelButton)

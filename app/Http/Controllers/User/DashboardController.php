@@ -34,9 +34,10 @@ class DashboardController extends Controller
     // Dashboard
     public function index()
     {
-        
+         
+    
        
-        return Inertia::render('User/Index');
+        // return Inertia::render('User/Index');
         // User current plan details
         $plan = User::where('id', Auth::user()->id)->first();
         $active_plan = json_decode($plan->plan_details);
@@ -55,20 +56,19 @@ class DashboardController extends Controller
         $barcodes_count = Barcode::where('user_id', Auth::user()->id)->count();
 
         // Get User QR Codes
-        $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->limit(10)->get();
+        $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
 
         // Get User Barcodes
-        $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->limit(10)->get();
-
+        $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
+      
         // Check active plan
         $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
         $current_time = Carbon::now();
-
         if ($current_time < $plan_validity) {
             // Remaining dates
             $remaining_days = $current_time->diffInDays($plan_validity, false);
-
-            return view('user.index', compact('settings', 'active_plan', 'remaining_days', 'barcodes_count', 'qr_codes_count', 'qr_codes', 'bar_codes', 'settings', 'config'));
+  
+            return Inertia::render('User/Index', ['settings' => $settings, 'active_plan' => $active_plan, 'remaining_days' => $remaining_days, 'barcodes_count' => $barcodes_count, 'qr_codes_count' => $qr_codes_count, 'qr_codes' => $qr_codes, 'bar_codes' => $bar_codes, 'settings' => $settings, 'config' => $config]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');

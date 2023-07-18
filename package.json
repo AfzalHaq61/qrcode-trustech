@@ -24,6 +24,7 @@
         "@stripe/stripe-js": "^1.54.1",
         "@tinymce/tinymce-vue": "^4.0.7",
         "@vue-stripe/vue-stripe": "^4.5.0",
+        "chart.js": "^4.3.0",
         "file-saver": "^2.0.5",
         "html2pdf.js": "^0.10.1",
         "jsbarcode": "^3.11.5",
