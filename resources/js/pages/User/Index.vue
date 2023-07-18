@@ -15,11 +15,11 @@
                             <div class="flex flex-row -mx-3">
                                 <div class="flex-none w-2/3 max-w-full px-3">
                                     <div>
-                                        <p class="mb-0 font-sans text-sm font-semibold leading-normal">Today's Money</p>
+                                        <p class="mb-0 font-sans text-sm font-semibold leading-normal">CURRENT PLAN</p>
                                         <h5 class="mb-0 font-bold">
-                                            $53,000
+                                           
                                             <span
-                                                class="text-sm leading-normal font-weight-bolder text-lime-500">+55%</span>
+                                                class="text-sm leading-normal font-weight-bolder text-lime-500">Free Trial</span>
                                         </h5>
                                     </div>
                                 </div>
@@ -42,10 +42,10 @@
                             <div class="flex flex-row -mx-3">
                                 <div class="flex-none w-2/3 max-w-full px-3">
                                     <div>
-                                        <p class="mb-0 font-sans text-sm font-semibold leading-normal">Today's Users</p>
-                                        <h5 class="mb-0 font-bold">
-                                            2,300
-                                            <span class="text-sm leading-normal font-weight-bolder text-lime-500">+3%</span>
+                                        <p class="mb-0 font-sans text-sm font-semibold leading-normal">QR CODES</p>
+                                        <h5 class="mb-0 font-bold" v-if="$page.props.APP_TYPE == 'BOTH' || $page.props.APP_TYPE == 'QRCODE'">
+                                            {{ qr_codes_count }}
+                                            <span class="text-sm leading-normal font-weight-bolder text-lime-500"></span>
                                         </h5>
                                     </div>
                                 </div>
@@ -68,10 +68,10 @@
                             <div class="flex flex-row -mx-3">
                                 <div class="flex-none w-2/3 max-w-full px-3">
                                     <div>
-                                        <p class="mb-0 font-sans text-sm font-semibold leading-normal">New Clients</p>
-                                        <h5 class="mb-0 font-bold">
-                                            +3,462
-                                            <span class="text-sm leading-normal text-red-600 font-weight-bolder">-2%</span>
+                                        <p class="mb-0 font-sans text-sm font-semibold leading-normal">BARCODES</p>
+                                        <h5 class="mb-0 font-bold" v-if="$page.props.APP_TYPE == 'BOTH' || $page.props.APP_TYPE == 'BARCODE'">
+                                            {{barcodes_count}}
+                                            <span class="text-sm leading-normal text-red-600 font-weight-bolder"></span>
                                         </h5>
                                     </div>
                                 </div>
@@ -86,598 +86,445 @@
                     </div>
                 </div>
 
-             
-            </div>
-
-
-
-
-            <div class="flex flex-wrap my-6 -mx-3">
-                <!-- card 1 -->
-
-                <div class="w-full max-w-full px-3 mt-0 mb-6 md:mb-0 md:w-1/2 md:flex-none lg:w-2/3 lg:flex-none">
+                 <!-- card4 -->
+                 <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
                     <div
-                        class="border-black/12.5 shadow-soft-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
-                        <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
-                            <div class="flex flex-wrap mt-0 -mx-3">
-                                <div class="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-1/2 lg:flex-none">
-                                    <h6>Projects</h6>
-                                    <p class="mb-0 text-sm leading-normal">
-                                        <i class="fa fa-check text-cyan-500"></i>
-                                        <span class="ml-1 font-semibold">30 done</span>
-                                        this month
-                                    </p>
+                        class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+                        <div class="flex-auto p-4">
+                            <div class="flex flex-row -mx-3">
+                                <div class="flex-none w-2/3 max-w-full px-3">
+                                    <div>
+                                        <p class="mb-0 font-sans text-sm font-semibold leading-normal">Transactions</p>
+                                        <h5 class="mb-0 font-bold">
+                                           5
+                                            <span
+                                                class="text-sm leading-normal font-weight-bolder text-lime-500"></span>
+                                        </h5>
+                                    </div>
                                 </div>
-                                <div class="flex-none w-5/12 max-w-full px-3 my-auto text-right lg:w-1/2 lg:flex-none">
-                                    <div class="relative pr-6 lg:float-right">
-                                        <a dropdown-trigger class="cursor-pointer" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v text-slate-400"></i>
-                                        </a>
-                                        <p class="hidden transform-dropdown-show"></p>
-
-                                        <ul dropdown-menu
-                                            class="z-100 text-sm transform-dropdown shadow-soft-3xl duration-250 before:duration-350 before:font-awesome before:ease-soft min-w-44 -ml-34 before:text-5.5 pointer-events-none absolute top-0 m-0 mt-2 list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:top-0 before:right-7 before:left-auto before:z-40 before:text-white before:transition-all before:content-['\f0d8']">
-                                            <li class="relative">
-                                                <a class="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap rounded-lg border-0 bg-transparent px-4 text-left font-normal text-slate-500 lg:transition-colors lg:duration-300"
-                                                    href="javascript:;">Action</a>
-                                            </li>
-                                            <li class="relative">
-                                                <a class="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap rounded-lg border-0 bg-transparent px-4 text-left font-normal text-slate-500 lg:transition-colors lg:duration-300"
-                                                    href="javascript:;">Another action</a>
-                                            </li>
-                                            <li class="relative">
-                                                <a class="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap rounded-lg border-0 bg-transparent px-4 text-left font-normal text-slate-500 lg:transition-colors lg:duration-300"
-                                                    href="javascript:;">Something else here</a>
-                                            </li>
-                                        </ul>
+                                <div class="px-3 text-right basis-1/3">
+                                    <div
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-auto p-6 px-0 pb-2">
-                            <div class="overflow-x-auto">
+                    </div>
+                </div>
+
+             
+            </div>
+            
+            <!--graph for Barcode and Qrcode-->
+            <div class="flex flex-wrap mt-6 -mx-3">
+                <div class="w-full max-w-full px-3 mt-0 lg:w-full lg:flex-none">
+                    <div
+                        class="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
+                        <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
+                            <h6>Bar Code & QR Code OVerview
+</h6>
+                            <p class="text-sm leading-normal">
+                                <i class="fa fa-arrow-up text-lime-500"></i>
+                                <span class="font-semibold">4% more</span> in {{ getCurrentYear }}
+                            </p>
+                        </div>
+                        <div class="flex-auto p-4">
+                            <div>
+                                <canvas id="chartBarQr" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
+            <!--table start-->
+
+            <div class="flex flex-wrap my-6 -mx-3">
+                <div class="flex-none lg:w-2/4 max-w-full px-3">
+                    <div
+                        class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+                        <div class="flex justify-between p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                            <h6>Recent 10 QR Codes</h6>
+                            <Link :href="route('user.create.qr')">
+                                <DashboardButton style="background-color: green;"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <line x1="12" y1="5" x2="12" y2="19" />
+                                        <line x1="5" y1="12" x2="19" y2="12" />
+                                    </svg><span><span class="text-lg">+ </span>Create QR Code</span></DashboardButton>
+                            </Link>
+                        </div>
+                        <div class="flex-auto px-0 pt-0 pb-2">
+                            <div class="p-0 overflow-x-auto">
                                 <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
                                     <thead class="align-bottom">
                                         <tr>
                                             <th
-                                                class="px-6 py-3 font-bold tracking-normal text-left uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                                Companies</th>
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                S.NO</th>
                                             <th
-                                                class="px-6 py-3 pl-2 font-bold tracking-normal text-left uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                                Members</th>
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                NAME</th>
                                             <th
-                                                class="px-6 py-3 font-bold tracking-normal text-center uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                                Budget</th>
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                 TYPE</th>
                                             <th
-                                                class="px-6 py-3 font-bold tracking-normal text-center uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70">
-                                                Completion</th>
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                CREATED ON</th>
+                                            <th
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                STATUS</th>
+                                            <th
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                ACTIONS</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/small-logos/logo-xd.svg"
-                                                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                                            alt="xd" />
-                                                    </div>
-                                                    <div class="flex flex-col justify-center">
-                                                        <h6 class="mb-0 text-sm leading-normal">Soft UI XD Version</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="mt-2 avatar-group">
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-1.jpg" class="w-full rounded-full"
-                                                            alt="team1" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Ryan Tompson
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-2.jpg" class="w-full rounded-full"
-                                                            alt="team2" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Romina Hadid
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-3.jpg" class="w-full rounded-full"
-                                                            alt="team3" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Alexander Smith
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-4.jpg" class="w-full rounded-full"
-                                                            alt="team4" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Jessica Doe
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                </div>
+                                    
+                                        <tr v-for="(qrcode, index) in qr_codes.data" :key="qrcode.id">
+                                            <td
+                                                class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 text-xs font-semibold leading-tight">{{ index + 1 }}</p>
                                             </td>
                                             <td
-                                                class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                                <span class="text-xs font-semibold leading-tight"> $14,000 </span>
-                                            </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="w-3/4 mx-auto">
-                                                    <div>
-                                                        <div>
-                                                            <span class="text-xs font-semibold leading-tight">60%</span>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                                                        <div class="duration-600 ease-soft bg-gradient-to-tl from-blue-600 to-cyan-400 -mt-0.38 -ml-px flex h-1.5 w-3/5 flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all"
-                                                            role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/small-logos/logo-atlassian.svg"
-                                                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                                            alt="atlassian" />
-                                                    </div>
-                                                    <div class="flex flex-col justify-center">
-                                                        <h6 class="mb-0 text-sm leading-normal">Add Progress Track</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="mt-2 avatar-group">
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-2.jpg" class="w-full rounded-full"
-                                                            alt="team5" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Romina Hadid
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-4.jpg" class="w-full rounded-full"
-                                                            alt="team6" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Jessica Doe
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                </div>
+                                                class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 text-xs font-semibold leading-tight">{{ qrcode.name }}</p>
                                             </td>
                                             <td
-                                                class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                                <span class="text-xs font-semibold leading-tight"> $3,000 </span>
-                                            </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="w-3/4 mx-auto">
-                                                    <div>
-                                                        <div>
-                                                            <span class="text-xs font-semibold leading-tight">10%</span>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                                                        <div class="duration-600 ease-soft bg-gradient-to-tl from-blue-600 to-cyan-400 -mt-0.38 w-1/10 -ml-px flex h-1.5 flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all"
-                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/small-logos/logo-slack.svg"
-                                                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                                            alt="team7" />
-                                                    </div>
-                                                    <div class="flex flex-col justify-center">
-                                                        <h6 class="mb-0 text-sm leading-normal">Fix Platform Errors</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="mt-2 avatar-group">
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-3.jpg" class="w-full rounded-full"
-                                                            alt="team8" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Romina Hadid
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-1.jpg" class="w-full rounded-full"
-                                                            alt="team9" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Jessica Doe
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                </div>
+                                                class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 text-xs font-semibold leading-tight">{{qrcode.type}}</p>
                                             </td>
                                             <td
-                                                class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                                <span class="text-xs font-semibold leading-tight"> Not set </span>
-                                            </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="w-3/4 mx-auto">
-                                                    <div>
-                                                        <div>
-                                                            <span class="text-xs font-semibold leading-tight">100%</span>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                                                        <div class="duration-600 ease-soft bg-gradient-to-tl from-green-600 to-lime-400 -mt-0.38 -ml-px flex h-1.5 w-full flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all"
-                                                            role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="flex px-2 py-1">
-                                                    <div>
-                                                        <img src="assets/img/small-logos/logo-spotify.svg"
-                                                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                                            alt="spotify" />
-                                                    </div>
-                                                    <div class="flex flex-col justify-center">
-                                                        <h6 class="mb-0 text-sm leading-normal">Launch our Mobile App</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="mt-2 avatar-group">
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-4.jpg" class="w-full rounded-full"
-                                                            alt="user1" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Ryan Tompson
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-3.jpg" class="w-full rounded-full"
-                                                            alt="user2" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Romina Hadid
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-4.jpg" class="w-full rounded-full"
-                                                            alt="user3" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Alexander Smith
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                    <a href="javascript:;"
-                                                        class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                        data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img src="assets/img/team-1.jpg" class="w-full rounded-full"
-                                                            alt="user4" />
-                                                    </a>
-                                                    <div data-target="tooltip"
-                                                        class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                        role="tooltip">
-                                                        Jessica Doe
-                                                        <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                            data-popper-arrow></div>
-                                                    </div>
-                                                </div>
+                                                class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 text-xs font-semibold leading-tight">
+                                                   {{formatDate(qrcode.created_at)}}
+                                                </p>
                                             </td>
                                             <td
-                                                class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                                <span class="text-xs font-semibold leading-tight"> $20,500 </span>
+                                                class="px-3 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <span v-if="qrcode.status === 0"
+                                                    class="bg-gradient-to-tl from-red-600 to-red-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Deactivated</span>
+                                                <span v-else
+                                                    class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Activated</span>
                                             </td>
-                                            <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                                <div class="w-3/4 mx-auto">
+                                            <td class="px-3 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <Menu as="div" class="relative inline-block text-left">
                                                     <div>
-                                                        <div>
-                                                            <span class="text-xs font-semibold leading-tight">100%</span>
-                                                        </div>
+                                                    <MenuButton>
+                                                        <span class="text-xs font-semibold leading-tight text-slate-400 mr-2">Actions</span>
+                                                        <svg class="w-2 transition-all duration-200 transform" :class="{
+                                                            'rotate-180': isOpen,
+                                                            'rotate-0': !isOpen,
+                                                        }" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10" aria-hidden="true">
+                                                                <path d="M15 1.2l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                                    </MenuButton>
                                                     </div>
-                                                    <div
-                                                        class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                                                        <div class="duration-600 ease-soft bg-gradient-to-tl from-green-600 to-lime-400 -mt-0.38 -ml-px flex h-1.5 w-full flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all"
-                                                        role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="assets/img/small-logos/logo-jira.svg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                                        alt="jira" />
-                                                </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal">Add the New Pricing Page
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                            <div class="mt-2 avatar-group">
-                                                <a href="javascript:;"
-                                                    class="relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                    data-target="tooltip_trigger" data-placement="bottom">
-                                                    <img src="assets/img/team-4.jpg" class="w-full rounded-full"
-                                                        alt="user5" />
-                                                </a>
-                                                <div data-target="tooltip"
-                                                    class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                    role="tooltip">
-                                                    Ryan Tompson
-                                                    <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                        data-popper-arrow></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap">
-                                            <span class="text-xs font-semibold leading-tight"> $500 </span>
-                                        </td>
-                                        <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap">
-                                            <div class="w-3/4 mx-auto">
-                                                <div>
-                                                    <div>
-                                                        <span class="text-xs font-semibold leading-tight">25%</span>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                                                    <div class="duration-600 ease-soft bg-gradient-to-tl from-blue-600 to-cyan-400 -mt-0.38 -ml-px flex h-1.5 w-1/4 flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all"
-                                                        role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                                                        aria-valuemax="25"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-2 align-middle bg-transparent border-0 whitespace-nowrap">
-                                            <div class="flex px-2 py-1">
-                                                <div>
-                                                    <img src="assets/img/small-logos/logo-invision.svg"
-                                                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                                        alt="invision" />
-                                                </div>
-                                                <div class="flex flex-col justify-center">
-                                                    <h6 class="mb-0 text-sm leading-normal">Redesign New Online Shop
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-2 align-middle bg-transparent border-0 whitespace-nowrap">
-                                            <div class="mt-2 avatar-group">
-                                                <a href="javascript:;"
-                                                    class="relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                    data-target="tooltip_trigger" data-placement="bottom">
-                                                    <img src="assets/img/team-1.jpg" class="w-full rounded-full"
-                                                        alt="user6" />
-                                                </a>
-                                                <div data-target="tooltip"
-                                                    class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                    role="tooltip">
-                                                    Ryan Tompson
-                                                    <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                        data-popper-arrow></div>
-                                                </div>
-                                                <a href="javascript:;"
-                                                    class="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30"
-                                                    data-target="tooltip_trigger" data-placement="bottom">
-                                                    <img src="assets/img/team-4.jpg" class="w-full rounded-full"
-                                                        alt="user7" />
-                                                </a>
-                                                <div data-target="tooltip"
-                                                    class="hidden px-2 py-1 text-sm text-white bg-black rounded-lg"
-                                                    role="tooltip">
-                                                    Jessica Doe
-                                                    <div class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
-                                                        data-popper-arrow></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-0 whitespace-nowrap">
-                                            <span class="text-xs font-semibold leading-tight"> $2,000 </span>
-                                        </td>
-                                        <td class="p-2 align-middle bg-transparent border-0 whitespace-nowrap">
-                                            <div class="w-3/4 mx-auto">
-                                                <div>
-                                                    <div>
-                                                        <span class="text-xs font-semibold leading-tight">40%</span>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                                                    <div class="duration-600 ease-soft bg-gradient-to-tl from-blue-600 to-cyan-400 -mt-0.38 -ml-px flex h-1.5 w-2/5 flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all"
-                                                        role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                                                        aria-valuemax="40"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- card 2 -->
-
-            <div class="w-full max-w-full px-3 md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none">
-                <div
-                    class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
-                    <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
-                        <h6>Orders overview</h6>
-                        <p class="text-sm leading-normal">
-                            <i class="fa fa-arrow-up text-lime-500"></i>
-                            <span class="font-semibold">24%</span> this month
-                        </p>
-                    </div>
-                    <div class="flex-auto p-4">
-                        <div
-                            class="before:border-r-solid relative before:absolute before:top-0 before:left-4 before:h-full before:border-r-2 before:border-r-slate-100 before:content-[''] before:lg:-ml-px">
-                            <div class="relative mb-4 mt-0 after:clear-both after:table after:content-['']">
-                                <span
-                                    class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
-                                    <i
-                                        class="relative z-10 leading-none text-transparent ni ni-bell-55 leading-pro bg-gradient-to-tl from-green-600 to-lime-400 bg-clip-text fill-transparent"></i>
-                                </span>
-                                <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
-                                    <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">$2400, Design
-                                        changes</h6>
-                                    <p class="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">22 DEC 7:20
-                                        PM</p>
-                                </div>
-                            </div>
-                            <div class="relative mb-4 after:clear-both after:table after:content-['']">
-                                <span
-                                    class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
-                                    <i
-                                        class="relative z-10 leading-none text-transparent ni ni-html5 leading-pro bg-gradient-to-tl from-red-600 to-rose-400 bg-clip-text fill-transparent"></i>
-                                </span>
-                                <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
-                                    <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">New order
-                                        #1832412</h6>
-                                    <p class="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">21 DEC 11 PM
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="relative mb-4 after:clear-both after:table after:content-['']">
-                                <span
-                                    class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
-                                    <i
-                                        class="relative z-10 leading-none text-transparent ni ni-cart leading-pro bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text fill-transparent"></i>
-                                </span>
-                                <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
-                                    <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">Server payments
-                                        for April</h6>
-                                    <p class="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">21 DEC 9:34
-                                        PM</p>
-                                </div>
-                            </div>
-                            <div class="relative mb-4 after:clear-both after:table after:content-['']">
-                                <span
-                                    class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
-                                    <i
-                                        class="relative z-10 leading-none text-transparent ni ni-credit-card leading-pro bg-gradient-to-tl from-red-500 to-yellow-400 bg-clip-text fill-transparent"></i>
-                                </span>
-                                <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
-                                    <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">New card added
-                                        for order #4395133</h6>
-                                    <p class="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">20 DEC 2:20
-                                        AM</p>
-                                </div>
-                            </div>
-                            <div class="relative mb-4 after:clear-both after:table after:content-['']">
-                                <span
-                                    class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
-                                    <i
-                                        class="relative z-10 leading-none text-transparent ni ni-key-25 leading-pro bg-gradient-to-tl from-purple-700 to-pink-500 bg-clip-text fill-transparent"></i>
-                                </span>
-                                <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
-                                    <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">Unlock packages
-                                        for development</h6>
-                                    <p class="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">18 DEC 4:54
-                                        AM</p>
-                                </div>
-                            </div>
-                            <div class="relative mb-0 after:clear-both after:table after:content-['']">
-                                <span
-                                    class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
-                                    <i
-                                        class="relative z-10 leading-none text-transparent ni ni-money-coins leading-pro bg-gradient-to-tl from-gray-900 to-slate-800 bg-clip-text fill-transparent"></i>
-                                </span>
-                                <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
-                                    <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">New order
-                                        #9583120</h6>
-                                    <p class="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">17 DEC</p>
-                                </div>
+                                                    <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                                                        <MenuItems class="absolute right-0 z-100 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                            <div class="py-1">
+                                                                <MenuItem v-slot="{ active }">
+                                                                <Link :href="route('user.qr.statistics', { id: qrcode.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Statistics</Link>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }">
+                                                                <Link :href="route('user.download.qrcode', { id: qrcode.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Download QR</Link>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }">
+                                                                <Link :href="route('user.edit.qr', { id: qrcode.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }" @click="open = true">
+                                                                <button @click="activateDeactivate(qrcode.qr_code_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="qrcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }">
+                                                             
+                                                                <button  @click="deleteRecord(qrcode.qr_code_id)"   :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</button>
+                                                            </MenuItem>
+                                                            </div>
+                                                        </MenuItems>
+                                                    </transition>
+                                                </Menu>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+                     <!-- Pagination -->
+            <Pagination :data="qr_codes"> </Pagination>
+
+                </div>
+                <div class="flex-none lg:w-2/4 max-w-full px-3">
+                    <div
+                        class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+                        <div class="flex justify-between p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                            <h6>Recent 10 Barcodes</h6>
+                            <Link :href="route('user.create.qr')">
+                                <DashboardButton style="background-color: green;"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <line x1="12" y1="5" x2="12" y2="19" />
+                                        <line x1="5" y1="12" x2="19" y2="12" />
+                                    </svg><span><span class="text-lg">+ </span>Create Barcode</span></DashboardButton>
+                            </Link>
+                        </div>
+                        <div class="flex-auto px-0 pt-0 pb-2">
+                            <div class="p-0 overflow-x-auto">
+                                <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+                                    <thead class="align-bottom">
+                                        <tr>
+                                            <th
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                S.NO</th>
+                                            <th
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                NAME</th>                                           
+                                            <th
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                CREATED ON</th>
+                                            <th
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                STATUS</th>
+                                            <th
+                                                class="px-3 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+                                                ACTIONS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(barcode, index) in bar_codes.data" :key="barcode.id">
+                                            <td
+                                                class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 text-xs font-semibold leading-tight">{{ index + 1 }}</p>
+                                            </td>
+                                            <td
+                                                class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 text-xs font-semibold leading-tight">{{ barcode.name }}</p>
+                                            </td>
+                                            
+                                            <td
+                                                class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <p class="mb-0 text-xs font-semibold leading-tight">
+                                                   {{formatDate(barcode.created_at)}}
+                                                </p>
+                                            </td>
+                                            <td
+                                                class="px-3 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <span v-if="barcode.status === 0"
+                                                    class="bg-gradient-to-tl from-red-600 to-red-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Deactivated</span>
+                                                <span v-else
+                                                    class="bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Activated</span>
+                                            </td>
+                                            <td class="px-3 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                                <Menu as="div" class="relative inline-block text-left">
+                                                    <div>
+                                                    <MenuButton>
+                                                        <span class="text-xs font-semibold leading-tight text-slate-400 mr-2">Actions</span>
+                                                        <svg class="w-2 transition-all duration-200 transform" :class="{
+                                                            'rotate-180': isOpen,
+                                                            'rotate-0': !isOpen,
+                                                        }" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10" aria-hidden="true">
+                                                                <path d="M15 1.2l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                                    </MenuButton>
+                                                    </div>
+
+                                                    <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                                                        <MenuItems class="absolute right-0 z-100 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                            <div class="py-1">
+                                                                <MenuItem v-slot="{ active }">
+                                                                <Link :href="route('user.qr.statistics', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Statistics</Link>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }">
+                                                                <Link :href="route('user.download.qrcode', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Download QR</Link>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }">
+                                                                <Link :href="route('user.edit.qr', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }" @click="open = true">
+                                                                <button @click="activateDeactivate(barcode.barcode_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="barcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
+                                                            </MenuItem>
+                                                            <MenuItem v-slot="{ active }">
+                                                             
+                                                                <button  @click="deleteRecord(barcode.barcode_id)"   :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</button>
+                                                            </MenuItem>
+                                                            </div>
+                                                        </MenuItems>
+                                                    </transition>
+                                                </Menu>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Pagination -->
+            <Pagination :data="bar_codes"> </Pagination>
+
                 </div>
             </div>
-        </div>
+           
+            <!--table end-->
+
+            
         <!-- Footer -->
         <Footer />
     </div>
 </UserLayout></template>
+
+<script setup>
+
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
+import { ref } from 'vue'
+import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+
+const open = ref(true)
+const props = defineProps(['settings', 'active_plan', 'remaining_days', 'barcodes_count', 'qr_codes_count', 'qr_codes', 'bar_codes', 'settings', 'config'])
+
+
+// const props = defineProps({
+//     qr_codes: Object,
+//     settings: Object,
+// });
+
+
+</script>
+
+<script>
+import Chart from 'chart.js/auto';
+
+export default {
+   
+    components:{Menu, MenuButton, MenuItem, MenuItems},
+    mounted(){
+          
+        this.barqrCode();
+    },
+ 
+    methods:{
+                //chart for barcode and qrcode
+            barqrCode(){
+
+        var ctx2 = document.getElementById("chartBarQr").getContext("2d");
+        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+        gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+        gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
+
+        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+        gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+        gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
+
+        new Chart(ctx2, {
+        type: "line",
+        data: {
+        labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [
+        {
+        label: "Barcode",
+        tension: 0.4,
+        borderWidth: 0,
+        pointRadius: 0,
+        borderColor: "#cb0c9f",
+        borderWidth: 3,
+        backgroundColor: gradientStroke1,
+        fill: true,
+        data: [10,20,30,60,80,90,20,80,90,20,80,90],
+        maxBarThickness: 6,
+        },
+        {
+        label: "Qrcode",
+        tension: 0.4,
+        borderWidth: 0,
+        pointRadius: 0,
+        borderColor: "#3A416F",
+        borderWidth: 3,
+        backgroundColor: gradientStroke2,
+        fill: true,
+        data: [20,30,40,90,30,40,80,10,0,0,0,20],
+        maxBarThickness: 6,
+        },
+        ],
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+        legend: {
+        display: false,
+        },
+        },
+        interaction: {
+        intersect: false,
+        mode: "index",
+        },
+        scales: {
+        y: {
+        grid: {
+        drawBorder: false,
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: false,
+        borderDash: [5, 5],
+        },
+        ticks: {
+        display: true,
+        padding: 10,
+        color: "#b2b9bf",
+        font: {
+            size: 11,
+            family: "Open Sans",
+            style: "normal",
+            lineHeight: 2,
+        },
+        },
+        },
+        x: {
+        grid: {
+        drawBorder: false,
+        display: false,
+        drawOnChartArea: false,
+        drawTicks: false,
+        borderDash: [5, 5],
+        },
+        ticks: {
+        display: true,
+        color: "#b2b9bf",
+        padding: 20,
+        font: {
+            size: 11,
+            family: "Open Sans",
+            style: "normal",
+            lineHeight: 2,
+        },
+        },
+        },
+        },
+        },
+        });
+
+
+        },
+        formatDate(date) {
+            return new Date(date).toLocaleString('en-US', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+            });
+        },
+    },
+}
+</script>

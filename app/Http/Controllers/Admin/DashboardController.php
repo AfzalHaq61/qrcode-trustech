@@ -7,6 +7,8 @@ use App\Models\Plan;
 use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Config;
+use App\Models\Barcode;
+use App\Models\QrCode;
 use App\Models\Gateway;
 use App\Models\Setting;
 use App\Models\Currency;
@@ -18,33 +20,52 @@ class DashboardController extends Controller
 {
     // Dashboard
     public function index()
-    {
-      
-       
-        return Inertia::render('Admin/Index');
+    {       
+        
         // Dashboard counts
         $settings = Setting::where('status', 1)->first();
         $config = Config::get();
+       
         $currency = Currency::where('iso_code', $config['1']->config_value)->first();
+      
         $this_month_income = Transaction::where('payment_status', 'Success')->whereMonth('created_at', Carbon::now()->month)->sum('transaction_amount');
         $today_income = Transaction::where('payment_status', 'Success')->whereDate('created_at', Carbon::today())->sum('transaction_amount');
         $overall_users = User::where('role_id', 2)->where('status', 1)->count();
         $today_users = User::where('role_id', 2)->where('status', 1)->whereDate('created_at', Carbon::today())->count();
 
+        
+        
+       
+        
         $monthIncome = [];
         $monthUsers = [];
-        for ($month = 1; $month <= 12; $month++) {
+        $barcodeCount = [];
+        $qrcodeCount = [];
+        $startD = [];
+        $getYear = "";
+               for ($month = 1; $month <= 12; $month++) {
             $startDate = Carbon::create(date('Y'), $month);
+            $getYear = $startDate->year;
             $endDate = $startDate->copy()->endOfMonth();
+            
             $sales = Transaction::where('payment_status', 'Success')->where('created_at', '>=', $startDate)->where('created_at', '<=', $endDate)->sum('transaction_amount');
             $users = User::where('role_id', 2)->where('created_at', '>=', $startDate)->where('created_at', '<=', $endDate)->count();
-            $monthIncome[$month] = $sales;
-            $monthUsers[$month] = $users;
+            $barcode = Barcode::where('status',1)->where('created_at', '>=', $startDate)->where('created_at', '<=', $endDate)->count();
+            $qrcode = Qrcode::where('status',1)->where('created_at', '>=', $startDate)->where('created_at', '<=', $endDate)->count();
+            $monthIncome[$month-1] = $sales;
+            $monthUsers[$month-1] = $users;
+            $barcodeCount[$month-1] = $barcode;
+            $qrcodeCount[$month-1] = $qrcode;
+            $startD[$month-1] = $startDate;
         }
-        $monthIncome = implode(',', $monthIncome);
-        $monthUsers = implode(',', $monthUsers);
 
-        return Inertia::render('Admin/Index', ['this_month_income' => $this_month_income, 'today_income' => $today_income, 'overall_users' => $overall_users, 'today_users' => $today_users, 'currency' => $currency, 'settings' => $settings, 'monthIncome' => $monthIncome, 'monthUsers' => $monthUsers]);
+    
+
+      
+       
+        //  $monthIncome = implode(',', $monthIncome);
+        //  $monthUsers = implode(',', $monthUsers);
+        return Inertia::render('Admin/Index', ['this_month_income' => $this_month_income, 'today_income' => $today_income, 'overall_users' => $overall_users, 'today_users' => $today_users, 'currency' => $currency, 'settings' => $settings, 'monthIncome' => $monthIncome, 'monthUsers' => $monthUsers, 'qrcode' => $qrcodeCount, 'barcode' => $barcodeCount, 'getCurrentYear' => $getYear]);
 
         // return view('admin.index', compact('this_month_income', 'today_income', 'overall_users', 'today_users', 'currency', 'settings', 'monthIncome', 'monthUsers'));
     }
