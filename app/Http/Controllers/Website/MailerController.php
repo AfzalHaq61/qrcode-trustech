@@ -13,6 +13,7 @@ class MailerController extends Controller
     // Compose Email
     public function composeEmail(Request $request)
     {
+        return $request;
         try {
             // Contact Details Array
             $contactDetails = [

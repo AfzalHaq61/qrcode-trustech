@@ -886,7 +886,7 @@
                                 <span
                                     class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
                                     <i
-                                        class="relative z-10 leading-none text-transparent ni ni-bell-55 leading-pro bg-gradient-to-tl from-green-600 to-lime-400 bg-clip-text fill-transparent"></i>
+                                        class="relative z-10 text-transparent ni ni-bell-55 leading-pro bg-gradient-to-tl from-green-600 to-lime-400 bg-clip-text fill-transparent"></i>
                                 </span>
                                 <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
                                     <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">$2400, Design
@@ -899,7 +899,7 @@
                                 <span
                                     class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
                                     <i
-                                        class="relative z-10 leading-none text-transparent ni ni-html5 leading-pro bg-gradient-to-tl from-red-600 to-rose-400 bg-clip-text fill-transparent"></i>
+                                        class="relative z-10 text-transparent ni ni-html5 leading-pro bg-gradient-to-tl from-red-600 to-rose-400 bg-clip-text fill-transparent"></i>
                                 </span>
                                 <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
                                     <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">New order
@@ -912,7 +912,7 @@
                                 <span
                                     class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
                                     <i
-                                        class="relative z-10 leading-none text-transparent ni ni-cart leading-pro bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text fill-transparent"></i>
+                                        class="relative z-10 text-transparent ni ni-cart leading-pro bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text fill-transparent"></i>
                                 </span>
                                 <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
                                     <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">Server payments
@@ -925,7 +925,7 @@
                                 <span
                                     class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
                                     <i
-                                        class="relative z-10 leading-none text-transparent ni ni-credit-card leading-pro bg-gradient-to-tl from-red-500 to-yellow-400 bg-clip-text fill-transparent"></i>
+                                        class="relative z-10 text-transparent ni ni-credit-card leading-pro bg-gradient-to-tl from-red-500 to-yellow-400 bg-clip-text fill-transparent"></i>
                                 </span>
                                 <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
                                     <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">New card added
@@ -938,7 +938,7 @@
                                 <span
                                     class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
                                     <i
-                                        class="relative z-10 leading-none text-transparent ni ni-key-25 leading-pro bg-gradient-to-tl from-purple-700 to-pink-500 bg-clip-text fill-transparent"></i>
+                                        class="relative z-10 text-transparent ni ni-key-25 leading-pro bg-gradient-to-tl from-purple-700 to-pink-500 bg-clip-text fill-transparent"></i>
                                 </span>
                                 <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
                                     <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">Unlock packages
@@ -951,7 +951,7 @@
                                 <span
                                     class="w-6.5 h-6.5 text-base absolute left-4 z-10 inline-flex -translate-x-1/2 items-center justify-center rounded-full bg-white text-center font-semibold">
                                     <i
-                                        class="relative z-10 leading-none text-transparent ni ni-money-coins leading-pro bg-gradient-to-tl from-gray-900 to-slate-800 bg-clip-text fill-transparent"></i>
+                                        class="relative z-10 text-transparent ni ni-money-coins leading-pro bg-gradient-to-tl from-gray-900 to-slate-800 bg-clip-text fill-transparent"></i>
                                 </span>
                                 <div class="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
                                     <h6 class="mb-0 text-sm font-semibold leading-normal text-slate-700">New order

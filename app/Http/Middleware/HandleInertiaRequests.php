@@ -2,11 +2,13 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Http\Request;
-use Inertia\Middleware;
-use App\Models\Config;
 use DB;
+use App\Models\Config;
+use App\Models\Setting;
+use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -44,21 +46,31 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
             ],
-            'themeColor' => $this->themeColor(),
             'appName' => 'QR Code',
             'imagePath' => 'http://127.0.0.1:8000/',
             'appUrl' => 'http://127.0.0.1:8000/',
             'TIMEZONE' => env('TIMEZONE'),
-            'APP_TYPE' => env('APP_TYPE'),
+            'APP_TYPE' => env('APP_TYPE', 'BOTH'),
             'COOKIE_CONSENT_ENABLED' => env('COOKIE_CONSENT_ENABLED'),
             'SIZE_LIMIT' => env('SIZE_LIMIT'),
+            'themeColor' => $this->themeColor(),
+            'siteLogo' => 'http://127.0.0.1:8000' . $this->siteLogo(),
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
         ]);
     }
 
     //get theme color
-    public function themeColor(){
+    public function themeColor()
+    {
         $query = DB::table('configs')->select('config_value')->where('id', 12)->first();
-
         return $query;
+    }
+
+    // get site logo
+    public function siteLogo()
+    {
+        $query = Setting::first();
+        return $query->site_logo;
     }
 }

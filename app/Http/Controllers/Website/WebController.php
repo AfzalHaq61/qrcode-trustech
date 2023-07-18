@@ -4,27 +4,35 @@ namespace App\Http\Controllers\Website;
 
 use App\Models\Page;
 use App\Models\Plan;
+use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use App\Models\Currency;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Foundation\Application;
 
 class WebController extends Controller
 {
     // Web Index
     public function webIndex()
     {
-            // Plans
-         
-            $plans = Plan::where('status', 1)->first();
-            $config = Config::get();
-            $currency = Currency::where('iso_code', $config['1']->config_value)->first();
-            $setting = Setting::where('status', 1)->first();
+        // Plans
+        $plans = Plan::where('status', 1)->get();
+        $config = Config::get();
+        $currency = Currency::where('iso_code', $config['1']->config_value)->get();
+        $settings = Setting::where('status', 1)->first();
+        $page = Page::where('slug', 'home')->where('status', 1)->get();
 
-            // view
-            return view("website.index", compact('plans', 'config', 'currency', 'setting'));
+        // view
+        return Inertia::render('Website/Index', [
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'plans' => $plans,
+            'config' => $config,
+            'currency' => $currency,
+            'settings' => $settings,
+            'page' => $page
+        ]);
     }
 
     // Web About
@@ -45,9 +53,17 @@ class WebController extends Controller
         $plans = Plan::where('status', 1)->get();
         $config = Config::get();
         $currency = Currency::where('iso_code', $config['1']->config_value)->first();
-        $setting = Setting::where('status', 1)->first();
+        $settings = Setting::where('status', 1)->first();
+        $page = Page::where('slug', 'pricing')->where('status', 1)->get();
 
-        return view("website.pages.pricing", compact('plans', 'config', 'currency', 'setting'));
+        // view
+        return Inertia::render('Website/Pricing', [
+            'plans' => $plans,
+            'config' => $config,
+            'currency' => $currency,
+            'settings' => $settings,
+            'page' => $page
+        ]);
     }
 
     // Web Contact
@@ -55,9 +71,15 @@ class WebController extends Controller
     {
         // Queries
         $config = Config::get();
-        $setting = Setting::where('status', 1)->first();
+        $settings = Setting::where('status', 1)->first();
+        $page = Page::where('slug', 'contact')->where('status', 1)->get();
 
-        return view("website.pages.contact", compact('config', 'setting'));
+        // view
+        return Inertia::render('Website/Contact', [
+            'config' => $config,
+            'settings' => $settings,
+            'page' => $page
+        ]);
     }
 
     // Web FAQs
@@ -65,9 +87,15 @@ class WebController extends Controller
     {
         // Queries
         $config = Config::get();
-        $setting = Setting::where('status', 1)->first();
+        $settings = Setting::where('status', 1)->first();
+        $page = Page::where('slug', 'faq')->where('status', 1)->get();
 
-        return view("website.pages.faq", compact('config', 'setting'));
+        // view
+        return Inertia::render('Website/Faq', [
+            'config' => $config,
+            'settings' => $settings,
+            'page' => $page
+        ]);
     }
 
     // Web Privacy
@@ -75,9 +103,15 @@ class WebController extends Controller
     {
         // Queries
         $config = Config::get();
-        $setting = Setting::where('status', 1)->first();
+        $settings = Setting::where('status', 1)->first();
+        $page = Page::where('slug', 'privacy-policy')->where('status', 1)->get();
 
-        return view("website.pages.privacy", compact('config', 'setting'));
+        // view
+        return Inertia::render('Website/PrivacyPolicy', [
+            'config' => $config,
+            'settings' => $settings,
+            'page' => $page
+        ]);
     }
 
     // Web Privacy
@@ -85,9 +119,15 @@ class WebController extends Controller
     {
         // Queries
         $config = Config::get();
-        $setting = Setting::where('status', 1)->first();
+        $settings = Setting::where('status', 1)->first();
+        $page = Page::where('slug', 'privacy-policy')->where('status', 1)->get();
 
-        return view("website.pages.cookies", compact('config', 'setting'));
+        // view
+        return Inertia::render('Website/CookiesAndGDPR', [
+            'config' => $config,
+            'settings' => $settings,
+            'page' => $page
+        ]);
     }
 
     // Web Refund
@@ -105,9 +145,15 @@ class WebController extends Controller
     {
         // Queries
         $config = Config::get();
-        $setting = Setting::where('status', 1)->first();
+        $settings = Setting::where('status', 1)->first();
+        $page = Page::where('slug', 'terms-and-conditions')->where('status', 1)->get();
 
-        return view("website.pages.terms", compact('config', 'setting'));
+        // view
+        return Inertia::render('Website/TermsAndCondition', [
+            'config' => $config,
+            'settings' => $settings,
+            'page' => $page
+        ]);
     }
 
     // Custom pages

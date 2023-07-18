@@ -1,6 +1,4 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
 import Header from './GuestLayoutPartials/Header.vue';
 import Footer from './GuestLayoutPartials/Footer.vue';
 </script>

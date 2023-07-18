@@ -1,10 +1,3 @@
-<script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
-import RegesterHeader from './GuestLayoutPartials/RegesterHeader.vue';
-import Footer from './GuestLayoutPartials/Footer.vue';
-</script>
-
 <template>
     <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
         <!-- Navbar -->
@@ -16,3 +9,10 @@ import Footer from './GuestLayoutPartials/Footer.vue';
         <Footer/>
     </body>
 </template>
+
+<script setup>
+
+import RegesterHeader from './GuestLayoutPartials/RegesterHeader.vue';
+import Footer from './GuestLayoutPartials/Footer.vue';
+
+</script>

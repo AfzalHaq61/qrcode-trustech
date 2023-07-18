@@ -2,9 +2,9 @@
     <aside class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
           <div class="h-19.5">
             <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
-            <Link href="/" class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700">
+            <div class="block px-8 m-0 text-sm whitespace-nowrap text-slate-700">
                 <ApplicationLogo class="inline h-full max-w-full transition-all duration-200 ease-nav-brand font-bold max-h-8" />
-            </Link>
+            </div>
           </div>
 
           <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
@@ -35,7 +35,7 @@
                       </g>
                     </svg>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
+                  <span class="ml-1 w-14 text-start duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
                 </Link>
               </li>
 
@@ -43,24 +43,24 @@
                 <Accordian>
                     <template v-slot:nav>
                         <span class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                        <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-qrcode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <rect x="4" y="4" width="6" height="6" rx="1"></rect>
-                                <line x1="7" y1="17" x2="7" y2="17.01"></line>
-                                <rect x="14" y="4" width="6" height="6" rx="1"></rect>
-                                <line x1="7" y1="7" x2="7" y2="7.01"></line>
-                                <rect x="4" y="14" width="6" height="6" rx="1"></rect>
-                                <line x1="17" y1="7" x2="17" y2="7.01"></line>
-                                <line x1="14" y1="14" x2="17" y2="14"></line>
-                                <line x1="20" y1="14" x2="20" y2="14.01"></line>
-                                <line x1="14" y1="14" x2="14" y2="17"></line>
-                                <line x1="14" y1="20" x2="17" y2="20"></line>
-                                <line x1="17" y1="17" x2="20" y2="17"></line>
-                                <line x1="20" y1="17" x2="20" y2="20"></line>
-                            </svg>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Generate</span>
+                            <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-qrcode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <rect x="4" y="4" width="6" height="6" rx="1"></rect>
+                                    <line x1="7" y1="17" x2="7" y2="17.01"></line>
+                                    <rect x="14" y="4" width="6" height="6" rx="1"></rect>
+                                    <line x1="7" y1="7" x2="7" y2="7.01"></line>
+                                    <rect x="4" y="14" width="6" height="6" rx="1"></rect>
+                                    <line x1="17" y1="7" x2="17" y2="7.01"></line>
+                                    <line x1="14" y1="14" x2="17" y2="14"></line>
+                                    <line x1="20" y1="14" x2="20" y2="14.01"></line>
+                                    <line x1="14" y1="14" x2="14" y2="17"></line>
+                                    <line x1="14" y1="20" x2="17" y2="20"></line>
+                                    <line x1="17" y1="17" x2="20" y2="17"></line>
+                                    <line x1="20" y1="17" x2="20" y2="20"></line>
+                                </svg>
+                            </div>
+                            <span class="ml-1 w-14 text-start duration-1000 opacity-100 pointer-events-none ease-soft">Generate</span>
                         </span>
                     </template>
                     <template v-slot:subnav>
@@ -94,18 +94,18 @@
                 <Accordian>
                     <template v-slot:nav>
                         <span class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                        <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-businessplan" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <ellipse cx="16" cy="6" rx="5" ry="3"></ellipse>
-                                <path d="M11 6v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
-                                <path d="M11 10v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
-                                <path d="M11 14v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
-                                <path d="M7 9h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
-                                <path d="M5 15v1m0 -8v1"></path>
-                            </svg>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Plans</span>
+                            <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-businessplan" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <ellipse cx="16" cy="6" rx="5" ry="3"></ellipse>
+                                    <path d="M11 6v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                    <path d="M11 10v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                    <path d="M11 14v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                    <path d="M7 9h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                    <path d="M5 15v1m0 -8v1"></path>
+                                </svg>
+                            </div>
+                            <span class="ml-1 w-14 text-start duration-300 opacity-100 pointer-events-none ease-soft">Plans</span>
                         </span>
                     </template>
                     <template v-slot:subnav>
@@ -132,7 +132,7 @@
                         <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                     </svg>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Users</span>
+                  <span class="ml-1 w-14 text-start duration-300 opacity-100 pointer-events-none ease-soft">Users</span>
                 </Link>
               </li>
 
@@ -151,7 +151,7 @@
                         <line x1="16" y1="14" x2="16" y2="17"></line>
                     </svg>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Payment Methods</span>
+                  <span class="ml-1 w-14 text-start duration-300 opacity-100 pointer-events-none ease-soft">Payment Methods</span>
                 </Link>
               </li>
 
@@ -168,7 +168,7 @@
                                 <path d="M12 17v1m0 -8v1"></path>
                             </svg>
                         </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Transactions</span>
+                        <span class="ml-1 w-14 text-start duration-300 opacity-100 pointer-events-none ease-soft">Transactions</span>
                         </span>
                     </template>
                     <template v-slot:subnav>
@@ -195,7 +195,7 @@
                         <path d="M5 10v-5a2 2 0 0 1 2 -2h7l5 5v2"></path>
                     </svg>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Pages</span>
+                  <span class="ml-1 w-14 text-start duration-300 opacity-100 pointer-events-none ease-soft">Pages</span>
                 </Link>
               </li>
 
@@ -209,7 +209,7 @@
                         <circle cx="12" cy="12" r="3"></circle>
                     </svg>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Settings</span>
+                  <span class="ml-1 w-14 text-start duration-300 opacity-100 pointer-events-none ease-soft">Settings</span>
                 </Link>
               </li>
             </ul>

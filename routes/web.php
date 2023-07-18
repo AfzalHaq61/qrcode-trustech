@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,28 +19,32 @@ Route::get('/error', function () {
     return Inertia::render('Errors/404');
 });
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+// Website routes
+Route::get('/', [App\Http\Controllers\Website\WebController::class, "webIndex"])->name("web.index");
+Route::get('/about', [App\Http\Controllers\Website\WebController::class, "webAbout"])->name("web.about");
+Route::get('/pricing', [App\Http\Controllers\Website\WebController::class, "webPricing"])->name("web.pricing");
+Route::get('/contact', [App\Http\Controllers\Website\WebController::class, "webContact"])->name("web.contact");
+Route::post("/send-email", [App\Http\Controllers\Website\MailerController::class, "composeEmail"])->name("send-email");
+Route::get('/faq', [App\Http\Controllers\Website\WebController::class, "webFAQ"])->name("web.faq");
+Route::get('/privacy-policy', [App\Http\Controllers\Website\WebController::class, "webPrivacy"])->name("web.privacy");
+Route::get('/cookies-and-gdpr', [App\Http\Controllers\Website\WebController::class, "webCookies"])->name("web.cookies");
+Route::get('/refund-policy', [App\Http\Controllers\Website\WebController::class, "webRefund"])->name("web.refund");
+Route::get('/terms-and-conditions', [App\Http\Controllers\Website\WebController::class, "webTerms"])->name("web.terms");
+
+// Custom pages
+Route::get('/p/{id}', [App\Http\Controllers\Website\WebController::class, "customPage"])->name("web.custom.page");
+
+// QR Code Generator
+Route::get('/g/{id}', [App\Http\Controllers\Website\QRGeneratorController::class, "qrGenerator"])->name("web.qr.generator");
+Route::post('generate-qr', [App\Http\Controllers\Website\QRGeneratorController::class, "generateQr"])->name("web.generate.qr");
 
 // Admin routes
-
-
-
-
 Route::group(['as' => 'admin.', 'name' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin'], 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
     // Dashboard
 
