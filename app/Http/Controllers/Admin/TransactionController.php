@@ -11,6 +11,7 @@ use App\Models\Setting;
 use App\Models\Currency;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Services\BreadcrumbService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 
@@ -33,13 +34,14 @@ class TransactionController extends Controller
      */
 
     //  Transactions
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
         // Queries
    
         $transactions = Transaction::where('payment_gateway_name', '!=', 'Offline')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $currencies = Currency::get();
+        $breadcrumbs = $breadcrumbService->generate();
 
         // Get user transactions
         for ($i = 0; $i < count($transactions); $i++) {
@@ -60,6 +62,7 @@ class TransactionController extends Controller
             'transactions' => $transactions,
             'settings' => $settings,
             'currencies' => $currencies,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 

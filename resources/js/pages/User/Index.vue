@@ -2,6 +2,7 @@
     <Head title="Dashboard" />
     <UserLayout>
         <div class="w-full px-6 py-6 mx-auto">
+            <ConfirmationModel ref="myChild"  :modalData="modalData"/>
             <!-- row 1 -->
             <div class="flex flex-wrap -mx-3">
                 <!-- card1 -->
@@ -22,7 +23,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
                                         <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -48,7 +49,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg  bg-themeColor">
                                         <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -74,7 +75,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
                                         <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -82,18 +83,9 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< Updated upstream
 
                  <!-- card4 -->
                  <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-=======
-            </div>
-
-            <div class="flex flex-wrap my-6 -mx-3">
-                <!-- card 1 -->
-
-                <div class="w-full max-w-full px-3 mt-0 mb-6 md:mb-0 md:w-1/2 md:flex-none lg:w-2/3 lg:flex-none">
->>>>>>> Stashed changes
                     <div
                         class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex-auto p-4">
@@ -110,7 +102,7 @@
                                 </div>
                                 <div class="px-3 text-right basis-1/3">
                                     <div
-                                        class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                                        class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
                                         <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
                                     </div>
                                 </div>
@@ -244,11 +236,11 @@
                                                                 <Link :href="route('user.edit.qr', { id: qrcode.qr_code_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }" @click="open = true">
-                                                                <button @click="activateDeactivate(qrcode.qr_code_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="qrcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
+                                                                <button @click="activateDeactivateQRCode(qrcode.qr_code_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="qrcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
                                                              
-                                                                <button  @click="deleteRecord(qrcode.qr_code_id)"   :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</button>
+                                                                <button  @click="deleteRecordQRCode(qrcode.qr_code_id)"   :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</button>
                                                             </MenuItem>
                                                             </div>
                                                         </MenuItems>
@@ -354,11 +346,11 @@
                                                                 <Link :href="route('user.edit.qr', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }" @click="open = true">
-                                                                <button @click="activateDeactivate(barcode.barcode_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="barcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
+                                                                <button @click="activateDeactivateBarCode(barcode.barcode_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="barcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
                                                              
-                                                                <button  @click="deleteRecord(barcode.barcode_id)"   :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</button>
+                                                                <button  @click="deleteRecordBarCode(barcode.barcode_id)"   :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Delete</button>
                                                             </MenuItem>
                                                             </div>
                                                         </MenuItems>
@@ -376,7 +368,6 @@
 
                 </div>
             </div>
-<<<<<<< Updated upstream
            
             <!--table end-->
 
@@ -394,7 +385,67 @@ import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } fro
 
 const open = ref(true)
 const props = defineProps(['settings', 'active_plan', 'remaining_days', 'barcodes_count', 'qr_codes_count', 'qr_codes', 'bar_codes', 'settings', 'config'])
+const myChild = ref(null);
+  const modalData = ref({
+        title:'',
+        desc:'',
+        btnText:'Yes, proceed',
+        link:''  
+ });
 
+ //active deactive QR Code
+const activateDeactivateQRCode=((idd)=>{
+    console.log('Child value');
+    // console.log(myChild.value);
+   myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'Are you sure?',
+        desc:'If you proceed, you will active/deactivate this user data.',
+        link:route('user.update.qr.status', { id: idd })
+    } 
+});
+
+//active deactive Bar Code
+const activateDeactivateBarCode=((idd)=>{
+    console.log('Child value');
+    // console.log(myChild.value);
+   myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'Are you sure?',
+        desc:'If you proceed, you will active/deactivate this user data.',
+        link:route('user.update.barcode.status', { id: idd })
+    } 
+});
+
+//delete record of QR Code
+const deleteRecordQRCode=((idd)=>{
+    
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'WARNING!',
+        desc:'This action will remove user account and user data. It is not revertable action.',
+       
+        link: route('user.delete.qr', { id:idd })
+    } 
+    
+});
+
+//delete record of Bar Code
+const deleteRecordBarCode=((idd)=>{
+    
+    myChild.value.childMethod();
+    modalData.value = {
+        ...modalData.value,
+        title:'WARNING!',
+        desc:'This action will remove user account and user data. It is not revertable action.',
+       
+        link: route('user.delete.barcode', { id:idd })
+    } 
+    
+});
 
 // const props = defineProps({
 //     qr_codes: Object,
@@ -406,6 +457,7 @@ const props = defineProps(['settings', 'active_plan', 'remaining_days', 'barcode
 
 <script>
 import Chart from 'chart.js/auto';
+import ConfirmationModel from '../../Components/Modals/Modal.vue';
 
 export default {
    
@@ -535,9 +587,3 @@ export default {
     },
 }
 </script>
-=======
-        </div>
-    </div>
-</UserLayout>
-</template>
->>>>>>> Stashed changes

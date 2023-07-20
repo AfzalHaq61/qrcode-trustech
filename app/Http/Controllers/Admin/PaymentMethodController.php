@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\Gateway;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use App\Services\BreadcrumbService;
 use App\Http\Controllers\Controller;
 
 class PaymentMethodController extends Controller
@@ -27,15 +28,17 @@ class PaymentMethodController extends Controller
      */
 
     // All Payment Methods
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
         // Get payment methods
         $payment_methods = Gateway::orderBy('created_at', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
+        $breadcrumbs = $breadcrumbService->generate();
 
         return Inertia::render('Admin/PaymentMethods/Index', [
             'payment_methods' => $payment_methods,
             'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 

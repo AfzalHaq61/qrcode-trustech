@@ -47,6 +47,7 @@ class HandleInertiaRequests extends Middleware
                 'success' => fn () => $request->session()->get('success'),
             ],
             'appName' => 'QR Code',
+            'webURL' => env('APP_URL'),
             'imagePath' => 'http://127.0.0.1:8000/',
             'appUrl' => 'http://127.0.0.1:8000/',
             'TIMEZONE' => env('TIMEZONE'),

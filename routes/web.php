@@ -185,7 +185,7 @@ Route::group(['as' => 'user.', 'name' => 'user', 'prefix' => 'user', 'namespace'
     // Dashboard
 
     Route::get('payment-stripe/{id}', [App\Http\Controllers\User\CheckOutController::class, "paymentStripe"])->name("payment.stripe");
-    Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->name('dashboard');
+    Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, "index"])->middleware(['auth','verified'])->name('dashboard');
 
     // Plans
     Route::get('Plans', [App\Http\Controllers\User\PlanController::class, "index"])->name('plans');
@@ -270,8 +270,8 @@ Route::group(['as' => 'user.', 'name' => 'user', 'prefix' => 'user', 'namespace'
 });
 
 // Google auth routes
-Route::get('/google-login', [App\Http\Controllers\Auth\LoginController::class, "redirectToProvider"])->name('login.google');
-Route::get('/sign-in-with-google', [App\Http\Controllers\Auth\LoginController::class, "handleProviderCallback"]);
+// Route::get('/google-login', [App\Http\Controllers\Auth\LoginController::class, "redirectToProvider"])->name('login.google');
+// Route::get('/sign-in-with-google', [App\Http\Controllers\Auth\LoginController::class, "handleProviderCallback"]);
 
 
 Route::group(['middleware' => 'checkType'], function () {

@@ -34,7 +34,7 @@ class BreadcrumbService
                 // Add a breadcrumb for a specific route
 
                 $breadcrumbs[] = [
-                    'text' => 'AddPlan',
+                    'text' => 'Add Plan',
                     'url' => url('/admin/add-plan'),
                 ];
             } elseif ($routeName === 'admin.settings.general_settings') {

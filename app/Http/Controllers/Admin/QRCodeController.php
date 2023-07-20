@@ -11,6 +11,7 @@ use App\Models\Config;
 use App\Models\QrCode;
 use App\Models\Setting;
 use App\Models\QrCodeItem;
+use App\Services\BreadcrumbService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -36,17 +37,18 @@ class QRCodeController extends Controller
      */
 
     // All User QR Codes
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
     
         // Get User QR Codes
         $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
-
+        $breadcrumbs = $breadcrumbService->generate();
         // View page
         return Inertia::render('Admin/QrCodes/Index', [
             'qr_codes' => $qr_codes,
             'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 

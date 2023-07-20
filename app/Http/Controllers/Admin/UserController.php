@@ -11,6 +11,7 @@ use App\Models\QrCode;
 use App\Models\Barcode;
 use App\Models\Setting;
 use App\Models\Transaction;
+use App\Services\BreadcrumbService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,7 @@ class UserController extends Controller
      */
 
     // All Users
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
         // Queries
       
@@ -44,11 +45,13 @@ class UserController extends Controller
         $users = User::where('role_id', '2')->orderBy('created_at', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
         $config = Config::get();
+        $breadcrumbs = $breadcrumbService->generate();
         
         return Inertia::render('Admin/Users/Index', [
             'users' => $users,
             'settings' => $settings,
-            'config' => $config
+            'config' => $config,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 
