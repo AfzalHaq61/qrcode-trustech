@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use App\Services\BreadcrumbService;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -31,7 +32,7 @@ class PageController extends Controller
      */
 
     //  Pages
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
         // Static pages
 
@@ -57,13 +58,15 @@ class PageController extends Controller
 
         $settings = Setting::first();
         $config = Config::get();
+        $breadcrumbs = $breadcrumbService->generate();
 
         // View
         return Inertia::render('Admin/Pages/Index', [
             'pages' => $pages,
             'custom_pages' => $custom_pages,
             'settings' => $settings,
-            'config' => $config
+            'config' => $config,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 

@@ -9,6 +9,7 @@ use Spatie\Color\Hex;
 use App\Models\Barcode;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use App\Services\BreadcrumbService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,17 +32,19 @@ class BarCodeController extends Controller
      */
 
     // All User Bar Codes
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
        
         // Get User Bar Codes
         $bar_codes = Barcode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
+        $breadcrumbs = $breadcrumbService->generate();
 
         // View page
         return Inertia::render('Admin/BarCodes/Index', [
             'bar_codes' => $bar_codes,
             'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 

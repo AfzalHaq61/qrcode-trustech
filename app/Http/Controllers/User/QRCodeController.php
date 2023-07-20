@@ -1324,14 +1324,16 @@ class QRCodeController extends Controller
 
         // Get plan details
         $plan = User::where('id', Auth::user()->id)->where('status', 1)->first();
+      
         $plan_details = json_decode($plan->plan_details);
-
+       
         // Get QRCode details
         $qr_details = QrCode::where('qr_code_id', $request->query('id'))->where('user_id', Auth::user()->id)->first();
 
         if ($qr_details == null) {
             return view('errors.404');
         } else {
+    
             // Check no of qrcodes
             if ($plan_details->no_qrcodes == 999) {
                 $no_qrcodes = 999999;

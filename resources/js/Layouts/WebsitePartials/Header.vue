@@ -12,7 +12,7 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[currentUrl == 'http://127.0.0.1:8001/' ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">{{ item.name }}</Link>
+            <Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[currentUrl == $page.props.webURL ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">{{ item.name }}</Link>
             <span v-if="page">
                 <span v-for="page in page">
                     <span v-if="page.slug != 'home' && page.slug != 'about' && page.slug !=
@@ -24,19 +24,20 @@
                     </span>
                 </span>
             </span>
-        </div>
+        </div>     
+      
         <div v-if="$page.props.canLogin" class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12">
             <span v-if="$page.props.auth.user">
                 <span v-if="$page.props.auth.user.role_id == 1">
-                    <Link :href="route('admin.dashboard')" :class="[currentUrl == 'http://127.0.0.1:8001/' ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Dashboard →</Link>
+                    <Link :href="route('admin.dashboard')" :class="[currentUrl == $page.props.webURL ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Dashboard →</Link>
                 </span>
                 <span v-else>
-                    <Link :href="route('user.dashboard')" :class="[currentUrl == 'http://127.0.0.1:8001/' ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Dashboard →</Link>
+                    <Link :href="route('user.dashboard')" :class="[currentUrl == $page.props.webURL  ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Dashboard →</Link>
                 </span>
             </span>
             <template v-else>
-                <Link :href="route('login')" :class="[currentUrl == 'http://127.0.0.1:8001/' ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Log In →</Link>
-                <Link v-if="$page.props.canRegister" :href="route('register')" :class="[currentUrl == 'http://127.0.0.1:8001/' ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Sign Up →</Link>
+                <Link :href="route('login')" :class="[currentUrl == $page.props.webURL ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Log In →</Link>
+                <Link v-if="$page.props.canRegister" :href="route('register')" :class="[currentUrl == $page.props.webURL ? 'text-white' : 'text-gray-900', 'text-sm font-semibold leading-6']">Sign Up →</Link>
             </template>
         </div>
         </nav>

@@ -8,6 +8,7 @@ use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Barcode;
+use App\Services\BreadcrumbService;
 use App\Models\QrCode;
 use App\Models\Gateway;
 use App\Models\Setting;
@@ -19,7 +20,7 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     // Dashboard
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {       
         
         // Dashboard counts
@@ -33,7 +34,7 @@ class DashboardController extends Controller
         $overall_users = User::where('role_id', 2)->where('status', 1)->count();
         $today_users = User::where('role_id', 2)->where('status', 1)->whereDate('created_at', Carbon::today())->count();
 
-        
+        $breadcrumbs = $breadcrumbService->generate();
         
        
         
@@ -65,7 +66,7 @@ class DashboardController extends Controller
        
         //  $monthIncome = implode(',', $monthIncome);
         //  $monthUsers = implode(',', $monthUsers);
-        return Inertia::render('Admin/Index', ['this_month_income' => $this_month_income, 'today_income' => $today_income, 'overall_users' => $overall_users, 'today_users' => $today_users, 'currency' => $currency, 'settings' => $settings, 'monthIncome' => $monthIncome, 'monthUsers' => $monthUsers, 'qrcode' => $qrcodeCount, 'barcode' => $barcodeCount, 'getCurrentYear' => $getYear]);
+        return Inertia::render('Admin/Index', ['this_month_income' => $this_month_income, 'today_income' => $today_income, 'overall_users' => $overall_users, 'today_users' => $today_users, 'currency' => $currency, 'settings' => $settings, 'monthIncome' => $monthIncome, 'monthUsers' => $monthUsers, 'qrcode' => $qrcodeCount, 'barcode' => $barcodeCount, 'getCurrentYear' => $getYear,'breadcrumbs' => $breadcrumbs]);
 
         // return view('admin.index', compact('this_month_income', 'today_income', 'overall_users', 'today_users', 'currency', 'settings', 'monthIncome', 'monthUsers'));
     }

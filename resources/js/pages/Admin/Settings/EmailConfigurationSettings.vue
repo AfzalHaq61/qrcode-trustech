@@ -134,7 +134,7 @@
 
                     <!-- Test Mail -->
                     <div class="sm:col-span-2 mt-7">
-                        <Link :href="route('admin.test.email')" class="inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-themeColor to-fuchsia-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">
+                        <Link :href="route('admin.test.email')" class="inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-themeColor hover:scale-102 hover:shadow-soft-xs active:opacity-85">
                             Test Mail
                         </Link>
                     </div>

@@ -50,7 +50,10 @@ class NewPasswordController extends Controller
                     'password' => Hash::make($request->password),
                     'remember_token' => Str::random(60),
                 ])->save();
-
+                $message = [
+                    'email' => 'bilal@gmail.com'
+                ];
+                \Mail::to(ENV('MAIL_FROM_ADDRESS'))->send(new \App\Mail\WelcomeMail($message));
                 event(new PasswordReset($user));
             }
         );

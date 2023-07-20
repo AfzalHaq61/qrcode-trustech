@@ -138,9 +138,10 @@ class SettingController extends Controller
     // EmailConfigurationSettings
     public function emailConfiguration(BreadcrumbService  $breadcrumbService)
     {
-        $settings = Setting::first();
-        $breadcrumbs = $breadcrumbService->generate();
 
+        $settings = Setting::first();
+      
+        $breadcrumbs = $breadcrumbService->generate();
         // Get email configuration details
         $email_configuration = [
             'driver' => env('MAIL_MAILER', 'smtp'),
@@ -154,7 +155,8 @@ class SettingController extends Controller
         ];
 
         $settings['email_configuration'] = $email_configuration;
-
+        
+       
         return Inertia::render('Admin/Settings/EmailConfigurationSettings', [
             'settings' => $settings,
             'breadcrumbs' => $breadcrumbs
@@ -336,6 +338,8 @@ class SettingController extends Controller
     // Update Email Setting
     public function changeEmailSettings(Request $request)
     {
+        dd('welcome
+        ');
         // Page redirect
         return redirect()->back()->with('failed', trans('You can change the respective values directly from .env file.'));
     }
@@ -447,17 +451,22 @@ class SettingController extends Controller
     // Test email
     public function testEmail()
     {
+       
         $message = [
             'msg' => 'Test mail'
         ];
         $mail = false;
+       
+        // dd( Mail::to(ENV('MAIL_FROM_ADDRESS'))->send(new \App\Mail\TestMail($message)));
         try {
             Mail::to(ENV('MAIL_FROM_ADDRESS'))->send(new \App\Mail\TestMail($message));
             $mail = true;
         } catch (\Exception $e) {
             // Page redirect
+           
             return redirect()->back()->with('failed', trans('Email configuration wrong.'));
         }
+        
         // Check email
         if ($mail == true) {
             // Page redirect
