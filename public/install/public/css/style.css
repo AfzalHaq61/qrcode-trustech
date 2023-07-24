@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/* === Common Style === */
+@font-face {
+  font-family: 'Black Ops One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Black Ops One'), local('BlackOpsOne-Regular'), url(../fonts/BlackOpsOne-Regular.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+} 
+
+body{background:#BCDEFC;}
+button,a{font-family: 'Black Ops One';color:#fff;}
+h1{font-family: 'Black Ops One';padding:20px;margin:0;color:#f4645f;text-align:center}
+h2{font-family: 'Black Ops One';padding:20px;margin:0;color:#f4645f;text-align:center}
+h3{font-family: 'Black Ops One';font-size:20px;margin:0} 
+h4{padding:8px 5px;min-width: 250px;background:#10223E;;color:#fff;font-weight:700;font-size:14px}
+.divider{border-bottom: 1px solid #eee;margin:10px 0;padding-bottom: 9px}
+button, .cbtn{margin:30px 5px;background:#10223E;;min-width:120px;padding:8px 15px;border-radius:0;border:1px solid #eee;text-align:center;text-decoration:none!important;}
+button, .cbtn:hover{background:#f4645f}
+button:hover,
+button:focus, 
+a:hover, 
+a:focus{color:#fff!important;}
+.green{color:#40D240}
+.red{color:red}
+.maroon{color:maroon}
+.p-0{padding:0}
+.m-0{margin:0}
+.alert{border-radius:0}
+
+/* === Main Wrapper === */
+.main_wrapper{float:left;width:100%;margin:0;padding:0;background:#1A3867;color:#000;border-radius:0px}
+.inner-container{float:left;}
+.sidebar {padding:2px 10px;margin:5px 0;}
+.sidebar li{padding:8px 15px; background:#10223E; margin-top:1px;}
+.sidebar li.active{background:#f4645f}
+.sidebar li a{text-decoration:none; color:#fff;}
+.center{padding:0}
+.content{float: left;display:block;width: 100%;padding:5px;background:#F0F0F0;}
+.page-header{margin:0;padding:0;border:0;background:#10223E;}
+
+/* === Requirement Page === */ 
+table{width:100%;margin:0;}
+table thead{background:#10223E;} 
+table thead th{color:#fff;padding:8px;} 
+table thead td{padding:8px;min-width:100px;font-weight:700;font-size:14px}
+table tbody td{padding:2px;text-transform: capitalize}
+
+/* === Setup/Install Page === */
+.form-group{margin-bottom:5px}
+label{font-weight:400}
+.form-control{border-radius:0!important;height:35px!important}
+.content{min-height:400px}
+footer {text-align:right;width:100%;background:#10223E;float:left;color:#4d4d4d;padding:0 10px;}
+
+/*preloader*/
+.loader{position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999; background:#2C3136;opacity: 0.6;}

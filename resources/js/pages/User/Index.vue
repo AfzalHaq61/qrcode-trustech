@@ -146,13 +146,7 @@
                         <div class="flex justify-between p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                             <h6>Recent 10 QR Codes</h6>
                             <Link :href="route('user.create.qr')">
-                                <DashboardButton style="background-color: green;"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <line x1="12" y1="5" x2="12" y2="19" />
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                    </svg><span><span class="text-lg">+ </span>Create QR Code</span></DashboardButton>
+                                <DashboardButton style="background-color: green;"><span><span class="text-lg">+ </span>Create QR Code</span></DashboardButton>
                             </Link>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
@@ -262,14 +256,8 @@
                         class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex justify-between p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                             <h6>Recent 10 Barcodes</h6>
-                            <Link :href="route('user.create.qr')">
-                                <DashboardButton style="background-color: green;"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <line x1="12" y1="5" x2="12" y2="19" />
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                    </svg><span><span class="text-lg">+ </span>Create Barcode</span></DashboardButton>
+                            <Link :href="route('user.create.barcode')">
+                                <DashboardButton style="background-color: green;"><span><span class="text-lg">+ </span>Create Barcode</span></DashboardButton>
                             </Link>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
@@ -340,10 +328,10 @@
                                                                 <Link :href="route('user.qr.statistics', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Statistics</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
-                                                                <Link :href="route('user.download.qrcode', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Download QR</Link>
+                                                                <Link :href="route('user.download.barcode', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Download Barcode</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
-                                                                <Link :href="route('user.edit.qr', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
+                                                                <Link :href="route('user.edit.barcode', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }" @click="open = true">
                                                                 <button @click="activateDeactivateBarCode(barcode.barcode_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="barcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
@@ -384,7 +372,7 @@ import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
 const open = ref(true)
-const props = defineProps(['settings', 'active_plan', 'remaining_days', 'barcodes_count', 'qr_codes_count', 'qr_codes', 'bar_codes', 'settings', 'config'])
+const props = defineProps(['settings', 'active_plan', 'remaining_days', 'barcodes_count', 'qr_codes_count', 'qr_codes', 'bar_codes', 'settings', 'config', 'qrcode', 'barcode', 'getCurrentYear'])
 const myChild = ref(null);
   const modalData = ref({
         title:'',
@@ -462,6 +450,7 @@ import ConfirmationModel from '../../Components/Modals/Modal.vue';
 export default {
    
     components:{Menu, MenuButton, MenuItem, MenuItems},
+    props:['qrcode', 'barcode', 'getCurrentYear'],
     mounted(){
           
         this.barqrCode();
@@ -498,7 +487,7 @@ export default {
         borderWidth: 3,
         backgroundColor: gradientStroke1,
         fill: true,
-        data: [10,20,30,60,80,90,20,80,90,20,80,90],
+        data: this.barcode,
         maxBarThickness: 6,
         },
         {
@@ -510,7 +499,7 @@ export default {
         borderWidth: 3,
         backgroundColor: gradientStroke2,
         fill: true,
-        data: [20,30,40,90,30,40,80,10,0,0,0,20],
+        data: this.qrcode,
         maxBarThickness: 6,
         },
         ],

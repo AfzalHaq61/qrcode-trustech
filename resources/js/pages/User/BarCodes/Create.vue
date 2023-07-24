@@ -20,7 +20,7 @@
                                     <div class="mb-6">
                                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="name">Barcode Name
                                             <span class="text-red-600">*</span></Label>
-                                        <TextInput id="name" type="text" v-model="form.name" autofocus
+                                        <TextInput id="name" class="focus:ring-themeColor focus:shadow-themeColor " type="text" v-model="form.name" autofocus
                                             placeholder="Name..." minlength="3" maxlength="30" required/>
 
                                         <InputError class="mt-2" :message="form.errors.name" />
@@ -29,7 +29,7 @@
                                         <div class="mb-6 md:mb-0">
                                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="barcode_type">Barcode Type
                                                 <span class="text-red-600">*</span></Label>
-                                            <select id="barcode_type" name="barcode_type" v-model="form.barcode_type" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
+                                            <select id="barcode_type" name="barcode_type" v-model="form.barcode_type" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" required>
                                                 <option value="DNS1D">1D</option>
                                                 <option value="DNS2D">2D</option>
                                             </select>
@@ -39,7 +39,7 @@
                                         <div>
                                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="barcode_format">Barcode Format
                                                 <span class="text-red-600">*</span></Label>
-                                                <select v-html="barcode_format" @input="regenerateBarCode" id="barcode_format" name="barcode_format" v-model="form.barcode_format" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                                <select v-html="barcode_format" @input="regenerateBarCode" id="barcode_format" name="barcode_format" v-model="form.barcode_format" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                                                 </select>
 
                                             <InputError class="mt-2" :message="form.errors.barcode_format" />
@@ -49,7 +49,7 @@
                                     <div class="mb-6">
                                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Value
                                             <span class="text-red-600">*</span></Label>
-                                        <TextInput @input="regenerateBarCode" id="content" type="text" v-model="form.content" autofocus
+                                        <TextInput @input="regenerateBarCode" id="content" class="focus:ring-themeColor focus:shadow-themeColor " type="text" v-model="form.content" autofocus
                                             placeholder="Value..." minlength="1" maxlength="15" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required/>
                                         <span class="font-bold text-xs text-slate-700">Only valid for numeric value : Eg: 45000</span>
 
@@ -60,7 +60,7 @@
                                         <div class="mb-6 md:mb-0">
                                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="width">Width
                                                 <span class="text-red-600">*</span></Label>
-                                            <TextInput @input="regenerateBarCode" id="width" type="number" v-model="form.width" autofocus
+                                            <TextInput @input="regenerateBarCode" class="focus:ring-themeColor focus:shadow-themeColor " id="width" type="number" v-model="form.width" autofocus
                                                 placeholder="Width..." required/>
 
                                             <InputError class="mt-2" :message="form.errors.width" />
@@ -68,7 +68,7 @@
                                         <div>
                                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="height">Height
                                                 <span class="text-red-600">*</span></Label>
-                                            <TextInput @input="regenerateBarCode" id="height" type="number" v-model="form.height" autofocus
+                                            <TextInput @input="regenerateBarCode" id="height" class="focus:ring-themeColor focus:shadow-themeColor " type="number" v-model="form.height" autofocus
                                                 placeholder="Height..." required/>
 
                                             <InputError class="mt-2" :message="form.errors.height" />
@@ -78,14 +78,14 @@
                                     <div class="mb-6">
                                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="color">Color
                                             <span class="text-red-600">*</span></Label>
-                                        <input @input="regenerateBarCode" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                        <input @input="regenerateBarCode" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                             type="color" id="color" v-model="form.color" autofocus placeholder="Color..." required>
 
                                         <InputError class="mt-2" :message="form.errors.color" />
                                     </div>
 
                                     <div class="mb-6">
-                                        <input @input="regenerateBarCode" class="mr-2 focus:shadow-soft-primary-outline text-sm ease-soft appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                        <input @input="regenerateBarCode" class="focus:ring-themeColor focus:shadow-themeColor mr-2 focus:shadow-soft-primary-outline text-sm ease-soft appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                             type="checkbox" id="showtext" v-model="form.showtext" autofocus placeholder="Show Text..." required>
                                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="title">Show text</Label>
 

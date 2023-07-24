@@ -22,7 +22,7 @@
                         <!-- step 1 (qrcode type selection) -->
                         <div v-if="stepcount === 1" class="flex-auto p-6">
                             <div class="grid md:grid-cols-2 md:gap-x-6 gap-y-6">
-                                <div @click="qrCodeType('url')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'url' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('url')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'url' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world-www" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -42,7 +42,7 @@
                                         <p class="text-xs">Open a URL</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('text')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'text' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('text')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'text' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-align-box-left-top" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -57,7 +57,7 @@
                                         <p class="text-xs">Show a Text</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('email')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'email' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('email')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'email' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -70,7 +70,7 @@
                                         <p class="text-xs">Show Email details</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('sms')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'sms' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('sms')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'sms' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-messenger" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -83,7 +83,7 @@
                                         <p class="text-xs">Redirect to SMS</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('whatsapp')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'whatsapp' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('whatsapp')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'whatsapp' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -96,7 +96,7 @@
                                         <p class="text-xs">Redirect to WhatsApp</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('pdf')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'pdf' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('pdf')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'pdf' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -112,7 +112,7 @@
                                         <p class="text-xs">Show PDF</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('location')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'location' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('location')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'location' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-current-location" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -129,7 +129,7 @@
                                         <p class="text-xs">Shaw Location</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('phone')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'phone' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('phone')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'phone' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-address-book" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -146,7 +146,7 @@
                                         <p class="text-xs">Show Phone number details</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('facetime')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'facetime' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('facetime')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'facetime' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-3d-cube-sphere" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -169,7 +169,7 @@
                                         <p class="text-xs">Redirect to Facetime</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('event')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'event' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('event')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'event' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -185,7 +185,7 @@
                                         <p class="text-xs">Promote and share an Event</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('wifi')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'wifi' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('wifi')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'wifi' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wifi" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -200,7 +200,7 @@
                                         <p class="text-xs">Show Wifi details</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('crypto')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'crypto' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('crypto')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'crypto' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coins" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -216,7 +216,7 @@
                                         <p class="text-xs">Share Crypto details</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('paypal')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'paypal' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('paypal')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'paypal' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-paypal" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -228,7 +228,7 @@
                                         <p class="text-xs">Share Paypal details</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('vcard')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'vcard' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('vcard')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'vcard' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -242,7 +242,7 @@
                                         <p class="text-xs">Share contact details</p>
                                     </div>
                                 </div>
-                                <div @click="qrCodeType('upi')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_type === 'upi' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
+                                <div @click="qrCodeType('upi')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_type === 'upi' }" class="flex p-2 overflow-x-auto bg-[#F7F7F7] rounded-[8px] shadow-md pointer-md hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer">
                                     <div class="bg-[#F7F7F7] rounded px-5 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-superhuman" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -276,7 +276,7 @@
                                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="name">QR Code
                                                 Name
                                                 <span class="text-red-600">*</span></Label>
-                                            <TextInput id="name" type="text" v-model="form.name" autofocus
+                                            <TextInput id="name" class="focus:ring-themeColor focus:shadow-themeColor" type="text" v-model="form.name" autofocus
                                                 placeholder="Name..." minlength="3" maxlength="100" required />
 
                                             <InputError class="mt-2" :message="form.errors.name" />
@@ -286,7 +286,7 @@
                                         <div v-if="form.qrcode_type === 'url'" class="mb-6">
                                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="url">Link Url
                                                 <span class="text-red-600">*</span></Label>
-                                            <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                            <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                 type="url" name="url" id="url" v-model="form.url" maxlength="80" autofocus placeholder="Ex: http://domain.com..." required>
 
                                             <InputError class="mt-2" :message="form.errors.url" />
@@ -296,7 +296,7 @@
                                         <div v-if="form.qrcode_type === 'text'" class="mb-6">
                                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Content
                                                 <span class="text-red-600">*</span></Label>
-                                            <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                            <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                 type="text" name="content" id="content" cols="30" rows="5" minlength="1" maxlength="350" v-model="form.content" autofocus placeholder="Lorem Ipsum..." required></textarea>
 
                                             <InputError class="mt-2" :message="form.errors.content" />
@@ -307,7 +307,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="email">Email ID
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="email" name="email" id="email" maxlength="50" v-model="form.email" autofocus placeholder="Email ID ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.email" />
@@ -316,7 +316,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="subject">Subject
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="subject" id="subject" maxlength="50" v-model="form.subject" autofocus placeholder="Subject ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.subject" />
@@ -325,7 +325,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Body
                                                     <span class="text-red-600">*</span></Label>
-                                                <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="content" name="content" id="content" cols="30" rows="5" maxlength="300" v-model="form.content" autofocus placeholder="Body ..."></textarea>
 
                                                 <InputError class="mt-2" :message="form.errors.content" />
@@ -337,7 +337,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="phone">Mobile Number
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="phone" id="phone" maxlength="50" v-model="form.phone" autofocus placeholder="Mobile Number ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.phone" />
@@ -346,7 +346,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Message
                                                     <span class="text-red-600">*</span></Label>
-                                                <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="content" id="content" cols="30" rows="5" maxlength="300" v-model="form.content" autofocus placeholder="Message ..." required></textarea>
 
                                                 <InputError class="mt-2" :message="form.errors.content" />
@@ -358,7 +358,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="phone">WhatsaApp Number
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="phone" id="phone" maxlength="50" v-model="form.phone" autofocus placeholder="WhatsApp Number ..." required>
                                                 <span class="mb-2 ml-1 font-bold text-xs text-slate-700">Include country code (For ex: 919876543210)</span>
 
@@ -368,7 +368,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Message
                                                     <span class="text-red-600">*</span></Label>
-                                                <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="content" id="content" cols="30" rows="5" maxlength="300" v-model="form.content" autofocus placeholder="Message ..." required></textarea>
 
                                                 <InputError class="mt-2" :message="form.errors.content" />
@@ -392,7 +392,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="latitude">Latitude
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="latitude" id="latitude" maxlength="50" v-model="form.latitude" autofocus placeholder="Latitude ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.latitude" />
@@ -401,7 +401,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="latitude">Longitude
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="longitude" id="longitude" maxlength="50" v-model="form.longitude" autofocus placeholder="Longitude ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.longitude" />
@@ -413,7 +413,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="phone">Mobile Number
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="phone" id="phone" maxlength="50" v-model="form.content" autofocus placeholder="Mobile Number ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.content" />
@@ -425,7 +425,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="content">Mobile number/email ID
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="content" id="content" maxlength="50" v-model="form.content" autofocus placeholder="Mobile number/email ID ..." required>
                                                 <span class="mb-2 ml-1 font-bold text-xs text-slate-700">Only support on iOS & MacOS Devices</span>
 
@@ -438,7 +438,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="event">Title
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="event" id="event" maxlength="80" v-model="form.event" autofocus placeholder="Title ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.event" />
@@ -447,7 +447,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="event_note">Message
                                                     <span class="text-red-600">*</span></Label>
-                                                <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="event_note" id="event_note" cols="30" rows="2" maxlength="300" v-model="form.event_note" autofocus placeholder="Message ..."></textarea>
 
                                                 <InputError class="mt-2" :message="form.errors.event_note" />
@@ -456,7 +456,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="event_location">Location
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="event_location" id="event_location" maxlength="80" v-model="form.event_location" autofocus placeholder="Location ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.event_location" />
@@ -465,7 +465,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="event_start_datetime">From
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="datetime-local" name="event_start_datetime" id="event_start_datetime" maxlength="80" v-model="form.event_start_datetime" autofocus placeholder="From ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.event_start_datetime" />
@@ -474,7 +474,7 @@
                                             <div class="mb-6">
                                                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="event_end_datetime">To
                                                         <span class="text-red-600">*</span></Label>
-                                                    <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                    <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                         type="datetime-local" name="event_end_datetime" id="event_end_datetime" maxlength="80" v-model="form.event_end_datetime" autofocus placeholder="To ..." required>
 
                                                     <InputError class="mt-2" :message="form.errors.event_end_datetime" />
@@ -486,7 +486,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="wifi_ssid">Network Name (SSID)
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="wifi_ssid" id="wifi_ssid" maxlength="80" v-model="form.wifi_ssid" autofocus placeholder="Network Name (SSID) ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.wifi_ssid" />
@@ -494,7 +494,7 @@
 
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="wifi_encryption">Security</Label>
-                                                <select class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <select class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     name="wifi_encryption" id="wifi_encryption" v-model="form.wifi_encryption" required>
                                                     <option value="nopass">None</option>
                                                     <option value="WEP">WEP</option>
@@ -507,7 +507,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="wifi_password">Password
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="wifi_password" id="wifi_password" maxlength="80" v-model="form.wifi_password" autofocus placeholder="Password ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.wifi_password" />
@@ -515,7 +515,7 @@
 
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="wifi_is_hidden">Hidden?</Label>
-                                                <select class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <select class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     name="wifi_is_hidden" id="wifi_is_hidden" v-model="form.wifi_is_hidden" required>
                                                     <option value="1">Yes</option>
                                                     <option value="2">No</option>
@@ -530,7 +530,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="crypto_coin">Cryptocurrency
                                                     <span class="text-red-600">*</span></Label>
-                                                <select class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <select class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     name="crypto_coin" id="crypto_coin" v-model="form.crypto_coin" required>
                                                     <option value="bitcoin">Bitcoin</option>
                                                     <option value="bitcoincash">Bitcoin cash address</option>
@@ -545,7 +545,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="crypto_address">Receiver
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="crypto_address" id="crypto_address" maxlength="250" v-model="form.crypto_address" autofocus placeholder="Receiver ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.crypto_address" />
@@ -554,7 +554,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="crypto_amount">Amount
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="crypto_amount" id="crypto_amount" maxlength="15" v-model="form.crypto_amount" autofocus placeholder="Amount ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.crypto_amount" />
@@ -563,7 +563,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="crypto_msg">Message
                                                     <span class="text-red-600">*</span></Label>
-                                                <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="crypto_msg" id="crypto_msg" cols="30" rows="2" maxlength="150" v-model="form.crypto_msg" autofocus placeholder="Message ..." required></textarea>
 
                                                 <InputError class="mt-2" :message="form.errors.crypto_msg" />
@@ -576,7 +576,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="paypal_link">Paypal.Me Link
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="paypal_link" id="paypal_link" maxlength="80" v-model="form.paypal_link" autofocus placeholder="yourpaypalmelink ..." autocomplete="off" required>
 
                                                 <InputError class="mt-2" :message="form.errors.paypal_link" />
@@ -588,7 +588,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_first_name">First name
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_first_name" id="vcard_first_name" maxlength="40" v-model="form.vcard_first_name" autofocus placeholder="First name ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_first_name" />
@@ -597,7 +597,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_last_name">Last name
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_last_name" id="vcard_last_name" maxlength="40" v-model="form.vcard_last_name" autofocus placeholder="Last name ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_last_name" />
@@ -606,7 +606,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_phone">Mobile number
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_phone" id="vcard_phone" maxlength="40" v-model="form.vcard_phone" autofocus placeholder="Mobile number ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_phone" />
@@ -615,7 +615,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_email">Email Address
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="email" name="vcard_email" id="vcard_email" maxlength="50" v-model="form.vcard_email" autofocus placeholder="Email Address ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_email" />
@@ -624,7 +624,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_url">Website Link
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="url" name="vcard_url" id="vcard_url" maxlength="50" v-model="form.vcard_url" autofocus placeholder="Website Link ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_url" />
@@ -633,7 +633,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_company">Company Name
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_company" id="vcard_company" maxlength="50" v-model="form.vcard_company" autofocus placeholder="Company Name ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_company" />
@@ -642,7 +642,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_job_title">Job Position
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_job_title" id="vcard_job_title" maxlength="50" v-model="form.vcard_job_title" autofocus placeholder="Job Position ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_job_title" />
@@ -651,7 +651,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_birthday">DOB
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="date" name="vcard_birthday" id="vcard_birthday" maxlength="50" v-model="form.vcard_birthday" autofocus placeholder="DOB ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_birthday" />
@@ -660,7 +660,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_street">Street
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_street" id="vcard_street" maxlength="50" v-model="form.vcard_street" autofocus placeholder="Street ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_street" />
@@ -669,7 +669,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_city">City
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_city" id="vcard_city" maxlength="50" v-model="form.vcard_city" autofocus placeholder="City ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_city" />
@@ -678,7 +678,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_postal">Postal Code
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_postal" id="vcard_postal" maxlength="50" v-model="form.vcard_postal" autofocus placeholder="Postal Code ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_postal" />
@@ -687,7 +687,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_region">Region
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_region" id="vcard_region" maxlength="50" v-model="form.vcard_region" autofocus placeholder="Region ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_region" />
@@ -696,7 +696,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_country">Country
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="vcard_country" id="vcard_country" maxlength="50" v-model="form.vcard_country" autofocus placeholder="Country ..." required>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_country" />
@@ -705,7 +705,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="vcard_note">More Info
                                                     <span class="text-red-600">*</span></Label>
-                                                <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     name="vcard_note" id="vcard_note" cols="30" rows="2" maxlength="100" v-model="form.vcard_note" autofocus placeholder="More Info ..." required></textarea>
 
                                                 <InputError class="mt-2" :message="form.errors.vcard_note" />
@@ -717,7 +717,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="upi_id">UPI ID / VPA
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="upi_id" id="upi_id" maxlength="80" v-model="form.upi_id" autofocus placeholder="Eg: abi@okicici ..." autocomplete="off" required>
 
                                                 <InputError class="mt-2" :message="form.errors.upi_id" />
@@ -726,7 +726,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="upi_payee_name">Payee Name
                                                     <span class="text-red-600">*</span></Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="text" name="upi_payee_name" id="upi_payee_name" maxlength="80" v-model="form.upi_payee_name" autofocus placeholder="Eg: Abi ..." autocomplete="off" required>
 
                                                 <InputError class="mt-2" :message="form.errors.upi_payee_name" />
@@ -735,7 +735,7 @@
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="upi_currency">Currency
                                                     <span class="text-red-600">*</span></Label>
-                                                <select class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <select class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     name="upi_currency" id="upi_currency" v-model="form.upi_currency" required>
                                                     <option value="INR">Indian Rupees</option>
                                                 </select>
@@ -745,7 +745,7 @@
 
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="upi_amount">Amount</Label>
-                                                <input class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <input class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     type="number" name="upi_amount" id="upi_amount" maxlength="80" v-model="form.upi_amount" autofocus placeholder="Eg: 500 ..." autocomplete="off" required>
 
                                                 <InputError class="mt-2" :message="form.errors.upi_amount" />
@@ -753,7 +753,7 @@
 
                                             <div class="mb-6">
                                                 <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="upi_msg">Transaction Remark</Label>
-                                                <textarea class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                                <textarea class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                                     name="upi_msg" id="upi_msg" cols="30" rows="2" maxlength="150" v-model="form.upi_msg" autofocus placeholder="Transaction Remark ..." required></textarea>
 
                                                 <InputError class="mt-2" :message="form.errors.upi_msg" />
@@ -792,7 +792,7 @@
 
                                             <div class="flex space-x-5">
                                                 <div>
-                                                    <Label @click="qrCodeStyle('square')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_style === 'square' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
+                                                    <Label @click="qrCodeStyle('square')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_style === 'square' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
                                                         <span>
                                                             <svg class="MuiSvgIcon-root w-20" focusable="false" viewBox="0 0 80 80" aria-hidden="true"><g fill="#000000"><path d="M48,32h16v32h-16v-8h8v-8h-8v-8h-8v-8h-8v-8h8v-8h8v16Zm8-16v8h8v-8h-8Zm-24,8v-8H16v16h8v-8h8Zm16,24v8h-8v8H16v-24h8v-8h8v8h8v8h8Zm-16,0h-8v8h8v-8Z"></path></g></svg>
                                                         </span>
@@ -800,7 +800,7 @@
                                                     <span class="flex justify-center font-bold text-xs text-slate-700 mt-2">Square</span>
                                                 </div>
                                                 <div>
-                                                    <Label @click="qrCodeStyle('dot')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_style === 'dot' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
+                                                    <Label @click="qrCodeStyle('dot')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_style === 'dot' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
                                                         <span>
                                                             <svg class="MuiSvgIcon-root w-20" focusable="false" viewBox="0 0 80 80" aria-hidden="true"><g fill="#000000"><path d="M28,32c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm8,8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm-8,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm-8,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm16,16c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm-8,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm-8,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm16-8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm-16,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm16-24c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm8-8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm0,8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm0,8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm8,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm8-16c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm0,16c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm0,8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4ZM20,24c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm0-8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm8,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm16,32c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm8-8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm8,8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm0,8c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Zm-8,0c2.21,0,4,1.79,4,4s-1.79,4-4,4-4-1.79-4-4,1.79-4,4-4Z"></path></g></svg>
                                                         </span>
@@ -808,7 +808,7 @@
                                                     <span class="flex justify-center font-bold text-xs text-slate-700 mt-2">Dot</span>
                                                 </div>
                                                 <div>
-                                                    <Label @click="qrCodeStyle('round')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_style === 'round' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
+                                                    <Label @click="qrCodeStyle('round')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_style === 'round' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
                                                         <span>
                                                             <svg class="MuiSvgIcon-root w-20" focusable="false" viewBox="0 0 80 80" aria-hidden="true"><g fill="#000000"><path d="M58,16h4c1.1,0,2,.9,2,2v4c0,1.1-.9,2-2,2h-4c-1.1,0-2-.9-2-2v-4c0-1.1,.9-2,2-2ZM18,32h4c1.1,0,2-.9,2-2v-6h6c1.1,0,2-.9,2-2v-4c0-1.1-.9-2-2-2h-12c-1.1,0-2,.9-2,2v12c0,1.1,.9,2,2,2Zm30,18c0-1.1-.9-2-2-2h-6v-6c0-1.1-.9-2-2-2h-6v-6c0-1.1-.9-2-2-2h-4c-1.1,0-2,.9-2,2v6h-6c-1.1,0-2,.9-2,2v20c0,1.1,.9,2,2,2h20c1.1,0,2-.9,2-2v-6h6c1.1,0,2-.9,2-2v-4Zm-16,6h-8v-8h8v8Zm30-24h-14v-14c0-1.1-.9-2-2-2h-4c-1.1,0-2,.9-2,2v6h-6c-1.1,0-2,.9-2,2v4c0,1.1,.9,2,2,2h6v6c0,1.1,.9,2,2,2h6v6c0,1.1,.9,2,2,2h6v8h-6c-1.1,0-2,.9-2,2v4c0,1.1,.9,2,2,2h12c1.1,0,2-.9,2-2v-28c0-1.1-.9-2-2-2Z"></path></g></svg>
                                                         </span>
@@ -826,7 +826,7 @@
 
                                             <div class="flex space-x-5">
                                                 <div>
-                                                    <Label @click="qrColorStyle('color')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.color_style === 'color' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
+                                                    <Label @click="qrColorStyle('color')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.color_style === 'color' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
                                                         <span>
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="icon icon-tabler me-1 icon-tabler-brush"
@@ -864,7 +864,7 @@
                                                 </div>
 
                                                 <div>
-                                                    <Label @click="qrColorStyle('gradient')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.color_style === 'gradient' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
+                                                    <Label @click="qrColorStyle('gradient')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.color_style === 'gradient' }" class="font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="qrcode_style">
                                                         <span>
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="icon icon-tabler me-1 icon-tabler-palette"
@@ -933,7 +933,7 @@
                                                 <div class="flex space-x-2">
                                                     <!-- vertical -->
                                                     <div>
-                                                        <Label @click="qrCodeGradientType('vertical')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'vertical' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeGradientType('vertical')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'vertical' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Vertical
                                                             </span>
@@ -942,7 +942,7 @@
 
                                                     <!-- horizontal -->
                                                     <div>
-                                                        <Label @click="qrCodeGradientType('horizontal')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'horizontal' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeGradientType('horizontal')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'horizontal' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Horizontal
                                                             </span>
@@ -951,7 +951,7 @@
 
                                                     <!-- diagonal -->
                                                     <div>
-                                                        <Label @click="qrCodeGradientType('diagonal')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'diagonal' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeGradientType('diagonal')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'diagonal' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Diagonal
                                                             </span>
@@ -960,7 +960,7 @@
 
                                                     <!-- inverse_diagonal -->
                                                     <div>
-                                                        <Label @click="qrCodeGradientType('inverse_diagonal')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'inverse_diagonal' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeGradientType('inverse_diagonal')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'inverse_diagonal' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Inverse Diagonal
                                                             </span>
@@ -969,7 +969,7 @@
 
                                                     <!-- radial -->
                                                     <div>
-                                                        <Label @click="qrCodeGradientType('radial')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'radial' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeGradientType('radial')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.foreground_gradient_type === 'radial' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Radial
                                                             </span>
@@ -1010,14 +1010,14 @@
 
                                                 <div class="flex space-x-2">
                                                     <div>
-                                                        <Label @click="needEyeColor('1')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.need_eye_color === '1' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="needEyeColor('1')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.need_eye_color === '1' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Yes
                                                             </span>
                                                         </Label>
                                                     </div>
                                                     <div>
-                                                        <Label @click="needEyeColor('2')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.need_eye_color === '2' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="needEyeColor('2')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.need_eye_color === '2' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 No
                                                             </span>
@@ -1051,7 +1051,7 @@
                                                 <div class="flex space-x-5">
                                                     <!-- left -->
                                                     <div>
-                                                        <Label @click="eyeColorPosition('0')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.eyeColor_position === '0' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
+                                                        <Label @click="eyeColorPosition('0')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.eyeColor_position === '0' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
                                                             <span>
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="icon icon-tabler me-1 icon-tabler-float-left"
@@ -1099,7 +1099,7 @@
 
                                                     <!-- right -->
                                                     <div>
-                                                        <Label @click="eyeColorPosition('1')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.eyeColor_position === '1' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
+                                                        <Label @click="eyeColorPosition('1')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.eyeColor_position === '1' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
                                                             <span>
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="icon icon-tabler me-1 icon-tabler-float-right"
@@ -1147,7 +1147,7 @@
 
                                                     <!-- bottom -->
                                                     <div>
-                                                        <Label @click="eyeColorPosition('2')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.eyeColor_position === '2' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
+                                                        <Label @click="eyeColorPosition('2')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.eyeColor_position === '2' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
                                                             <span>
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="icon icon-tabler me-1 icon-tabler-float-center"
@@ -1212,7 +1212,7 @@
                                                 <div class="flex space-x-5">
                                                     <!-- Square -->
                                                     <div>
-                                                        <Label @click="eyeColorStyle('square')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.eye_color_style === 'square' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
+                                                        <Label @click="eyeColorStyle('square')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.eye_color_style === 'square' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
                                                             <span>
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="icon icon-tabler me-1 icon-tabler-square"
@@ -1244,7 +1244,7 @@
 
                                                     <!-- Square -->
                                                     <div>
-                                                        <Label @click="eyeColorStyle('circle')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.eye_color_style === 'circle' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
+                                                        <Label @click="eyeColorStyle('circle')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.eye_color_style === 'circle' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-1 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="eyeColor_position">
                                                             <span>
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="icon icon-tabler me-1 icon-tabler-circle"
@@ -1295,7 +1295,7 @@
                                                 <div class="flex space-x-2">
                                                     <!-- small -->
                                                     <div>
-                                                        <Label @click="uploadLogoSize('0.1')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.upload_logo_size === '0.1' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="uploadLogoSize('0.1')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.upload_logo_size === '0.1' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Small
                                                             </span>
@@ -1303,7 +1303,7 @@
                                                     </div>
                                                     <!-- medium -->
                                                     <div>
-                                                        <Label @click="uploadLogoSize('0.2')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.upload_logo_size === '0.2' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="uploadLogoSize('0.2')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.upload_logo_size === '0.2' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Medium
                                                             </span>
@@ -1311,7 +1311,7 @@
                                                     </div>
                                                     <!-- large -->
                                                     <div>
-                                                        <Label @click="uploadLogoSize('0.5')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.upload_logo_size === '0.5' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="uploadLogoSize('0.5')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.upload_logo_size === '0.5' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Large
                                                             </span>
@@ -1331,7 +1331,7 @@
                                                 <div class="flex space-x-2">
                                                     <!-- basic -->
                                                     <div>
-                                                        <Label @click="downloadQuality('200')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.size === '200' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="downloadQuality('200')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.size === '200' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Basic
                                                             </span>
@@ -1340,7 +1340,7 @@
 
                                                     <!-- normal -->
                                                     <div>
-                                                        <Label @click="downloadQuality('500')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.size === '500' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="downloadQuality('500')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.size === '500' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Normal
                                                             </span>
@@ -1349,7 +1349,7 @@
 
                                                     <!-- fine -->
                                                     <div>
-                                                        <Label @click="downloadQuality('1000')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.size === '1000' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="downloadQuality('1000')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.size === '1000' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Fine
                                                             </span>
@@ -1358,7 +1358,7 @@
 
                                                     <!-- high -->
                                                     <div>
-                                                        <Label @click="downloadQuality('1500')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.size === '1500' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="downloadQuality('1500')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.size === '1500' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 High
                                                             </span>
@@ -1367,7 +1367,7 @@
 
                                                     <!-- very high -->
                                                     <div>
-                                                        <Label @click="downloadQuality('2000')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.size === '2000' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="downloadQuality('2000')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.size === '2000' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Very High
                                                             </span>
@@ -1387,7 +1387,7 @@
                                                 <div class="flex space-x-2">
                                                     <!-- low -->
                                                     <div>
-                                                        <Label @click="qrCodeEcc('L')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'L' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeEcc('L')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'L' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Low
                                                             </span>
@@ -1396,7 +1396,7 @@
 
                                                     <!-- medium -->
                                                     <div>
-                                                        <Label @click="qrCodeEcc('M')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'M' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeEcc('M')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'M' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Medium
                                                             </span>
@@ -1405,7 +1405,7 @@
 
                                                     <!-- quartile -->
                                                     <div>
-                                                        <Label @click="qrCodeEcc('Q')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'Q' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeEcc('Q')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'Q' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 Quartile
                                                             </span>
@@ -1414,7 +1414,7 @@
 
                                                     <!-- high -->
                                                     <div>
-                                                        <Label @click="qrCodeEcc('H')" :class="{ 'border-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'H' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-soft-primary-outline transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
+                                                        <Label @click="qrCodeEcc('H')" :class="{ 'border-themeColor shadow-themeColor focus:ring-themeColor focus:shadow-themeColor shadow-soft-primary-outline': form.qrcode_ecc === 'H' }" class="block font-bold text-xs text-gray-600 rounded bg-white bg-clip-padding p-2 hover:shadow-themeColor transition-all border border-solid border-gray-300 hover:border-themeColor hover:outline-none hover:transition-shadow cursor-pointer" for="foreground_gradient_type">
                                                             <span>
                                                                 High
                                                             </span>

@@ -150,7 +150,7 @@
 
         <div class="mt-10">
             <Link :href="route('user.checkout', { id: plan.id })"
-                class="w-full inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-fuchsia-700 to-fuchsia-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">
+                class="w-full inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-themeColor hover:scale-102 hover:shadow-soft-xs active:opacity-85">
                 Choose plan
             </Link>
         </div>
