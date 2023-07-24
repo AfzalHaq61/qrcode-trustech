@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
- use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
+// use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -45,12 +45,23 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    // public function sendEmailVerificationNotification()
+    // {
+    //     try {
+    //         $this->newEmail($this->getEmailForVerification());
+    //     } catch (\Throwable $th) {
+    //         return false;
+    //     }
+    // }
+
     public function sendEmailVerificationNotification()
     {
-        try {
-            $this->newEmail($this->getEmailForVerification());
-        } catch (\Throwable $th) {
-            return false;
-        }
+        $this->notify(new \App\Notifications\VerifyEmail);
+    }
+
+    //notification as Welcome Message
+    public function sendWelcomeMessage(){
+
+        $this->notify(new \App\Notifications\WelcomeMessage);
     }
 }

@@ -16,7 +16,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="recaptcha_enable">reCaptcha Enable</Label>
                         <div class="sm:col-span-3">
                             <select v-model="form.recaptcha_enable" name="recaptcha_enable" id="recaptcha_enable" 
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                                 <option value="on">On</option>
                                 <option value="off">Off</option>
                             </select>
@@ -29,7 +29,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="recaptcha_site_key">reCAPTCHA Site Key</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.recaptcha_site_key"
                             name="recaptcha_site_key"
                             id="recaptcha_site_key"
@@ -44,7 +44,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="recaptcha_secret_key">reCAPTCHA Secret Key</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.recaptcha_secret_key"
                             name="recaptcha_secret_key"
                             id="recaptcha_secret_key"
@@ -65,7 +65,7 @@
                     <div class="sm:col-span-3">
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="google_auth_enable">Google Auth Enable</Label>
                         <select v-model="form.google_auth_enable" name="google_auth_enable" id="google_auth_enable"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                             <option value="on">On</option>
                             <option value="off">Off</option>
                         </select>
@@ -76,7 +76,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="google_client_id">Google Client ID</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.google_client_id"
                             name="google_client_id"
                             id="google_client_id"
@@ -91,7 +91,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="google_client_secret">Google Client Secret</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.google_client_secret"
                             name="google_client_secret"
                             id="google_client_secret"
@@ -106,7 +106,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="google_redirect">Google Redirect</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.google_redirect"
                             name="google_redirect"
                             id="google_redirect"
@@ -133,7 +133,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="New Password">Google Analytics ID<span class="text-red-600"> *</span></Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.google_analytics_id"
                             name="google_analytics_id"
                             id="google_analytics_id"

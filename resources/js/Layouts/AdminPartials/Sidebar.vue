@@ -6,14 +6,17 @@
                 <ApplicationLogo class="inline h-full max-w-full transition-all duration-200 ease-nav-brand font-bold max-h-8" />
             </div>
           </div>
-
+         
+        
+         
           <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
 
           <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full" style="height:100%">
             <ul class="flex flex-col pl-0 mb-0">
               <li class="mt-0.5 w-full">
-                <Link class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" :href="route('admin.dashboard')">
-                  <div class=" bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg
+          
+                <Link :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'admin.dashboard'}" class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 text-slate-700 transition-colors" :href="route('admin.dashboard')">
+                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-themeColor
                    bg-center stroke-0 text-center xl:p-2.5">
                     <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>shop</title>
@@ -40,12 +43,12 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Accordian>
+                <Accordian :class="{'bg-white shadow-soft-xl font-semibold rounded-lg mr-3' : route().current() == 'admin.all.qr' || route().current() == 'admin.all.barcode'}" >
                     <template v-slot:nav>
                         <span class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                            <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-qrcode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-qrcode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="#fff" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="#fff"></path>
                                     <rect x="4" y="4" width="6" height="6" rx="1"></rect>
                                     <line x1="7" y1="17" x2="7" y2="17.01"></line>
                                     <rect x="14" y="4" width="6" height="6" rx="1"></rect>
@@ -91,12 +94,12 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Accordian>
+                <Accordian :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'admin.index.plans' || route().current() == 'admin.add.plan'}" >
                     <template v-slot:nav>
                         <span class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                            <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                            <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-businessplan" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="#fff"></path>
                                     <ellipse cx="16" cy="6" rx="5" ry="3"></ellipse>
                                     <path d="M11 6v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
                                     <path d="M11 10v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
@@ -122,10 +125,10 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.users')">
-                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <Link :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'admin.users'}" class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.users')">
+                  <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="#fff"></path>
                         <circle cx="9" cy="7" r="4"></circle>
                         <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
@@ -137,10 +140,10 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.payment.methods')">
-                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <Link :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'admin.payment.methods'}" class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.payment.methods')">
+                  <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bank" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="#fff"></path>
                         <line x1="3" y1="21" x2="21" y2="21"></line>
                         <line x1="3" y1="10" x2="21" y2="10"></line>
                         <polyline points="5 6 12 3 19 6"></polyline>
@@ -156,12 +159,12 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Accordian>
+                <Accordian :class="{'bg-white shadow-soft-xl font-semibold rounded-lg mr-3' : route().current() == 'admin.transactions' || route().current() == 'admin.offline.transactions'}">
                     <template v-slot:nav>
                         <span class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                        <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="#fff"></path>
                                 <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
                                 <rect x="9" y="3" width="6" height="4" rx="2"></rect>
                                 <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
@@ -185,10 +188,10 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.pages')">
-                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <Link :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'admin.pages'}" class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.pages')">
+                  <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="#fff"></path>
                         <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
                         <path d="M19 18v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1"></path>
                         <path d="M3 14h3m4.5 0h3m4.5 0h3"></path>
@@ -200,10 +203,10 @@
               </li>
 
               <li class="mt-0.5 w-full">
-                <Link class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.settings.general_settings')">
-                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <Link :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'admin.settings.general_settings'}" class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.settings.general_settings')">
+                  <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="#fff"></path>
                         <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z">
                         </path>
                         <circle cx="12" cy="12" r="3"></circle>
