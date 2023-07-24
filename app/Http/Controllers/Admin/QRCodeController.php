@@ -1313,9 +1313,15 @@ class QRCodeController extends Controller
         $qrcode_details = QrCode::where('qr_code_id', $id)->where('user_id', Auth::user()->id)->first();
         $config = Config::get();
 
+        $shareContent = $config[30]->config_value;
+       
+$shareContent = str_replace("{ appName }", env('APP_NAME'), $shareContent);
+
+$shareContent = str_replace("{ qr_code_link }", asset($qrcode_details->qr_code), $shareContent);
         return Inertia::render('Admin/QrCodes/Download', [
             'qrcode_details' => $qrcode_details,
             'config' => $config,
+            'shareContent' => $shareContent
         ]);
     }
 

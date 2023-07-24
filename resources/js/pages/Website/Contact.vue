@@ -46,7 +46,11 @@
                 </dl>
                 </div>
             </div>
+            
+            <div>
+                
             <form @submit.prevent="submit" role="form" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+                <Notifications/>
                 <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <!-- Name -->
@@ -85,6 +89,7 @@
                 </div>
             </form>
             </div>
+            </div>
         </div>
     </WebsiteLayout>
 </template>
@@ -93,6 +98,7 @@
 import { useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
+import Notifications from '@/Components/Shared/Notifications.vue';
 
 const props = defineProps({
     settings: Object,

@@ -20,7 +20,7 @@
                                     <div class="sm:col-span-3">
                                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Plans">Plans
                                             <span class="text-red-600">*</span></Label>
-                                            <select id="plan_id" name="plan_id" v-model="form.plan_id" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                            <select id="plan_id" name="plan_id" v-model="form.plan_id" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                                                 <option v-for="plan in plans" :key="plan.id" :value="plan.id">{{ plan.plan_name }}</option>
                                             </select>
                                             <InputError class="mt-2" :message="form.errors.plan_id" />

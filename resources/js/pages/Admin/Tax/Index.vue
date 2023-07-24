@@ -13,7 +13,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="invoice_prefix">Invoice Number Prefix<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_prefix" name="invoice_prefix" id="invoice_prefix"
                                 placeholder="Invoice Number Prefix ..." ref="input" required
                             />
@@ -24,7 +24,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="invoice_name">Name<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_name" name="invoice_name" id="invoice_name"
                                 placeholder="Name ..." ref="input" required
                             />
@@ -35,7 +35,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="invoice_email">Email<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_email" name="invoice_email" id="invoice_email"
                                 placeholder="Email ..." ref="input" required
                             />
@@ -48,7 +48,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Full Name">Phone<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_phone" name="invoice_phone" id="invoice_phone"
                                 placeholder="Phone ..." ref="input" required
                             />
@@ -60,7 +60,7 @@
                             <textarea
                                 v-model="form.invoice_address" name="invoice_address" id="invoice_address" cols="2" rows="3"
                                 placeholder="Address ..." ref="input" required
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                             </textarea>
                         </div>
 
@@ -69,7 +69,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="invoice_city">City<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_city" name="invoice_city" id="invoice_city"
                                 placeholder="City ..." ref="input" required
                             />
@@ -82,7 +82,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="invoice_state">State/Province<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_state" name="invoice_state" id="invoice_state"
                                 placeholder="State/Province ..." ref="input" required
                             />
@@ -93,7 +93,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="invoice_zipcode">Zip Code<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_zipcode" name="invoice_zipcode" id="invoice_zipcode"
                                 placeholder="Zip Code ..." ref="input" required
                             />
@@ -104,7 +104,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="invoice_country">Country<span class="text-red-600"> *</span></Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.invoice_country" name="invoice_country" id="invoice_country"
                                 placeholder="Country ..." ref="input" required
                             />
@@ -117,7 +117,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="tax_name">Tax Name</Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.tax_name" name="tax_name" id="tax_name"
                                 placeholder="Tax Name ..." ref="input"
                             />
@@ -128,7 +128,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="tax_number">Tax ID</Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.tax_number" name="tax_number" id="tax_number"
                                 placeholder="Tax ID ..." ref="input"
                             />
@@ -139,7 +139,7 @@
                             <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="tax_value">Tax Value</Label>
                             <input
                                 type="text"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                 v-model="form.tax_value" name="tax_value" id="tax_value"
                                 placeholder="Tax Value ..." ref="input"
                             />
@@ -153,7 +153,7 @@
                             <textarea
                                 v-model="form.tax_value" name="tax_value" id="tax_value"
                                 placeholder="Invoice Footer ..." ref="input" required cols="10" rows="3"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                             </textarea>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             <textarea
                                 v-model="form.email_heading" name="email_heading" id="email_heading"
                                 placeholder="Email Heading ..." ref="input" required cols="30" rows="3"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                             </textarea>
                         </div>
 
@@ -186,7 +186,7 @@
                             <textarea
                                 v-model="form.email_footer" name="email_footer" id="email_footer"
                                 placeholder="Email Footer ..." ref="input" required cols="30" rows="3"
-                                class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
                             </textarea>
                         </div>
                     </div>

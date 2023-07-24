@@ -13,7 +13,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_sender">Sender Name</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_sender"
                             name="mail_sender"
                             id="mail_sender"
@@ -28,7 +28,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_address">Sender Email Address</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_address"
                             name="mail_address"
                             id="mail_address"
@@ -43,7 +43,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_driver">Mailer Driver</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_driver"
                             name="mail_driver"
                             id="mail_driver"
@@ -60,7 +60,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_host">Mailer Host</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_host"
                             name="mail_host"
                             id="mail_host"
@@ -75,7 +75,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_port">Mailer Port</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_port"
                             name="mail_port"
                             id="mail_port"
@@ -90,7 +90,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_encryption">Mailer Encryption</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_encryption"
                             name="mail_encryption"
                             id="mail_encryption"
@@ -107,7 +107,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_username">Mailer Username</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_username"
                             name="mail_username"
                             id="mail_username"
@@ -122,7 +122,7 @@
                         <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="mail_password">Mailer Password</Label>
                         <input
                             type="text"
-                            class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                            class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                             v-model="form.mail_password"
                             name="mail_password"
                             id="mail_password"
