@@ -26,17 +26,96 @@ class BreadcrumbService
 
 
         $routeParams = $currentRoute->parameters();
+      
+       
+        if ($request->route()->getPrefix() == '/admin') {
+            
+            //qrcode routes
+            if($routeName === 'admin.all.qr'){
+                $breadcrumbs[] = [
+                    'text' => 'All QR Codes',
+                    'url' => url('admin/qrcodes/all'),
+                ];
+            }else if($routeName === 'admin.create.qr'){
+                $breadcrumbs[] = [
+                    'text' => 'Add QR Codes',
+                    'url' => url('/admin/qrcode/create'),
+                ];
+            }else if($routeName === 'admin.edit.qr'){
+                $breadcrumbs[] = [
+                    'text' => 'Edit QR Codes',
+                    'url' => url('/admin/qrcode/edit/{id}'),
+                ];
+            }else if($routeName === 'admin.qr.statistics'){
+                $breadcrumbs[] = [
+                    'text' => 'Statistics QR Codes',
+                    'url' => url('/admin/qrcode/statistics/{id}'),
+                ];
+            }
+        // Barcode Routes
+           else if($routeName === 'admin.all.barcode'){
+                $breadcrumbs[] = [
+                    'text' => 'All Barcodes',
+                    'url' => url('admin/barcodes/all'),
+                ];
+            }else if($routeName === 'admin.create.barcode'){
+                $breadcrumbs[] = [
+                    'text' => 'Add Barcode',
+                    'url' => url('/admin/barcode/create'),
+                ];
+            }else if($routeName === 'admin.edit.barcode'){
+                $breadcrumbs[] = [
+                    'text' => 'Edit Barcode',
+                    'url' => url('/admin/barcode/edit/{id}'),
+                ];
+            }
+            
+            //user routes
+            else if($routeName === 'admin.users'){
+                $breadcrumbs[] = [
+                    'text' => 'All Users',
+                    'url' => url('/admin/users'),
+                ];
+            }
 
+            //payments routes           
+            else if($routeName === 'admin.payment.methods'){
+                $breadcrumbs[] = [
+                    'text' => 'All Payment Methods',
+                    'url' => url('/admin/payment-method'),
+                ];
+            }
+             //transactions routes           
+             else if($routeName === 'admin.transactions'){
+                $breadcrumbs[] = [
+                    'text' => 'All Transactions',
+                    'url' => url('/admin/transactions'),
+                ];
+            }
 
-        if ($request->route()->getPrefix() == 'admin') {
+             //pages routes           
+             else if($routeName === 'admin.pages'){
+                $breadcrumbs[] = [
+                    'text' => 'All Pages',
+                    'url' => url('/admin/pages'),
+                ];
+            }
+
             // Generate breadcrumbs based on the route name
-            if ($routeName === 'admin.add.plan') {
+            else if ($routeName === 'admin.add.plan') {
                 // Add a breadcrumb for a specific route
 
                 $breadcrumbs[] = [
                     'text' => 'Add Plan',
                     'url' => url('/admin/add-plan'),
                 ];
+            }elseif($routeName === 'admin.index.plans'){
+
+                $breadcrumbs[] = [
+                    'text' => 'Plan',
+                    'url' => url('/admin/plans'),
+                ];
+
             } elseif ($routeName === 'admin.settings.general_settings') {
 
                 // Add a breadcrumb for another specific route
@@ -125,8 +204,7 @@ class BreadcrumbService
                 ];
             }
         } else {
-
-
+           
             if ($routeName === 'user.plans') {
                 $breadcrumbs[] = [
                     'text' => 'User',
@@ -190,6 +268,82 @@ class BreadcrumbService
                     'text' => 'IP Lookup',
                     'url' => url('/user/tools/ip-lookup
                     '),
+                ];
+            }
+
+             //qrcode routes
+             if($routeName === 'user.all.qr'){
+                $breadcrumbs[] = [
+                    'text' => 'All QR Codes',
+                    'url' => url('user/qrcodes/all'),
+                ];
+            }
+            if($routeName === 'user.create.qr'){
+                $breadcrumbs[] = [
+                    'text' => 'Add QR Codes',
+                    'url' => url('/user/qrcode/create'),
+                ];
+            } 
+            if($routeName === 'user.edit.qr'){
+                $breadcrumbs[] = [
+                    'text' => 'Edit QR Codes',
+                    'url' => url('/user/qrcode/edit/{id}'),
+                ];
+            }
+            if($routeName === 'user.qr.statistics'){
+                $breadcrumbs[] = [
+                    'text' => 'Statistics QR Codes',
+                    'url' => url('/user/qrcode/statistics/{id}'),
+                ];
+            }
+        // Barcode Routes
+            if($routeName === 'user.all.barcode'){
+                $breadcrumbs[] = [
+                    'text' => 'All Barcodes',
+                    'url' => url('user/barcodes/all'),
+                ];
+            } 
+            if($routeName === 'user.create.barcode'){
+                $breadcrumbs[] = [
+                    'text' => 'Add Barcode',
+                    'url' => url('/user/barcode/create'),
+                ];
+            } 
+            if($routeName === 'user.edit.barcode'){
+                $breadcrumbs[] = [
+                    'text' => 'Edit Barcode',
+                    'url' => url('/user/barcode/edit/{id}'),
+                ];
+            }
+            
+            //user routes
+            if($routeName === 'user.users'){
+                $breadcrumbs[] = [
+                    'text' => 'All Users',
+                    'url' => url('/user/users'),
+                ];
+            }
+
+            //payments routes           
+            if($routeName === 'user.payment.methods'){
+                $breadcrumbs[] = [
+                    'text' => 'All Payment Methods',
+                    'url' => url('/user/payment-method'),
+                ];
+            }
+             //transactions routes           
+            if($routeName === 'user.transactions'){
+                $breadcrumbs[] = [
+                    'text' => 'All Transactions',
+                    'url' => url('/user/transactions'),
+                ];
+            }
+
+             //pages routes           
+            if($routeName === 'user.pages'){
+                $breadcrumbs[] = [
+                    'text' => 'All Pages',
+                    'url' => url('/user/pages'),
                 ];
             }
         }

@@ -30,8 +30,9 @@ class PlanController extends Controller
      */
 
     // All Plans
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
+        $breadcrumbs = $breadcrumbService->generate();
         // Queries
         $plans = Plan::paginate(10);
         $currencies = Setting::where('status', 1)->get();
@@ -43,6 +44,7 @@ class PlanController extends Controller
             'currencies' => $currencies,
             'settings' => $settings,
             'config' => $config,
+            'breadcrumbs' => $breadcrumbs
         ]);
     }
 

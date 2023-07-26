@@ -24,7 +24,16 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
-                                        <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                                        <!-- <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-businessplan" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M16 6m-5 0a5 3 0 1 0 10 0a5 3 0 1 0 -10 0"></path>
+                                            <path d="M11 6v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                            <path d="M11 10v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                            <path d="M11 14v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                            <path d="M7 9h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                            <path d="M5 15v1m0 -8v1"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +59,16 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
-                                        <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i>
+                                        <!-- <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-businessplan" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M16 6m-5 0a5 3 0 1 0 10 0a5 3 0 1 0 -10 0"></path>
+                                            <path d="M11 6v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                            <path d="M11 10v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                            <path d="M11 14v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                            <path d="M7 9h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                            <path d="M5 15v1m0 -8v1"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +94,14 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
-                                        <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i>
+                                        <!-- <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +127,14 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
-                                        <i class="ni leading-none ni-cart text-lg relative top-3.5 text-white"></i>
+                                        <!-- <i class="ni leading-none ni-cart text-lg relative top-3.5 text-white"></i> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>

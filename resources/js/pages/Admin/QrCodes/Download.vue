@@ -29,7 +29,7 @@
                                 <div class="flex items-center justify-center pt-2 pb-6 overflow-x-auto space-x-2">
                                     <div @click="printQrCode">
                                         <PrimaryButton>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24"
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                                 stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -42,7 +42,7 @@
                                     </div>
                                     <div @click="open = true">
                                         <PrimaryButton>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-share"
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-share"
                                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                                 stroke="currentColor" fill="none" stroke-linecap="round"
                                                 stroke-linejoin="round">
@@ -58,7 +58,7 @@
                                     <div>
                                         <PrimaryButton @click="downloadQrCode()">
                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-download" width="24" height="24"
+                                                class="icon-tabler icon-tabler-download" width="24" height="24"
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                                 stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

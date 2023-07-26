@@ -6,8 +6,9 @@
 
             <!-- Success Messege -->
             <Notifications />
-
+           
             <div class="flex flex-wrap -mx-3">
+             
                 <div class="flex-none w-full max-w-full px-3">
                     <div
                         class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
@@ -20,7 +21,7 @@
                                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Size">Domain <span
                                             class="text-red-600">*</span></Label>
                                     <input type="text"
-                                        class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                        class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                         v-model="form.domain" name="domain" id="domain" placeholder="Eg: https://domain.com ..."
                                         ref="input" required />
                                 </div>
@@ -54,6 +55,67 @@
                         </div>
                     </div>
                 </div>
+                <!--Domain Name Details-->
+                <div class="flex-none w-full max-w-full px-3" v-if="props.result">
+                    <div
+                        class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+                        <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                            <h6>Domain name details</h6>
+                        </div>
+                        <div class="p-6 flex-auto bg-gray-50">
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">Domain Name</div>
+                                <div class="w-1/2 flex"> <img class="avatar"
+                                            :src="'https://icons.duckduckgo.com/ip3/'+props.result.domainName+'.ico'"
+                                            rel="noreferrer">{{props.result.domainName}}</div>
+                           </div>
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">Registrar Name</div>
+                                <div class="w-1/2">{{props.result.registrar}}</div>
+                           </div>
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">Registrant Name</div>
+                                <div class="w-1/2">{{props.result.owner}}</div>
+                           </div>  
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">Created date</div>
+                                <div class="w-1/2">{{props.result.creationDate}}</div>
+                           </div>
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">Updated date</div>
+                                <div class="w-1/2">{{props.result.updatedDate}}</div>
+                           </div>
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">Expiration date</div>
+                                <div class="w-1/2">{{props.result.expirationDate}}</div>
+                           </div>  
+                           
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">Name servers</div>
+                                <div class="w-1/2"><ul><li v-for="nameServers in props.result.nameServers">{{nameServers}}</li></ul></div>
+                           </div>  
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">State</div>
+                                <div class="w-1/2"><ul><li v-for="states in props.result.states">{{states}}</li></ul></div>
+                           </div>  
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/2">WHOIS server details</div>
+                                <div class="w-1/2">{{props.result.whoisServer}}</div>
+                           </div>  
+
+                          
+                                                  
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </UserLayout>
@@ -61,10 +123,7 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-
-const props = defineProps({
-    breadcrumbs: Object
-});
+import {ref} from 'vue';
 
 const form = useForm({
     domain: '',
@@ -73,5 +132,7 @@ const form = useForm({
 const submit = () => {
     form.post(route('user.result.whois-lookup'));
 };
+
+const props = defineProps(['breadcrumbs', 'result', 'domain'])
 
 </script>

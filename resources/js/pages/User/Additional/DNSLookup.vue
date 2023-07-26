@@ -20,7 +20,7 @@
                                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Size">Domain <span class="text-red-600">*</span></Label>
                                     <input
                                         type="text"
-                                        class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
+                                        class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"
                                         v-model="form.domain"
                                         name="domain"
                                         id="domain"
@@ -56,6 +56,48 @@
                         </div>
                     </div>
                 </div>
+
+                   <!--Domain Name Details-->
+                   <div class="flex-none w-full max-w-full px-3" v-if="props.results">
+                    <div
+                        class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+                        <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                            <h6>Domain DNS details</h6>
+                        </div>
+                        <div class="p-6 flex-auto bg-gray-50">
+                           <!-- <div class="flex w-full p-5">
+                                <div class="w-2/12">A</div>
+                                <div class="w-2/12">AAAA</div>
+                                <div class="w-2/12">CNAME</div>
+                                <div class="w-2/12">MX</div>
+                                <div class="w-2/12">TXT</div>
+                                <div class="w-2/12">NS</div>
+                                
+                           </div> -->
+
+                           <div class="flex w-full p-5">
+                                <div class="w-1/4">TYPE</div>
+                                <div class="w-1/4">HOST</div>
+                                <div class="w-1/4">IP</div>
+                                <div class="w-1/4">TTL</div>                               
+                                
+                           </div>
+                           <!--data-->
+                           <div class="flex w-full p-5" v-for="results in props.results">
+                                <div class="w-1/4">{{results.type}}</div>
+                                <div class="w-1/4">{{results.host}}</div>
+                                <div class="w-1/4">{{results.ip}}</div>
+                                <div class="w-1/4">{{results.ttl}}</div>                               
+                                
+                           </div>
+
+                          
+
+                          
+                                                  
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </UserLayout>
@@ -64,9 +106,7 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 
-const props = defineProps({
-    breadcrumbs: Object
-});
+
 
 const form = useForm({
     domain: '',
@@ -75,5 +115,6 @@ const form = useForm({
 const submit = () => {
     form.post(route('user.result.dns-lookup'));
 };
+const props = defineProps(['breadcrumbs', 'results', 'domain'])
 
 </script>

@@ -29,7 +29,7 @@
                                 <div class="flex items-center justify-center pt-2 pb-6 overflow-x-auto space-x-2">
                                     <div @click="printQrCode">
                                         <PrimaryButton>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24"
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                                 stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -42,7 +42,7 @@
                                     </div>
                                     <div @click="open = true">
                                         <PrimaryButton>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-share"
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-share"
                                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                                 stroke="currentColor" fill="none" stroke-linecap="round"
                                                 stroke-linejoin="round">
@@ -58,7 +58,7 @@
                                     <div>
                                         <PrimaryButton @click="downloadQrCode()">
                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-download" width="24" height="24"
+                                                class="icon-tabler icon-tabler-download" width="24" height="24"
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                                 stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -95,17 +95,17 @@
                                 </div>
                                 <div class="flex justify-center gap-x-1 mt-4">
                                     <!-- Facebook -->
-                                    <Link id="facebook" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Facebook">
+                                    <a @click="link('facebook')" id="facebook" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Facebook">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                                             stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
                                         </svg>
-                                    </Link>
+                                    </a>
 
                                     <!-- Twitter -->
-                                    <a id="twitter" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Twitter">
+                                    <a @click="link('twitter')" id="twitter" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Twitter">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter"
                                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
@@ -117,7 +117,7 @@
                                     </a>
 
                                     <!-- LinkedIn -->
-                                    <a id="linkedin" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="LinkedIn">
+                                    <a @click="link('linkedin')" id="linkedin" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="LinkedIn">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin"
                                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
@@ -131,7 +131,7 @@
                                     </a>
 
                                     <!-- WhatsApp -->
-                                    <a id="whatsapp" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Whatsapp">
+                                    <a @click="link('whatsapp')" id="whatsapp" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Whatsapp">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp"
                                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
@@ -144,7 +144,7 @@
                                     </a>
 
                                     <!-- Telegram -->
-                                    <a id="telegram" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Telegram">
+                                    <a @click="link('telegram')" id="telegram" target="_blank" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Telegram">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram"
                                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
@@ -154,7 +154,7 @@
                                     </a>
 
                                     <!-- Email -->
-                                    <a id="email" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Email">
+                                    <a @click="link('email')" id="email" class="p-1 bg-gradient-to-tl from-gray-900 to-gray-700 rounded-md text-white cursor-pointer" aria-label="Email">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24"
                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
@@ -192,7 +192,8 @@
 
 <script setup>
 import TextInput from '@/Components/TextInput.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { usePage } from '@inertiajs/vue3';
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
 const open = ref(false);
@@ -201,8 +202,12 @@ const qrcodeImage = ref(null);
 
 const props = defineProps({
     qrcode_details: Object,
-    config: Object
+    config: Object,
+    shareContent: Object,
 });
+
+const appUrl=  computed(() => usePage().props.appUrl).value;
+const imgUrl=  computed(() => usePage().props.imagePath).value;
 
 function printQrCode() {
     const printQrCode = document.getElementById('printable-area');
@@ -219,7 +224,7 @@ function printQrCode() {
 
 function downloadQrCode() {
     // Get the QR code image URL
-    const qrCodeImageUrl = 'http://127.0.0.1:8001/'+ props.qrcode_details.qr_code; // Replace with the actual URL of your QR code image
+    const qrCodeImageUrl = appUrl+props.qrcode_details.qr_code; // Replace with the actual URL of your QR code image
     console.log(qrCodeImageUrl);
     // Create an anchor element
     const downloadLink = document.createElement("a");
@@ -236,5 +241,65 @@ function downloadQrCode() {
 
     // Remove the anchor element from the document body
     document.body.removeChild(downloadLink);
+}
+
+function link(data){
+    //  alert(appUrl);$page.props.imagePath + qrcode_details.qr_code
+    if(data == 'facebook'){
+    var facebookLink = 'https://www.facebook.com/sharer.php?u=' +  imgUrl+props.qrcode_details.qr_code+ '&t=' + props.shareContent;
+    facebookLink = facebookLink.replace(':qrCodeId', data);
+    var facebookLinkPreview = document.getElementById("facebook");
+    facebookLinkPreview.setAttribute("href", facebookLink);
+    }
+    if(data == 'twitter'){
+
+        // Set Twitter link
+    var twitterLink = 'https://twitter.com/intent/tweet?text='+ props.shareContent;
+    twitterLink = twitterLink.replace(':qrCodeId', data);
+    var twitterLinkPreview = document.getElementById("twitter");
+    twitterLinkPreview.setAttribute("href", twitterLink);
+
+
+    }
+    if(data == "linkedin"){
+
+        // Set LinkedIn link
+    var linkedInLink = 'http://www.linkedin.com/shareArticle?mini=true&url=' + imgUrl+props.qrcode_details.qr_code + '&title=This is your QR code link&summary=This is your QR code link&source='+appUrl;
+    linkedInLink = linkedInLink.replace(':qrCodeId', data);
+    var linkedInLinkPreview = document.getElementById("linkedin");
+    linkedInLinkPreview.setAttribute("href", linkedInLink);
+
+    }
+
+    if(data == "whatsapp"){
+
+// Set Whatsapp link
+    var whatsappLink = 'https://api.whatsapp.com/send?text='+ props.shareContent;
+    whatsappLink = whatsappLink.replace(':qrCodeId', data);
+    var whatsappLinkPreview = document.getElementById("whatsapp");
+    whatsappLinkPreview.setAttribute("href", whatsappLink);
+
+}
+
+if(data == "telegram"){
+
+// Set Telegram link
+var telegramLink = 'https://telegram.me/share/url?text='+ props.shareContent + 'url=' + imgUrl+props.qrcode_details.qr_code;
+    telegramLink = telegramLink.replace(':qrCodeId', data);
+    var telegramLinkPreview = document.getElementById("telegram");
+    telegramLinkPreview.setAttribute("href", telegramLink);
+
+}
+
+
+if(data == "email"){
+
+    // Set Email link
+    var emailLink = 'mailto:?subject=My QR Code&amp;body=This is your QR code link :'+ imgUrl+props.qrcode_details.qr_code;
+    emailLink = emailLink.replace(':qrCodeId', data);
+    var emailLinkPreview = document.getElementById("email");
+    emailLinkPreview.setAttribute("href", emailLink);
+
+}
 }
 </script>

@@ -24,7 +24,16 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
-                                        <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-businessplan" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M16 6m-5 0a5 3 0 1 0 10 0a5 3 0 1 0 -10 0"></path>
+                                                <path d="M11 6v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                                <path d="M11 10v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                                <path d="M11 14v4c0 1.657 2.239 3 5 3s5 -1.343 5 -3v-4"></path>
+                                                <path d="M7 9h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                                <path d="M5 15v1m0 -8v1"></path>
+                                            </svg>
+                                        <!-- <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i> -->
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +59,22 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg  bg-themeColor">
-                                        <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i>
+                                        <!-- <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-qrcode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                <path d="M7 17l0 .01"></path>
+                                                <path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                <path d="M7 7l0 .01"></path>
+                                                <path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                <path d="M17 7l0 .01"></path>
+                                                <path d="M14 14l3 0"></path>
+                                                <path d="M20 14l0 .01"></path>
+                                                <path d="M14 14l0 3"></path>
+                                                <path d="M14 20l3 0"></path>
+                                                <path d="M17 17l3 0"></path>
+                                                <path d="M20 17l0 3"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +100,18 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
-                                        <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i>
+                                        <!-- <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-barcode" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M4 7v-1a2 2 0 0 1 2 -2h2"></path>
+                                            <path d="M4 17v1a2 2 0 0 0 2 2h2"></path>
+                                            <path d="M16 4h2a2 2 0 0 1 2 2v1"></path>
+                                            <path d="M16 20h2a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M5 11h1v2h-1z"></path>
+                                            <path d="M10 11l0 2"></path>
+                                            <path d="M14 11h1v2h-1z"></path>
+                                            <path d="M19 11l0 2"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +138,12 @@
                                 <div class="px-3 text-right basis-1/3">
                                     <div
                                         class="inline-block w-12 h-12 text-center rounded-lg bg-themeColor">
-                                        <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                                        <!-- <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="leading-none text-lg relative top-2 text-white icon-tabler icon-tabler-transfer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M20 10h-16l5.5 -6"></path>
+                                            <path d="M4 14h16l-5.5 6"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -146,13 +186,7 @@
                         <div class="flex justify-between p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                             <h6>Recent 10 QR Codes</h6>
                             <Link :href="route('user.create.qr')">
-                                <DashboardButton style="background-color: green;"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <line x1="12" y1="5" x2="12" y2="19" />
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                    </svg><span><span class="text-lg">+ </span>Create QR Code</span></DashboardButton>
+                                <DashboardButton style="background-color: green;"><span><span class="text-lg">+ </span>Create QR Code</span></DashboardButton>
                             </Link>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
@@ -262,14 +296,8 @@
                         class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex justify-between p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                             <h6>Recent 10 Barcodes</h6>
-                            <Link :href="route('user.create.qr')">
-                                <DashboardButton style="background-color: green;"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <line x1="12" y1="5" x2="12" y2="19" />
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                    </svg><span><span class="text-lg">+ </span>Create Barcode</span></DashboardButton>
+                            <Link :href="route('user.create.barcode')">
+                                <DashboardButton style="background-color: green;"><span><span class="text-lg">+ </span>Create Barcode</span></DashboardButton>
                             </Link>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
@@ -340,10 +368,10 @@
                                                                 <Link :href="route('user.qr.statistics', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Statistics</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
-                                                                <Link :href="route('user.download.qrcode', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Download QR</Link>
+                                                                <Link :href="route('user.download.barcode', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Download Barcode</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }">
-                                                                <Link :href="route('user.edit.qr', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
+                                                                <Link :href="route('user.edit.barcode', { id: barcode.barcode_id })" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']">Edit</Link>
                                                             </MenuItem>
                                                             <MenuItem v-slot="{ active }" @click="open = true">
                                                                 <button @click="activateDeactivateBarCode(barcode.barcode_id)"  :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-xs font-semibold leading-tight text-slate-400']"><span v-if="barcode.status === 0">Activate</span><span v-else>Deactivate</span></button>
@@ -384,7 +412,7 @@ import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
 const open = ref(true)
-const props = defineProps(['settings', 'active_plan', 'remaining_days', 'barcodes_count', 'qr_codes_count', 'qr_codes', 'bar_codes', 'settings', 'config'])
+const props = defineProps(['settings', 'active_plan', 'remaining_days', 'barcodes_count', 'qr_codes_count', 'qr_codes', 'bar_codes', 'settings', 'config', 'qrcode', 'barcode', 'getCurrentYear'])
 const myChild = ref(null);
   const modalData = ref({
         title:'',
@@ -462,6 +490,7 @@ import ConfirmationModel from '../../Components/Modals/Modal.vue';
 export default {
    
     components:{Menu, MenuButton, MenuItem, MenuItems},
+    props:['qrcode', 'barcode', 'getCurrentYear'],
     mounted(){
           
         this.barqrCode();
@@ -498,7 +527,7 @@ export default {
         borderWidth: 3,
         backgroundColor: gradientStroke1,
         fill: true,
-        data: [10,20,30,60,80,90,20,80,90,20,80,90],
+        data: this.barcode,
         maxBarThickness: 6,
         },
         {
@@ -510,7 +539,7 @@ export default {
         borderWidth: 3,
         backgroundColor: gradientStroke2,
         fill: true,
-        data: [20,30,40,90,30,40,80,10,0,0,0,20],
+        data: this.qrcode,
         maxBarThickness: 6,
         },
         ],

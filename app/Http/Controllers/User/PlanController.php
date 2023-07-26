@@ -37,9 +37,9 @@ class PlanController extends Controller
     public function index(BreadcrumbService $breadcrumbService)
     {
         // Plans
-
+        
         $breadcrumbs = $breadcrumbService->generate();
-
+        
         $plans = Plan::where('status', 1)->get();
 
         // Get access types
@@ -103,7 +103,7 @@ class PlanController extends Controller
 
         $plan = User::where('id', Auth::user()->id)->first();
         $active_plan = json_decode($plan->plan_details);
-
+       
         // Initial remaining days
         $remaining_days = 0;
 
@@ -115,8 +115,8 @@ class PlanController extends Controller
             // Remaining days
             $remaining_days = $current_date->diffInDays($plan_validity, false);
         }
-
-        return Inertia::render('User/Plan/Index', [
+      
+        return Inertia::render('User/Plan/index', [
             'breadcrumbs' => $breadcrumbs,
             'plans' => $plans,
             'settings' => $settings,
