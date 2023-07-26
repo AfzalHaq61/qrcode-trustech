@@ -59,7 +59,7 @@
                 <div class="sm:col-span-2">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="banner image">Banner Image <span class="text-red-600">*</span></Label>
                     <div class="sm:col-span-3">
-                        <input @change="getPrimaryImage($event)" class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" type="file" name="primary_image" id="primary_image" autofocus placeholder="Banner Image ..." accept=".png,.jpg,.jpeg,.gif,.svg">
+                        <input @change="getPrimaryImage($event)" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" type="file" name="primary_image" id="primary_image" autofocus placeholder="Banner Image ..." accept=".png,.jpg,.jpeg,.gif,.svg">
                         <span class="mb-2 ml-1 font-bold text-xs text-slate-700">recommended size: 1000 x 667</span>
                     </div>
                 </div>
@@ -67,14 +67,14 @@
                 <!-- Website Logo -->
                 <div class="sm:col-span-2">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Email">Website Logo <span class="text-red-600">*</span></Label>
-                    <input @change="getSiteLogo($event)" class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" type="file" name="site_logo" id="site_logo" autofocus placeholder="Website Logo ..." accept=".png,.jpg,.jpeg,.gif,.svg">
+                    <input @change="getSiteLogo($event)" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" type="file" name="site_logo" id="site_logo" autofocus placeholder="Website Logo ..." accept=".png,.jpg,.jpeg,.gif,.svg">
                     <span class="mb-2 ml-1 font-bold text-xs text-slate-700">recommended size: 200 x 90</span>
                 </div>
 
                 <!-- Favicon -->
                 <div class="sm:col-span-2">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="Email">Favicon <span class="text-red-600">*</span></Label>
-                    <input @change="getFavIcon($event)" class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" type="file" name="favi_icon" id="favi_icon" autofocus placeholder="Favicon ..." accept=".png,.jpg,.jpeg,.gif,.svg">
+                    <input @change="getFavIcon($event)" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" type="file" name="favi_icon" id="favi_icon" autofocus placeholder="Favicon ..." accept=".png,.jpg,.jpeg,.gif,.svg">
                     <span class="mb-2 ml-1 font-bold text-xs text-slate-700">recommended size: 200 x 200</span>
                 </div>
             </div>
@@ -83,13 +83,13 @@
                 <!-- App Name -->
                 <div class="sm:col-span-3">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="app_name">App Name<span class="text-red-600"> *</span></Label>
-                    <input v-model="form.app_name" id="app_name" name="app_name" placeholder="App Name ..." readonly class="focus:ring-themeColor text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+                    <input v-model="form.app_name" id="app_name" name="app_name" placeholder="App Name ..." readonly class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
                 </div>
 
                 <!-- Site Name -->
                 <div class="sm:col-span-3">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="site_name">Site Name<span class="text-red-600"> *</span></Label>
-                    <input v-model="form.site_name" id="site_name" name="site_name" placeholder="Site Name ..." required class="focus:ring-themeColor text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
+                    <input v-model="form.site_name" id="site_name" name="site_name" placeholder="Site Name ..." required class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow" />
                 </div>
             </div>
 
@@ -97,13 +97,13 @@
                 <!-- SEO Meta Description -->
                 <div class="sm:col-span-3">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="seo_meta_desc">SEO Meta Description<span class="text-red-600"> *</span></Label>
-                    <textarea v-model="form.seo_meta_desc" id="seo_meta_desc" name="seo_meta_desc" placeholder="SEO Meta Description ..." required rows="3" class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"></textarea>
+                    <textarea v-model="form.seo_meta_desc" id="seo_meta_desc" name="seo_meta_desc" placeholder="SEO Meta Description ..." required rows="3" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"></textarea>
                 </div>
 
                 <!-- SEO Keywords -->
                 <div class="sm:col-span-3">
                     <Label class="mb-2 ml-1 font-bold text-xs text-slate-700" for="meta_keywords">SEO Keywords<span class="text-red-600"> *</span></Label>
-                    <textarea v-model="form.meta_keywords" id="meta_keywords" name="meta_keywords" placeholder="SEO Keywords (Keyword 1, Keyword 2 ..." required rows="3" class="focus:ring-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"></textarea>
+                    <textarea v-model="form.meta_keywords" id="meta_keywords" name="meta_keywords" placeholder="SEO Keywords (Keyword 1, Keyword 2 ..." required rows="3" class="focus:ring-themeColor focus:shadow-themeColor focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow"></textarea>
                 </div>
             </div>
 

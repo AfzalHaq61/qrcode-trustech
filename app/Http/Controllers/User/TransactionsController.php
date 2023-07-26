@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use App\Services\BreadcrumbService;
 use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Setting;
@@ -33,9 +34,10 @@ class TransactionsController extends Controller
      */
 
     //  User Transactions
-    public function indexTransactions()
+    public function indexTransactions(BreadcrumbService $breadcrumbService)
     {
-
+        $breadcrumbs = $breadcrumbService->generate();
+      
         // Check active plan
         $plan_validity = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Auth::user()->plan_validity);
         $current_time = Carbon::now();
@@ -51,6 +53,7 @@ class TransactionsController extends Controller
                 'transactions' => $transactions,
                 'settings' => $settings,
                 'currencies' => $currencies,
+                'breadcrumbs' => $breadcrumbs,
             ]);
         } else {
             // Redirect plan

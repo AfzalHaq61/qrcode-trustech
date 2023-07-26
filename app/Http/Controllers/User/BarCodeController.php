@@ -7,6 +7,7 @@ use App\Models\Plan;
 use App\Models\User;
 use Inertia\Inertia;
 use Spatie\Color\Hex;
+use App\Services\BreadcrumbService;
 use App\Models\Barcode;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -32,8 +33,9 @@ class BarCodeController extends Controller
      */
 
     // All User Bar Codes
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
+        $breadcrumbs = $breadcrumbService->generate();
         // Check active plans
         $active_plan = Plan::where('id', Auth::user()->plan_id)->first();
 
@@ -53,6 +55,7 @@ class BarCodeController extends Controller
             return Inertia::render('User/BarCodes/Index', [
                 'bar_codes' => $bar_codes,
                 'settings' => $settings,
+                'breadcrumbs' => $breadcrumbs,
             ]);
         } else {
             // Redirect plan

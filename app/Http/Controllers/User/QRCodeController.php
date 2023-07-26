@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Services\BreadcrumbService;
 use Spatie\Color\Hex;
 use App\Models\Config;
 use App\Models\QrCode;
@@ -37,10 +38,10 @@ class QRCodeController extends Controller
      */
 
     // All User QR Codes
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
        
-       
+        $breadcrumbs = $breadcrumbService->generate();
         // Get User QR Codes
         $qr_codes = QrCode::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $settings = Setting::where('status', 1)->first();
@@ -50,6 +51,7 @@ class QRCodeController extends Controller
         return Inertia::render('User/QrCodes/Index', [
             'qr_codes' => $qr_codes,
             'settings' => $settings,
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -1401,10 +1403,17 @@ class QRCodeController extends Controller
             // Queries
             $qrcode_details = QrCode::where('qr_code_id', $id)->where('user_id', Auth::user()->id)->first();
             $config = Config::get();
+            $shareContent = $config[30]->config_value;
+       
+            $shareContent = str_replace("{ appName }", env('APP_NAME'), $shareContent);
+            
+            $shareContent = str_replace("{ qr_code_link }", asset($qrcode_details->qr_code), $shareContent);
 
             // View page
             return Inertia::render('User/QrCodes/Download', [
                 'qrcode_details' => $qrcode_details,
+                'config' => $config,
+                'shareContent' => $shareContent
             ]);
         } else {
             // Redirect plan

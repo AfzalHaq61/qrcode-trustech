@@ -62,17 +62,19 @@ class AdditionalController extends Controller
     // Search Whois Lookup
     public function resultWhoisLookup(Request $request, BreadcrumbService $breadcrumbService)
     {
+       
         $breadcrumbs = $breadcrumbService->generate();
 
         // Queries
         $domain = str_replace(['http://', 'https://', 'www.'], '', $request->input('domain'));
-
+       
         $whoisRecords = false;
         try {
             $whoisRecords = Whois::get()->createWhois()->loadDomainInfo($domain);
+        
         } catch (\Exception $e) {
         }
-
+      
         return Inertia::render('User/Additional/WhoisLookup', [
             'breadcrumbs' => $breadcrumbs,
             'domain' => $domain,
@@ -98,7 +100,7 @@ class AdditionalController extends Controller
         if ($current_time < $plan_validity) {
             // Page rendor
             return Inertia::render('User/Additional/DNSLookup', [
-                'breadcrumbs' => $breadcrumbs
+                'breadcrumbs' => $breadcrumbs,
             ]);
         } else {
             // Redirect plan
@@ -118,6 +120,8 @@ class AdditionalController extends Controller
         } catch (\Exception $e) {
             $dnsRecords = [];
         }
+
+    
 
         return Inertia::render('User/Additional/DNSLookup', [
             'breadcrumbs' => $breadcrumbs,

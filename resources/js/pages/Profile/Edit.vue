@@ -18,7 +18,8 @@ defineProps({
 <template>
     <Head title="Profile" />
 
-    <AuthenticatedLayout>
+    <!-- <AuthenticatedLayout> -->
+        <UserLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Profile</h2>
         </template>
@@ -42,5 +43,6 @@ defineProps({
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    <!-- </AuthenticatedLayout> -->
+</UserLayout>
 </template>

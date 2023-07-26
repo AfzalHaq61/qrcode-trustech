@@ -39,7 +39,7 @@ class PlanController extends Controller
         // Plans
         
         $breadcrumbs = $breadcrumbService->generate();
-
+        
         $plans = Plan::where('status', 1)->get();
 
         // Get access types

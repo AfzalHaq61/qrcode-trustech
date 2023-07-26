@@ -14,7 +14,7 @@
                             <div>
                                 <div class="flex mb-2">
                                     <div class="card-stamp-icon bg-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flag"
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-flag"
                                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -32,7 +32,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / countries.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / countries.length}%` }" :aria-valuenow="country.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / country.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${100 / countries.length}%` }" :aria-valuenow="country.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / country.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@
                             <div>
                                 <div class="flex mb-2">
                                     <div class="card-stamp-icon bg-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flag"
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-flag"
                                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -60,7 +60,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / cities.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / cities.length}%` }" :aria-valuenow="city.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / city.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${100 / cities.length}%` }" :aria-valuenow="city.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / city.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="flex">
                                     <div class="card-stamp-icon bg-green">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-brand-android" width="24" height="24"
+                                            class="icon-tabler icon-tabler-brand-android" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -92,7 +92,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / device_types.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / device_types.length}%` }" :aria-valuenow="device_type.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / device_type.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${100 / device_types.length}%` }" :aria-valuenow="device_type.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / device_type.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                 <div class="flex">
                                     <div class="card-stamp-icon bg-green">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-brand-windows" width="24" height="24"
+                                            class="icon-tabler icon-tabler-brand-windows" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -122,7 +122,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / os_names.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / os_names.length}%` }" :aria-valuenow="os_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / os_name.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${100 / os_names.length}%` }" :aria-valuenow="os_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / os_name.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@
                                 <div class="flex">
                                     <div class="card-stamp-icon bg-green">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-brand-chrome" width="24" height="24"
+                                            class="icon-tabler icon-tabler-brand-chrome" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -154,7 +154,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / browser_names.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / browser_names.length}%` }" :aria-valuenow="browser_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_name.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${100 / browser_names.length}%` }" :aria-valuenow="browser_name.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_name.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@
                             <div>
                                 <div class="flex">
                                     <div class="card-stamp-icon bg-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language"
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-language"
                                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                             stroke="currentColor" fill="none" stroke-linecap="round"
                                             stroke-linejoin="round">
@@ -184,7 +184,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ Math.round(100 / browser_languages.length) }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${100 / browser_languages.length}%` }" :aria-valuenow="browser_language.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_language.total}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${100 / browser_languages.length}%` }" :aria-valuenow="browser_language.total" aria-valuemin="0" aria-valuemax="100" :aria-label="`${100 / browser_language.total}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +195,7 @@
                                 <div class="flex">
                                     <div class="card-stamp-icon bg-green">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-brand-android" width="24" height="24"
+                                            class="icon-tabler icon-tabler-brand-android" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -216,7 +216,7 @@
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ count }}%</span>
                                     </div>
                                     <div class="mb-6 h-5 border-2 rounded-md shadow-md w-full bg-neutral-200 dark:bg-neutral-600">
-                                        <div class="h-4 rounded-md shadow-md bg-gradient-to-tl from-themeColor to-fuchsia-400" :style="{ width: `${ count }%` }" :aria-valuenow="count" aria-valuemin="0" aria-valuemax="100" :aria-label="`${count}%`" role="progressbar">
+                                        <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${ count }%` }" :aria-valuenow="count" aria-valuemin="0" aria-valuemax="100" :aria-label="`${count}%`" role="progressbar">
                                         </div>
                                     </div>
                                 </div>

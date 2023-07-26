@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Config;
 use App\Models\Setting;
+use App\Services\BreadcrumbService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Barcode;
@@ -32,10 +33,10 @@ class DashboardController extends Controller
      */
 
     // Dashboard
-    public function index()
+    public function index(BreadcrumbService $breadcrumbService)
     {
          
-    
+        $breadcrumbs = $breadcrumbService->generate();
        
         // return Inertia::render('User/Index');
         // User current plan details
@@ -90,7 +91,7 @@ class DashboardController extends Controller
             // Remaining dates
             $remaining_days = $current_time->diffInDays($plan_validity, false);
   
-            return Inertia::render('User/Index', ['settings' => $settings, 'active_plan' => $active_plan, 'remaining_days' => $remaining_days, 'barcodes_count' => $barcodes_count, 'qr_codes_count' => $qr_codes_count, 'qr_codes' => $qr_codes, 'bar_codes' => $bar_codes, 'settings' => $settings, 'config' => $config, 'qrcode' => $qrcodeCount, 'barcode' => $barcodeCount, 'getCurrentYear' => $getYear,]);
+            return Inertia::render('User/Index', ['settings' => $settings, 'active_plan' => $active_plan, 'remaining_days' => $remaining_days, 'barcodes_count' => $barcodes_count, 'qr_codes_count' => $qr_codes_count, 'qr_codes' => $qr_codes, 'bar_codes' => $bar_codes, 'settings' => $settings, 'config' => $config, 'qrcode' => $qrcodeCount, 'barcode' => $barcodeCount, 'getCurrentYear' => $getYear, 'breadcrumbs' => $breadcrumbs]);
         } else {
             // Redirect plan
             return redirect()->route('user.plans');
