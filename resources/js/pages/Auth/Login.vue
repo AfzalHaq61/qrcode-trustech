@@ -82,12 +82,12 @@ const submit = () => {
                                             <InputError class="mt-2" :message="form.errors.password" />
                                         </div>
 
-                                        <div class="min-h-6 mb-0.5 block pl-12 mt-4">
+                                        <!-- <div class="min-h-6 mb-0.5 block pl-12 mt-4">
                                             <label class="flex items-center">
                                                 <Checkbox name="remember" v-model:checked="form.remember" />
                                                 <span class="ml-1 font-normal cursor-pointer select-none text-sm text-slate-700">Remember me</span>
                                             </label>
-                                        </div>
+                                        </div> -->
 
                                         <div class="flex items-center justify-end mt-4">
                                             <LoginButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">

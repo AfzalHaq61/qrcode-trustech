@@ -12,7 +12,7 @@
           <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full" style="height:100%">
             <ul class="flex flex-col pl-0 mb-0">
               <li class="mt-0.5 w-full">
-                <Link :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'user.dashboard'}"  class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 text-slate-700 transition-colors" :href="route('admin.dashboard')">
+                <Link :class="{'bg-white shadow-soft-xl font-semibold rounded-lg' : route().current() == 'user.dashboard'}"  class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" :href="route('admin.dashboard')">
                   <div class="bg-themeColor shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                     <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>shop</title>

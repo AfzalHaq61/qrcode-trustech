@@ -9,8 +9,12 @@
                 <!-- Theme Colors -->
                 <div class="px-1 sm:col-span-6">
                     <Label class="mb-2 ml-0 font-bold text-xs text-slate-700" for="banner image">Theme Colors <span class="text-red-600">*</span></Label>
-                    
-                    <div class="radio-group">
+                    <div class="flex justify-between items-center focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft  w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1 font-normal text-gray-700 transition-all focus:border-themeColor focus:outline-none focus:transition-shadow">
+                                                <span>{{ form.app_theme }}</span>
+                                                <input class="rounded-md cursor-pointer w-8" type="color" id="color" v-model="form.app_theme" autofocus
+                                                placeholder="Foreground Color ..." required>
+                    </div>
+                    <!-- <div class="radio-group">
                         <label class="radio-container">
                             <input value="blue" v-model="form.app_theme" type="radio" name="app_theme">
                             <span class="checkmark"></span>
@@ -50,7 +54,7 @@
                             <input value="gray" v-model="form.app_theme" type="radio" name="app_theme">
                             <span class="checkmark-seven"></span>
                         </label>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

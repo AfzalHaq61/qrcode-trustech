@@ -11,13 +11,20 @@
                         class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
-                                <div class="flex-none w-2/3 max-w-full px-3">
+                                <div class="flex-none w-2/3 max-w-full px-3 h-16">
                                     <div>
+                                       
                                         <p class="mb-0 font-sans text-sm font-semibold leading-normal">CURRENT PLAN</p>
-                                        <h5 class="mb-0 font-bold">
+                                        <h5 class="mb-0 font-bold" v-if="active_plan.plan_price == 0">
                                            
+                                           <span class="text-md leading-normal font-weight-bolder">{{active_plan.plan_name}}</span><br>
                                             <span
-                                                class="text-sm leading-normal font-weight-bolder text-lime-500">Free Trial</span>
+                                                class="text-sm leading-normal font-weight-bolder text-lime-500">FREE PLAN</span>
+                                        </h5>
+                                        <h5 class="mb-0 font-bold" v-else>
+                                            <span class="text-md leading-normal font-weight-bolder">{{active_plan.plan_name}}</span><br>
+                                            <span
+                                                class="text-sm leading-normal font-weight-bolder text-lime-500"> {{remaining_days > 0 ? remaining_days : 'Plan Expired!'}}</span>
                                         </h5>
                                     </div>
                                 </div>
@@ -47,7 +54,7 @@
                         class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
-                                <div class="flex-none w-2/3 max-w-full px-3">
+                                <div class="flex-none w-2/3 max-w-full px-3 h-16">
                                     <div>
                                         <p class="mb-0 font-sans text-sm font-semibold leading-normal">QR CODES</p>
                                         <h5 class="mb-0 font-bold" v-if="$page.props.APP_TYPE == 'BOTH' || $page.props.APP_TYPE == 'QRCODE'">
@@ -88,7 +95,7 @@
                         class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
-                                <div class="flex-none w-2/3 max-w-full px-3">
+                                <div class="flex-none w-2/3 max-w-full px-3 h-16">
                                     <div>
                                         <p class="mb-0 font-sans text-sm font-semibold leading-normal">BARCODES</p>
                                         <h5 class="mb-0 font-bold" v-if="$page.props.APP_TYPE == 'BOTH' || $page.props.APP_TYPE == 'BARCODE'">
@@ -125,7 +132,7 @@
                         class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
-                                <div class="flex-none w-2/3 max-w-full px-3">
+                                <div class="flex-none w-2/3 max-w-full px-3 h-16">
                                     <div>
                                         <p class="mb-0 font-sans text-sm font-semibold leading-normal">Transactions</p>
                                         <h5 class="mb-0 font-bold">
@@ -160,12 +167,12 @@
                     <div
                         class="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                         <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
-                            <h6>Bar Code & QR Code OVerview
+                            <h6>Barcode & QRCode Overview
 </h6>
-                            <p class="text-sm leading-normal">
+                            <!-- <p class="text-sm leading-normal">
                                 <i class="fa fa-arrow-up text-lime-500"></i>
                                 <span class="font-semibold">4% more</span> in {{ getCurrentYear }}
-                            </p>
+                            </p> -->
                         </div>
                         <div class="flex-auto p-4">
                             <div>

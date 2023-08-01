@@ -57,11 +57,13 @@
                                             </td>
                                             <td
                                                 class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                <p class="mb-0 text-xs font-semibold leading-tight text-blue-600 dark:text-blue-500"><Link :href="route('admin.download.qrcode', { id: qr_code.qr_code_id })">{{ qr_code.name }}</Link></p>
+                                                <p class="mb-0 text-xs font-semibold leading-tight text-blue-600 dark:text-blue-500 hover:opacity-50"><Link :href="route('admin.download.qrcode', { id: qr_code.qr_code_id })">{{ qr_code.name }}</Link></p>
                                             </td>
                                             <td
                                                 class="px-3 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                <span class="bg-black px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"><Link :href="route('admin.type.qrcodes', { type: qr_code.type })">{{ qr_code.type }}</Link></span>
+                                                <!-- <span class="bg-black px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"><Link :href="route('admin.type.qrcodes', { type: qr_code.type })">{{ qr_code.type }}</Link></span> 
+                                                -->
+                                                <span class="inline-block rounded-1.8 bg-info px-2.5 py-1.4 text-xs font-bold uppercase whitespace-nowrap leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"><Link :href="route('admin.type.qrcodes', { type: qr_code.type })">{{ qr_code.type }}</Link></span>
                                             </td>
                                             <td
                                                 class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">

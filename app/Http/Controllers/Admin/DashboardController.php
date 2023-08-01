@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\User;
+use DB;
 use Inertia\Inertia;
 use App\Models\Config;
 use App\Models\Barcode;
@@ -35,8 +36,69 @@ class DashboardController extends Controller
         $today_users = User::where('role_id', 2)->where('status', 1)->whereDate('created_at', Carbon::today())->count();
 
         $breadcrumbs = $breadcrumbService->generate();
+
+        $currentYear = date('Y');
+        $previousYear = $currentYear - 1;
+
+      
+
+        //get current year sales
+        $currentYearTransactions = DB::table('transactions')
+        ->where('payment_status', 'Success')
+        ->whereYear('created_at', $currentYear)    
+        ->sum('transaction_amount');
+        
+        //get current year barcodes
+        $currentYearBarCodes = DB::table('barcodes')
+        ->where('status', 1)
+        ->whereYear('created_at', $currentYear)    
+        ->count();
+       //get current year qrcodes
+        $currentYearQRCodes = DB::table('qr_codes')
+        ->where('status', 1)
+        ->whereYear('created_at', $currentYear)    
+        ->count();
+
+
+        //percentage for users last year
+        $lastYearUsersPercentage = DB::table('users')
+        ->where('role_id', 2)
+        ->whereYear('created_at', $previousYear)
+        ->count();    
+        
+          //percentage for users current year
+        $currentYearUsersPercentage = DB::table('users')
+        ->where('role_id', 2)
+        ->whereYear('created_at', $currentYear)
+        ->count();  
+        
+        //how many users are increase or decrease
+        $differecesUsers = $currentYearUsersPercentage - $lastYearUsersPercentage;
+        
+        //get percentage of of increase users current year
+        $percentageUsers = round($differecesUsers/$currentYearUsersPercentage * 100); 
+        
+        
+        //percentage for users last year
+        $lastYearTransactionsPercentage = DB::table('transactions')
+        ->where('payment_status', 'Success')
+        ->whereYear('created_at', $previousYear)
+        ->sum('transaction_amount');    
+        
+          //percentage for sales current year
+        $currentYearTransactionsPercentage = DB::table('transactions')
+        ->where('payment_status', 'Success')
+        ->whereYear('created_at', $currentYear)
+        ->sum('transaction_amount');  
+        
+        //how many sales are increase or decrease
+        $differecesTransactions = $currentYearTransactionsPercentage - $lastYearTransactionsPercentage;
+        
+        //get percentage of of increase sales current year
+        $percentageTransactions = round($differecesTransactions/$currentYearTransactionsPercentage * 100); 
         
        
+        
         
         $monthIncome = [];
         $monthUsers = [];
@@ -66,7 +128,7 @@ class DashboardController extends Controller
        
         //  $monthIncome = implode(',', $monthIncome);
         //  $monthUsers = implode(',', $monthUsers);
-        return Inertia::render('Admin/Index', ['this_month_income' => $this_month_income, 'today_income' => $today_income, 'overall_users' => $overall_users, 'today_users' => $today_users, 'currency' => $currency, 'settings' => $settings, 'monthIncome' => $monthIncome, 'monthUsers' => $monthUsers, 'qrcode' => $qrcodeCount, 'barcode' => $barcodeCount, 'getCurrentYear' => $getYear,'breadcrumbs' => $breadcrumbs]);
+        return Inertia::render('Admin/Index', ['this_month_income' => $this_month_income, 'today_income' => $today_income, 'overall_users' => $overall_users, 'today_users' => $today_users, 'currency' => $currency, 'settings' => $settings, 'monthIncome' => $monthIncome, 'monthUsers' => $monthUsers, 'qrcode' => $qrcodeCount, 'barcode' => $barcodeCount, 'getCurrentYear' => $getYear,'breadcrumbs' => $breadcrumbs, 'currentYearTransactions' => $currentYearTransactions, 'currentYearBarCodes' => $currentYearBarCodes, 'currentYearQRCodes' => $currentYearQRCodes, 'percentageUsers' => $percentageUsers, 'lastYearUsersPercentage' => $lastYearUsersPercentage, 'percentageTransactions' => $percentageTransactions, 'lastYearTransactionsPercentage' => $lastYearTransactionsPercentage]);
 
         // return view('admin.index', compact('this_month_income', 'today_income', 'overall_users', 'today_users', 'currency', 'settings', 'monthIncome', 'monthUsers'));
     }

@@ -227,7 +227,7 @@ class BarCodeController extends Controller
     {
         // Queries
         $barcode_details = Barcode::where('barcode_id', $id)->where('user_id', Auth::user()->id)->first();
-
+       
         return Inertia::render('User/BarCodes/Download', [
             'barcode_details' => $barcode_details,
         ]);

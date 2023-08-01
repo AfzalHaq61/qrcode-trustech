@@ -31,7 +31,7 @@
                                         <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                                             <span class="mr-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-search" width="15" height="15"
+                                                    class="icon-tabler icon-tabler-search" width="15" height="15"
                                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                                     stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -44,11 +44,11 @@
                                     </div>
 
                                     <div>
-                                        <BackButton
+                                        <!-- <BackButton
                                             class="inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-gray-700 to-gray-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85"
                                             :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                                             <span class="ml-1"><a :href="route('user.whois-lookup')">Reset</a></span>
-                                        </BackButton>
+                                        </BackButton> -->
                                     </div>
                                 </div>
                             </form>
