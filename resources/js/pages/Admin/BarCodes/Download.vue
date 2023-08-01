@@ -137,9 +137,6 @@ function downloadBarcode(type)
 var img = new Image();
    
 
-    //    var serializer = new XMLSerializer();
-       
-    //    var svgStr = serializer.serializeToString(props.barcode_details.bar_code);
       
       
     img.src = 'data:image/svg+xml;base64,'+window.btoa(props.barcode_details.bar_code);

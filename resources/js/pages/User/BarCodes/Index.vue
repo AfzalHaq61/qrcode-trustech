@@ -55,7 +55,7 @@
                                             <td
                                                 class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                 <p
-                                                    class="mb-0 text-xs font-semibold leading-tight text-blue-600 dark:text-blue-500">
+                                                    class="mb-0 text-xs font-semibold leading-tight text-blue-600 dark:text-blue-500 hover:opacity-50">
                                                     <Link
                                                         :href="route('admin.download.barcode', { id: bar_code.barcode_id })">
                                                     {{ bar_code.name }}</Link>

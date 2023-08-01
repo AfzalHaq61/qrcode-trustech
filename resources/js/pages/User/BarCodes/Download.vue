@@ -49,7 +49,7 @@
                                     </button>
                                 </div>
                                 <div>
-                                    <button @click="downloadBarcode('jpg')" class="inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-gray-600 to-gray-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">
+                                    <button @click="downloadBarcode('jpeg')" class="inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-gray-600 to-gray-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">
                                         .JPG
                                     </button>
                                 </div>
@@ -116,26 +116,64 @@ function printBarcode() {
     }
 };
 
-function downloadBarcode(type) {
-    // Get the QR code image URL
-    const qrCodeImageUrl = generateBarcodeImage; // Replace with the actual URL of your QR code image
+// function downloadBarcode(type) {
+//     // Get the QR code image URL
+//     const qrCodeImageUrl = generateBarcodeImage; // Replace with the actual URL of your QR code image
 
-    // Create an anchor element
-    const downloadLink = document.createElement("a");
-    downloadLink.href = qrCodeImageUrl;
+//     // Create an anchor element
+//     const downloadLink = document.createElement("a");
+//     downloadLink.href = qrCodeImageUrl;
 
-    // Set the download attribute to specify the file name
-    downloadLink.download = props.barcode_details.name + '.' + type;
+//     // Set the download attribute to specify the file name
+//     downloadLink.download = props.barcode_details.name + '.' + type;
 
-    // Append the anchor element to the document body
-    document.body.appendChild(downloadLink);
+//     // Append the anchor element to the document body
+//     document.body.appendChild(downloadLink);
 
-    // Simulate a click event to trigger the download
-    downloadLink.click();
+//     // Simulate a click event to trigger the download
+//     downloadLink.click();
 
-    // Remove the anchor element from the document body
-    document.body.removeChild(downloadLink);
-}
+//     // Remove the anchor element from the document body
+//     document.body.removeChild(downloadLink);
+// }
+function downloadBarcode(type)
+    {
+
+var img = new Image();
+   
+
+      
+      
+    img.src = 'data:image/svg+xml;base64,'+window.btoa(props.barcode_details.bar_code);
+   
+
+
+    // You could also use the actual string without base64 encoding it:
+    //img.src = "data:image/svg+xml;utf8," + svgStr;
+
+    var canvas = document.createElement("canvas");
+
+    var w=800;
+    var h=400;
+    var check = "image/"+type;
+    canvas.width = w;
+    canvas.height = h;
+    canvas.getContext("2d").drawImage(img,0,0,w,h);
+    console.log(img);
+    var imgURL = canvas.toDataURL(check, 1.0);
+    
+
+  //  alert(imgURL);
+ //alert(imgURL);
+var dlLink = document.createElement('a');
+    dlLink.download = "image";
+    dlLink.href = imgURL;
+    dlLink.dataset.downloadurl = ["image/png", dlLink.download, dlLink.href].join(':');
+
+    document.body.appendChild(dlLink);
+    dlLink.click();
+    document.body.removeChild(dlLink);
+    }
 
 const submit = () => {
     form.post(route('admin.save.barcode'));

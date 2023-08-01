@@ -57,7 +57,7 @@
                                             </td>
                                             <td
                                                 class="px-3 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                <p class="mb-0 text-xs font-semibold leading-tight text-blue-600 dark:text-blue-500"><Link :href="route('admin.download.qrcode', { id: qr_code.qr_code_id })">{{ qr_code.name }}</Link></p>
+                                                <p class="mb-0 text-xs font-semibold leading-tight text-blue-600 dark:text-blue-500 hover:opacity-50"><Link :href="route('admin.download.qrcode', { id: qr_code.qr_code_id })">{{ qr_code.name }}</Link></p>
                                             </td>
                                             <td
                                                 class="px-3 text-sm leading-normal align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">

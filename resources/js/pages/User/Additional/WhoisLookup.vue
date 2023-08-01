@@ -44,11 +44,11 @@
                                     </div>
 
                                     <div>
-                                        <BackButton
+                                        <!-- <BackButton
                                             class="inline-block px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-gray-700 to-gray-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85"
                                             :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                                             <span class="ml-1"><a :href="route('user.whois-lookup')">Reset</a></span>
-                                        </BackButton>
+                                        </BackButton> -->
                                     </div>
                                 </div>
                             </form>
