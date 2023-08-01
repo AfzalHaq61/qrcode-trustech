@@ -134,6 +134,7 @@ class AdditionalController extends Controller
     // IP Lookup
     public function ipLookup(BreadcrumbService $breadcrumbService)
     {
+      
         $breadcrumbs = $breadcrumbService->generate();
 
         // Check active plans
@@ -161,18 +162,28 @@ class AdditionalController extends Controller
     public function resultIpLookup(Request $request, BreadcrumbService $breadcrumbService)
     {
         $breadcrumbs = $breadcrumbService->generate();
-
+        // dd($request->input('ip'));
         // Queries
         try {
-            $result = (new GeoIP(storage_path('app/geoip/GeoLite2-City.mmdb')))->city($request->input('ip'))->raw;
+            // $result =  storage_path('app/geoip/GeoLite2-City.mmdb')))->city($request->input('ip'))->raw;
+            $result =  geoip($request->input('ip'));
         } catch (\Exception $e) {
             $result = false;
         }
-
+        
+      
+      
         return Inertia::render('User/Additional/IPLookup', [
+            'result' => $result,
             'breadcrumbs' => $breadcrumbs,
             'content' => $request->input('content'),
-            'result' => $result
+            'country' => $result['country'],
+            'city' => $result['city'],
+            'postalCode' => $result['postal_code'],
+            'lat' => $result['lat'],
+            'lon' => $result['postal_code'],
+            'timezone' => $result['timezone']
+
         ]);
     }
 }

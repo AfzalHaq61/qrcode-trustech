@@ -216,13 +216,15 @@ class SettingController extends Controller
         Config::where('config_key', 'app_theme')->update([
             'config_value' => $request->app_theme,
         ]);
-
+        $validator = [];
         // Check website logo
         if (isset($request->site_logo)) {
             $validator = $request->validate([
                 'site_logo' => 'mimes:jpeg,png,jpg,gif,svg|max:' . env("SIZE_LIMIT") . '',
             ]);
 
+            
+            
             $site_logo = '/images/web/elements/' . uniqid() . '.' . $request->site_logo->extension();
             $request->site_logo->move(public_path('images/web/elements'), $site_logo);
 
@@ -266,7 +268,10 @@ class SettingController extends Controller
             ]);
         }
 
+       
+
         // Page redirect
+        
         return redirect()->back()->with('success', trans('Website Settings Updated Successfully!'));
     }
 

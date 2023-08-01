@@ -47,10 +47,20 @@
                 </div>
             </div>
             
-            <div>
+            <div>   
+
+            <div class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+                <div id="toast-simple" class="relative w-full border-blue-500 flex mr-2 items-center max-w-xs p-4 bg-green-400 divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert" v-if="$page.props.flash.success" v-show="messageDialgoue">
+                        <svg class="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"/>
+                        </svg>
+                        <div class="pl-4 text-sm font-normal">{{$page.props.flash.success}}</div>
+                        <button @click="closeMsg()" class="absolute top-0 right-0 text-center mt-1 mr-1 bg-red-400 rounded-full h-[25px] w-[25px]">x</button>
+                    </div>
+            <form @submit.prevent="submit" role="form" class="">
+                 <!--show send message-->
+                        
                 
-            <form @submit.prevent="submit" role="form" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
-                <Notifications/>
                 <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <!-- Name -->
@@ -81,13 +91,19 @@
                         </div>
                     </div>
                     <div class="flex items-center justify-end mt-4">
+                       
+
                         <PrimaryButton :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing">
                             Send message
                         </PrimaryButton>
+                        
                     </div>
+                    
                 </div>
             </form>
+            </div>
+           
             </div>
             </div>
         </div>
@@ -95,6 +111,7 @@
 </template>
 
 <script setup>
+import {ref} from 'vue';
 import { useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
 import TextInput from '@/Components/TextInput.vue';
@@ -106,6 +123,7 @@ const props = defineProps({
     page: Object
 });
 
+let messageDialgoue = ref(true);
 const form = useForm({
     emailName: '',
     emailRecipient: '',
@@ -115,5 +133,14 @@ const form = useForm({
 const submit = () => {
     form.post(route('send-email'));
 };
+
+function closeMsg(){
+    
+    this.messageDialgoue = false;
+
+    
+
+    
+}
 
 </script>

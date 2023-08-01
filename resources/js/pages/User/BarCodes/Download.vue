@@ -82,6 +82,9 @@ const props = defineProps({
 });
 
 const barcodeDetailsSetings = ref(JSON.parse(props.barcode_details.settings));
+console.log('first step');
+console.log(props.barcode_details.bar_code);
+
 
 // Assign the passed prop value to the barcodeDetails ref
 barcodeDetails.value = btoa(props.barcode_details.bar_code);
@@ -94,6 +97,10 @@ const generateBarcodeImage = computed(() => {
         return null;
     }
 });
+
+
+console.log('second step');
+console.log(generateBarcodeImage);
 
 // Function to download the barcode as PNG
 function printBarcode() {

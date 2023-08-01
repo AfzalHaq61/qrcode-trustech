@@ -143,64 +143,6 @@
                 </div>
             </div>
 
-            <!-- cards row 2 -->
-            <div class="flex flex-wrap mt-6 -mx-3">
-                <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none">
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-                        <div class="flex-auto p-4">
-                            <div class="flex flex-wrap -mx-3">
-                                <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
-                                    <div class="flex flex-col h-full">
-                                        <p class="pt-2 mb-1 font-semibold">Built by developers</p>
-                                        <h5 class="font-bold">Soft UI Dashboard</h5>
-                                        <p class="mb-12">From colors, cards, typography to complex elements, you will find
-                                            the full documentation.</p>
-                                        <a class="mt-auto mb-0 text-sm font-semibold leading-normal group text-slate-500"
-                                            href="javascript:;">
-                                            Read More
-                                            <i
-                                                class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
-                                    <div class="h-full bg-themeColor rounded-xl">
-                                        <img :src="$page.props.imagePath + 'assets/img/shapes/waves-white.svg'"
-                                            class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
-                                        <div class="relative flex items-center justify-center h-full">
-                                            <img class="relative z-20 w-full pt-6"
-                                                :src="$page.props.imagePath + 'assets/img/illustrations/rocket-white.png'" alt="rocket" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
-                    <div
-                        class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-4">
-                        <div class="relative h-full overflow-hidden bg-cover rounded-xl"
-                            style="background-image: url('../assets/img/ivancik.jpg')">
-                            <span
-                                class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
-                            <div class="relative z-10 flex flex-col flex-auto h-full p-4">
-                                <h5 class="pt-2 mb-6 font-bold text-white">Work with the rockets</h5>
-                                <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is
-                                    all about who take the opportunity first.</p>
-                                <a class="mt-auto mb-0 text-sm font-semibold leading-normal text-white group"
-                                    href="javascript:;">
-                                    Read More
-                                    <i
-                                        class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- cards row 3 -->
 
             <div class="flex flex-wrap mt-6 -mx-3">
@@ -213,34 +155,15 @@
                                     <canvas id="chartBars" height="170"></canvas>
                                 </div>
                             </div>
-                            <h6 class="mt-6 mb-0 ml-2">New Users Overview</h6>
-                            <p class="ml-2 text-sm leading-normal">(<span class="font-bold">+23%</span>) than last week</p>
+                            <h6 class="mt-6 mb-0 ml-2">New Users Overview in {{getCurrentYear}}</h6>
+                            <p class="ml-2 text-sm leading-normal" v-if="lastYearUsersPercentage > 0">(<span class="font-bold">+{{percentageUsers}}%</span>) this Year</p>
                             <div class="w-full px-6 mx-auto max-w-screen-2xl rounded-xl">
                                 <div class="flex flex-wrap mt-0 -mx-3">
                                     <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
                                         <div class="flex mb-2">
                                             <div
                                                 class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-purple-700 to-pink-500 text-neutral-900">
-                                                <svg width="10px" height="10px" viewBox="0 0 40 44" version="1.1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>document</title>
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF"
-                                                            fill-rule="nonzero">
-                                                            <g transform="translate(1716.000000, 291.000000)">
-                                                                <g transform="translate(154.000000, 300.000000)">
-                                                                    <path class="color-background"
-                                                                        d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z"
-                                                                        opacity="0.603585379"></path>
-                                                                    <path class="color-background"
-                                                                        d="M30.9090909,7.27272727 L1.81818182,7.27272727 C0.814545455,7.27272727 0,8.08727273 0,9.09090909 L0,41.8181818 C0,42.8218182 0.814545455,43.6363636 1.81818182,43.6363636 L30.9090909,43.6363636 C31.9127273,43.6363636 32.7272727,42.8218182 32.7272727,41.8181818 L32.7272727,9.09090909 C32.7272727,8.08727273 31.9127273,7.27272727 30.9090909,7.27272727 Z M18.1818182,34.5454545 L7.27272727,34.5454545 L7.27272727,30.9090909 L18.1818182,30.9090909 L18.1818182,34.5454545 Z M25.4545455,27.2727273 L7.27272727,27.2727273 L7.27272727,23.6363636 L25.4545455,23.6363636 L25.4545455,27.2727273 Z M25.4545455,20 L7.27272727,20 L7.27272727,16.3636364 L25.4545455,16.3636364 L25.4545455,20 Z">
-                                                                    </path>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-users text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="9" cy="7" r="4"></circle><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path></svg>
                                             </div>
                                             <p class="mt-1 mb-0 text-xs font-semibold leading-tight">Users</p>
                                         </div>
@@ -251,7 +174,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
+                                    <!-- <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
                                         <div class="flex mb-2">
                                             <div
                                                 class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-blue-600 to-cyan-400 text-neutral-900">
@@ -290,35 +213,16 @@
                                                 role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
                                         <div class="flex mb-2">
                                             <div
                                                 class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-red-500 to-yellow-400 text-neutral-900">
-                                                <svg width="10px" height="10px" viewBox="0 0 43 36" version="1.1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>credit-card</title>
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
-                                                            fill-rule="nonzero">
-                                                            <g transform="translate(1716.000000, 291.000000)">
-                                                                <g transform="translate(453.000000, 454.000000)">
-                                                                    <path class="color-background"
-                                                                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                        opacity="0.593633743"></path>
-                                                                    <path class="color-background"
-                                                                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                                                                    </path>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path><rect x="9" y="3" width="6" height="4" rx="2"></rect><path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path><path d="M12 17v1m0 -8v1"></path></svg>
                                             </div>
                                             <p class="mt-1 mb-0 text-xs font-semibold leading-tight">Sales</p>
                                         </div>
-                                        <h4 class="font-bold">435$</h4>
+                                        <h4 class="font-bold">{{currentYearTransactions}}</h4>
                                         <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
                                             <div class="duration-600 ease-soft -mt-0.38 w-3/10 -ml-px flex h-1.5 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center text-white transition-all"
                                                 role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
@@ -329,33 +233,26 @@
                                         <div class="flex mb-2">
                                             <div
                                                 class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-red-600 to-rose-400 text-neutral-900">
-                                                <svg width="10px" height="10px" viewBox="0 0 40 40" version="1.1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>settings</title>
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF"
-                                                            fill-rule="nonzero">
-                                                            <g transform="translate(1716.000000, 291.000000)">
-                                                                <g transform="translate(304.000000, 151.000000)">
-                                                                    <polygon class="color-background" opacity="0.596981957"
-                                                                        points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667">
-                                                                    </polygon>
-                                                                    <path class="color-background"
-                                                                        d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"
-                                                                        opacity="0.596981957"></path>
-                                                                    <path class="color-background"
-                                                                        d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z">
-                                                                    </path>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-qrcode text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="4" y="4" width="6" height="6" rx="1"></rect><line x1="7" y1="17" x2="7" y2="17.01"></line><rect x="14" y="4" width="6" height="6" rx="1"></rect><line x1="7" y1="7" x2="7" y2="7.01"></line><rect x="4" y="14" width="6" height="6" rx="1"></rect><line x1="17" y1="7" x2="17" y2="7.01"></line><line x1="14" y1="14" x2="17" y2="14"></line><line x1="20" y1="14" x2="20" y2="14.01"></line><line x1="14" y1="14" x2="14" y2="17"></line><line x1="14" y1="20" x2="17" y2="20"></line><line x1="17" y1="17" x2="20" y2="17"></line><line x1="20" y1="17" x2="20" y2="20"></line></svg>
                                             </div>
-                                            <p class="mt-1 mb-0 text-xs font-semibold leading-tight">Items</p>
+                                            <p class="mt-1 mb-0 text-xs font-semibold leading-tight">BarCodes</p>
                                         </div>
-                                        <h4 class="font-bold">43</h4>
+                                        <h4 class="font-bold">{{currentYearBarCodes}}</h4>
+                                        <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
+                                            <div class="duration-600 ease-soft -mt-0.38 -ml-px flex h-1.5 w-1/2 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center text-white transition-all"
+                                                role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
+                                        <div class="flex mb-2">
+                                            <div
+                                                class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-red-600 to-rose-400 text-neutral-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-qrcode text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="4" y="4" width="6" height="6" rx="1"></rect><line x1="7" y1="17" x2="7" y2="17.01"></line><rect x="14" y="4" width="6" height="6" rx="1"></rect><line x1="7" y1="7" x2="7" y2="7.01"></line><rect x="4" y="14" width="6" height="6" rx="1"></rect><line x1="17" y1="7" x2="17" y2="7.01"></line><line x1="14" y1="14" x2="17" y2="14"></line><line x1="20" y1="14" x2="20" y2="14.01"></line><line x1="14" y1="14" x2="14" y2="17"></line><line x1="14" y1="20" x2="17" y2="20"></line><line x1="17" y1="17" x2="20" y2="17"></line><line x1="20" y1="17" x2="20" y2="20"></line></svg>
+                                            </div>
+                                            <p class="mt-1 mb-0 text-xs font-semibold leading-tight">QRCodes</p>
+                                        </div>
+                                        <h4 class="font-bold">{{currentYearQRCodes}}</h4>
                                         <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
                                             <div class="duration-600 ease-soft -mt-0.38 -ml-px flex h-1.5 w-1/2 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center text-white transition-all"
                                                 role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
@@ -371,11 +268,11 @@
                     <div
                         class="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                         <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
-                            <h6>Total Sales Overview
+                            <h6>Total Sales Overview in {{getCurrentYear}}
 </h6>
-                            <p class="text-sm leading-normal">
+                            <p class="text-sm leading-normal" v-if="lastYearTransactionsPercentage > 0">
                                 <i class="fa fa-arrow-up text-lime-500"></i>
-                                <span class="font-semibold">4% more</span> in {{getCurrentYear}}
+                                <span class="font-semibold">{{percentageTransactions}}% more</span> in {{getCurrentYear}}
                             </p>
                         </div>
                         <div class="flex-auto p-4">
@@ -395,10 +292,10 @@
                         <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
                             <h6>Bar Code & QR Code OVerview
 </h6>
-                            <p class="text-sm leading-normal">
+                            <!-- <p class="text-sm leading-normal">
                                 <i class="fa fa-arrow-up text-lime-500"></i>
                                 <span class="font-semibold">4% more</span> in {{ getCurrentYear }}
-                            </p>
+                            </p> -->
                         </div>
                         <div class="flex-auto p-4">
                             <div>
@@ -417,7 +314,7 @@
 </template>
 
 <script setup>
-const props = defineProps(['currency', 'this_month_income', 'today_income', 'overall_users', 'today_users', 'monthUsers', 'monthIncome', 'qrcode', 'barcode', 'getCurrentYear'])
+const props = defineProps(['currency', 'this_month_income', 'today_income', 'overall_users', 'today_users', 'monthUsers', 'monthIncome', 'qrcode', 'barcode', 'getCurrentYear', 'currentYearTransactions', 'currentYearBarCodes','currentYearQRCodes', 'percentageUsers', 'lastYearUsersPercentage', 'percentageTransactions', 'lastYearTransactionsPercentage'])
 console.log('start');
 console.log(props.monthUsers);
 console.log('end');
@@ -426,7 +323,7 @@ console.log('end');
 <script>
 import Chart from 'chart.js/auto';
 export default {
-  props:['monthIncome','monthUsers', 'qrcode', 'barcode', 'getCurrentYear'],
+  props:['monthIncome','monthUsers', 'qrcode', 'barcode', 'getCurrentYear', 'currentYearTransactions', 'currentYearBarCodes', 'currentYearQRCodes', 'percentageUsers', 'lastYearUsersPercentage', 'percentageTransactions', 'lastYearTransactionsPercentage'],
   data:()=>({
         monthUser: [1,2,3,4,5,6,7,8,9,10,11,12],
         val: [],
@@ -577,13 +474,15 @@ new Chart(ctx, {
       y: {
         grid: {
           drawBorder: false,
-          display: false,
-          drawOnChartArea: false,
+          display: true,
+          drawOnChartArea: true,
           drawTicks: false,
+          borderDash: [5, 5],
         },
         ticks: {
-          suggestedMin: 0,
-          suggestedMax: 600,
+          display:true,
+          // suggestedMin: 0,
+          // suggestedMax: 600,
           beginAtZero: true,
           padding: 15,
           font: {
@@ -598,12 +497,20 @@ new Chart(ctx, {
       x: {
         grid: {
           drawBorder: false,
-          display: false,
-          drawOnChartArea: false,
+          display: true,
+          drawOnChartArea: true,
           drawTicks: false,
         },
         ticks: {
-          display: false,
+            display: true,
+          padding: 10,
+          color: "#b2b9bf",
+          font: {
+            size: 11,
+            family: "Open Sans",
+            style: "normal",
+            lineHeight: 2,
+          },
         },
       },
     },

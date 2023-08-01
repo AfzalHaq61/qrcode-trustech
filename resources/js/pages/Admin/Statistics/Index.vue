@@ -209,8 +209,9 @@
                                         </svg>
                                     </div>
                                     <span class="font-bold text-slate-700 mt-1 ml-1">Scanning Count</span>
+                                    
                                 </div>
-                                <div>
+                                <div v-if="count > 0">
                                     <div class="flex justify-between mb-1">
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ count }}</span>
                                         <span class="mb-1 block font-bold text-xs text-slate-700">{{ count }}%</span>
@@ -219,6 +220,10 @@
                                         <div class="h-4 rounded-md shadow-md bg-themeColor" :style="{ width: `${ count }%` }" :aria-valuenow="count" aria-valuemin="0" aria-valuemax="100" :aria-label="`${count}%`" role="progressbar">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div v-else>
+                                    <span class="block font-bold text-lg text-slate-800 p-8">{{ count }}</span>
                                 </div>
                             </div>
                         </div>
