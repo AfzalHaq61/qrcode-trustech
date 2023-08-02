@@ -54,6 +54,7 @@
             <template v-for="plan in plans">
                 <CardComponent :plan="plan" :currency="currency"/>
             </template>
+            
         </div>
     </div>
 </UserLayout>
@@ -61,7 +62,6 @@
 
 <script setup>
 import CardComponent from '../../../Components/User/Plan/Card.vue'
-
 const props = defineProps({
     plans: Object,
     settings: Object,

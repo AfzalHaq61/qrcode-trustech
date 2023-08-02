@@ -5,8 +5,7 @@
             <div class="block px-8 m-0 text-sm whitespace-nowrap text-slate-700">
                 <ApplicationLogo class="inline h-full max-w-full transition-all duration-200 ease-nav-brand font-bold max-h-8" />
             </div>
-          </div>
-
+          </div>        
           <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
 
           <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full" style="height:100%">
@@ -157,6 +156,17 @@
                     </template>
                 </Accordian>
               </li>
+
+              <li class="mt-4 w-full grid justify-items-center" v-if="userData.plan_id == 1">
+                  <div v-if="currentDateTime < userData.plan_validity">
+                    <span class="text-sm">Free Trial Ends in {{Math.round(new Date(userData.plan_validity).getTime()/ (1000*60*60*24) - new Date(currentDateTime).getTime()/ (1000*60*60*24))}} days</span><br>                
+                    <Link :href="route('user.plans')">
+                                  <DashboardButton style="background-color: green;" class="px-8 py-3"><span>Upgrade</span></DashboardButton>
+                    </Link>   
+                  </div>            
+              </li>
+
+            
             </ul>
           </div>
         </aside>
@@ -168,16 +178,48 @@ export default {
 
   data: () => ({
     color: "",
+    currentDateTime:'',
   }),
 
   mounted(){
   let value = this.$page.props.themeColor;
-  
+  this.callFunction()
   this.color = value.config_value;
     if(this.color){
        document.documentElement.style.setProperty('--color-primary', this.color);
     }
 
   },
+
+  computed: {
+  userData() {
+    return this.$page.props.auth.user;
+  }
+},
+
+  methods:{
+
+callFunction: function () {
+
+
+
+    var currentDate = new Date();
+
+    console.log(currentDate);
+
+
+
+    // var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+     this.currentDateTime = new Date().toJSON().slice(0,19).replace(/T/g,' ');
+
+    
+
+
+
+
+}
+
+},
+
 }
 </script>

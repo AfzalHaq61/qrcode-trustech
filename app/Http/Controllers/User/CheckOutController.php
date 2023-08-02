@@ -96,7 +96,7 @@ class CheckOutController extends Controller
                         $plan_validity->addDays($selected_plan->validity);
 
                         // Update validity by user
-                        User::where('user_id', Auth::user()->id)->update([
+                        User::where('id', Auth::user()->id)->update([
                             'plan_id' => $id,
                             'term' => "9999",
                             'plan_validity' => $plan_validity,

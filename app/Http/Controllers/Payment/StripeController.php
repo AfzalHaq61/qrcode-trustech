@@ -22,6 +22,7 @@ class StripeController extends Controller
     // Stripe checkout
     public function stripeCheckout(Request $request, $planId)
     {
+    
         if (Auth::user()) {
 
             // Queries
@@ -32,6 +33,7 @@ class StripeController extends Controller
 
             // Check plan details
             if ($plan_details == null) {
+                
                 return view('errors.404');
             } else {
 
@@ -54,26 +56,29 @@ class StripeController extends Controller
 
     public function stripePaymentStatus(Request $request, $planSlug)
     {
+       
         $config = Config::get();
         $userData = User::where('id', Auth::user()->id)->first();
         $plan_details = Plan::where('id', $request->plan_id)->where('status', 1)->first();
-
+      
         // Current plan price
         $plan_price = $plan_details->plan_price * ($plan_details->validity / 30);
 
         // Paid amount
         $amountToBePaid = ((int)($plan_price) * (int)($config[25]->config_value) / 100) + (int)($plan_price);
         $amountToBePaidPaise = $amountToBePaid * 100;
-
+       
         try {
             $subscription = $request->user()->newSubscription($planSlug, $plan_details->stripe_id)
                 ->create($request->token);
+                
         } catch (\Exception $e) {
+            dd($subscription);
             return redirect()->back()->with('failed', 'Error creating subscription. ' . trans($e->getMessage()));
         }
 
         $paymentId = $subscription->stripe_id;
-
+       
         // Check payment id
         if (!$paymentId) {
             return view('errors.404');

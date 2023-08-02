@@ -1,5 +1,5 @@
 <template>
-    <div v-if="plan.plan_name != 'Free Trial'" class="w-full max-w-sm p-8 bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border relative overflow-hidden">
+    <div class="w-full max-w-sm p-8 bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border relative overflow-hidden">
         <!-- Check plan is "recommended" -->
         <div v-if="plan.recommended == '1'" class="absolute right-0 top-0 h-16 w-16">
             <div class="absolute transform rotate-45 bg-green-600 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]">
